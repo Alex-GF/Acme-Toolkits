@@ -13,3 +13,4 @@ This project was contributed by the following people:
 - Alejandro García Fernández (alegarfer4@alum.us.es)
 - Francisco Javier Cavero López (fracavlop@alum.us.es)
 - José Luis García Marín (josgarmar31@alum.us.es)
+- Vicente Cambrón Tocados (viccamtoc@alum.us.es)
