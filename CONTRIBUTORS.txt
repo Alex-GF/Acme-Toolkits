@@ -8,4 +8,6 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-- Rafael Corchuelo (corchu@us.es)
+This project was contributed by the following people:
+
+- Alejandro García Fernández (alegarfer4@alum.us.es)
