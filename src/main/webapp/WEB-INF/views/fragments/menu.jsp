@@ -24,7 +24,7 @@
 			<acme:menu-suboption code="77976719A: Cavero Lopez, Francisco Javier" action="http://www.stackoverflow.com/"/>
       <acme:menu-suboption code="32070760C: Dominguez Garoz, Irene Xiang" action="https://www.zara.com/es/"/>
       <acme:menu-suboption code="29503178C: Garcia Fernandez, Alejandro" action="http://www.youtube.com/"/>
-      <acme:menu-suboption code="15438310C: García Marin, Jose Luis" action="https://www.fcbarcelona.es/"/>
+      <acme:menu-suboption code="15438310C: Garcia Marin, Jose Luis" action="https://www.fcbarcelona.es/"/>
 			<acme:menu-suboption code="77858361A: Reyes Lopez, Marta" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
 
 		</acme:menu-option>
