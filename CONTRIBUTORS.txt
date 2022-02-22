@@ -15,4 +15,4 @@ This project was contributed by the following people:
 - José Luis García Marín (josgarmar31@alum.us.es)
 - Vicente Cambrón Tocados (viccamtoc@alum.us.es)
 - Marta Reyes Lopez (marreylop4@alum.us.es)
-- Irene Xiang Dominguez Garoz (i.dominguez@alumno.laudealtillo.com)
+- Irene Xiang Dominguez Garoz (iredomgar4@alum.us.es)
