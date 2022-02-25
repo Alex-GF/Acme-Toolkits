@@ -29,3 +29,9 @@ nbdist/
 mvnw
 
 mvnw\.cmd
+
+### Directorios a evitar ###
+
+logs/.log
+
+.settings
