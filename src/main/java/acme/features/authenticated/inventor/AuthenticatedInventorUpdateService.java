@@ -1,5 +1,5 @@
 /*
- * AuthenticatedConsumerUpdateService.java
+ * AuthenticatedInventorUpdateService.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.consumer;
+package acme.features.authenticated.inventor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,35 +24,35 @@ import acme.framework.entities.Principal;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractUpdateService;
-import acme.roles.Consumer;
+import acme.roles.Inventor;
 
 @Service
-public class AuthenticatedConsumerUpdateService implements AbstractUpdateService<Authenticated, Consumer> {
+public class AuthenticatedInventorUpdateService implements AbstractUpdateService<Authenticated, Inventor> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedConsumerRepository repository;
+	protected AuthenticatedInventorRepository repository;
 
-	// AbstractUpdateService<Authenticated, Consumer> interface -----------------
+	// AbstractUpdateService<Authenticated, Inventor> interface -----------------
 
 
 	@Override
-	public boolean authorise(final Request<Consumer> request) {
+	public boolean authorise(final Request<Inventor> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public void validate(final Request<Consumer> request, final Consumer entity, final Errors errors) {
+	public void validate(final Request<Inventor> request, final Inventor entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 	}
 
 	@Override
-	public void bind(final Request<Consumer> request, final Consumer entity, final Errors errors) {
+	public void bind(final Request<Inventor> request, final Inventor entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -61,7 +61,7 @@ public class AuthenticatedConsumerUpdateService implements AbstractUpdateService
 	}
 
 	@Override
-	public void unbind(final Request<Consumer> request, final Consumer entity, final Model model) {
+	public void unbind(final Request<Inventor> request, final Inventor entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -70,23 +70,23 @@ public class AuthenticatedConsumerUpdateService implements AbstractUpdateService
 	}
 
 	@Override
-	public Consumer findOne(final Request<Consumer> request) {
+	public Inventor findOne(final Request<Inventor> request) {
 		assert request != null;
 
-		Consumer result;
+		Inventor result;
 		Principal principal;
 		int userAccountId;
 
 		principal = request.getPrincipal();
 		userAccountId = principal.getAccountId();
 
-		result = this.repository.findOneConsumerByUserAccountId(userAccountId);
+		result = this.repository.findOneInventorByUserAccountId(userAccountId);
 
 		return result;
 	}
 
 	@Override
-	public void update(final Request<Consumer> request, final Consumer entity) {
+	public void update(final Request<Inventor> request, final Inventor entity) {
 		assert request != null;
 		assert entity != null;
 
@@ -94,7 +94,7 @@ public class AuthenticatedConsumerUpdateService implements AbstractUpdateService
 	}
 
 	@Override
-	public void onSuccess(final Request<Consumer> request, final Response<Consumer> response) {
+	public void onSuccess(final Request<Inventor> request, final Response<Inventor> response) {
 		assert request != null;
 		assert response != null;
 

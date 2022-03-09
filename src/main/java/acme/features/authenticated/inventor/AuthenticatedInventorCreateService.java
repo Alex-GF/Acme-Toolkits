@@ -1,5 +1,5 @@
 /*
- * AuthenticatedProviderUpdateService.java
+ * AuthenticatedInventorCreateService.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.provider;
+package acme.features.authenticated.inventor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,31 +21,43 @@ import acme.framework.controllers.HttpMethod;
 import acme.framework.controllers.Request;
 import acme.framework.controllers.Response;
 import acme.framework.entities.Principal;
+import acme.framework.entities.UserAccount;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.roles.Authenticated;
-import acme.framework.services.AbstractUpdateService;
-import acme.roles.Provider;
+import acme.framework.services.AbstractCreateService;
+import acme.roles.Inventor;
 
 @Service
-public class AuthenticatedProviderUpdateService implements AbstractUpdateService<Authenticated, Provider> {
+public class AuthenticatedInventorCreateService implements AbstractCreateService<Authenticated, Inventor> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedProviderRepository repository;
+	protected AuthenticatedInventorRepository repository;
 
-	// AbstractUpdateService<Authenticated, Provider> interface ---------------
+	// AbstractCreateService<Authenticated, Inventor> ---------------------------
 
 
 	@Override
-	public boolean authorise(final Request<Provider> request) {
+	public boolean authorise(final Request<Inventor> request) {
 		assert request != null;
+		
+		boolean result;
+		
+		result = !request.getPrincipal().hasRole(Inventor.class); 
 
-		return true;
+		return result;
 	}
 
 	@Override
-	public void bind(final Request<Provider> request, final Provider entity, final Errors errors) {
+	public void validate(final Request<Inventor> request, final Inventor entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+	}
+
+	@Override
+	public void bind(final Request<Inventor> request, final Inventor entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -54,7 +66,7 @@ public class AuthenticatedProviderUpdateService implements AbstractUpdateService
 	}
 
 	@Override
-	public void unbind(final Request<Provider> request, final Provider entity, final Model model) {
+	public void unbind(final Request<Inventor> request, final Inventor entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -63,30 +75,26 @@ public class AuthenticatedProviderUpdateService implements AbstractUpdateService
 	}
 
 	@Override
-	public Provider findOne(final Request<Provider> request) {
+	public Inventor instantiate(final Request<Inventor> request) {
 		assert request != null;
 
-		Provider result;
+		Inventor result;
 		Principal principal;
 		int userAccountId;
+		UserAccount userAccount;
 
 		principal = request.getPrincipal();
 		userAccountId = principal.getAccountId();
+		userAccount = this.repository.findOneUserAccountById(userAccountId);
 
-		result = this.repository.findOneProviderByUserAccountId(userAccountId);
+		result = new Inventor();
+		result.setUserAccount(userAccount);
 
 		return result;
 	}
 
 	@Override
-	public void validate(final Request<Provider> request, final Provider entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-	}
-
-	@Override
-	public void update(final Request<Provider> request, final Provider entity) {
+	public void create(final Request<Inventor> request, final Inventor entity) {
 		assert request != null;
 		assert entity != null;
 
@@ -94,7 +102,7 @@ public class AuthenticatedProviderUpdateService implements AbstractUpdateService
 	}
 
 	@Override
-	public void onSuccess(final Request<Provider> request, final Response<Provider> response) {
+	public void onSuccess(final Request<Inventor> request, final Response<Inventor> response) {
 		assert request != null;
 		assert response != null;
 

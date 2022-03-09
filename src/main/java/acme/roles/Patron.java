@@ -1,5 +1,5 @@
 /*
- * Consumer.java
+ * Patron.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -15,6 +15,9 @@ package acme.roles;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
+
 import acme.framework.roles.UserRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,7 +25,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Consumer extends UserRole {
+public class Patron extends UserRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -31,10 +34,15 @@ public class Consumer extends UserRole {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
+	@Length(min = 1, max = 101)
 	protected String			company;
 
 	@NotBlank
-	protected String			sector;
+	@Length(min = 1, max = 256)
+	protected String			statement;
+	
+	@URL
+	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
 
