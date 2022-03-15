@@ -10,9 +10,7 @@ public class PatronDashboard implements Serializable{
 
 	// Attributes -------------------------------------------------------------
 
-	Integer						numberOfProposedPatronages;
-	Integer						numberOfAcceptedPatronages;
-	Integer						numberOfDeniedPatronages;
+	Integer						numberOfPatronagesByStatus;
 	Double						averageNumberOfBudgetsProposedByCurrency;
 	Double						averageNumberOfBudgetsAccetedByCurrency;
 	Double						averageNumberOfBudgetsDeniedByCurrency;
