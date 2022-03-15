@@ -1,12 +1,14 @@
 package acme.features.patron.dashboard;
 
-import org.springframework.data.jpa.repository.Query;
-
 import acme.framework.repositories.AbstractRepository;
 
 public interface PatronDashboardRepository extends AbstractRepository{
 	
-	@Query("SELECT count(p) FROM Patronage p WHERE p.status = 'PROPOSED")
+	//TODO to be reviewed during third sprint
+	
+	//-----------------------------------------------------------------------------
+	
+	/*@Query("SELECT count(p) FROM Patronage p WHERE p.status = 'PROPOSED")
 	Integer numberOfProposedPatronages();
 	
 	@Query("SELECT count(p) FROM Patronage p WHERE p.status = 'PROPOSED")
@@ -49,5 +51,5 @@ public interface PatronDashboardRepository extends AbstractRepository{
 	Double maxBudgetAcceptedByCurrency();
 	
 	@Query("SELECT max(p.budget) FROM Patronage p WHERE p.status = 'DENIED' GROUP BY p.budget.currency")
-	Double maxBudgetDeniedByCurrency();
+	Double maxBudgetDeniedByCurrency();*/
 }
