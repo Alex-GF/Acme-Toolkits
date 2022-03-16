@@ -1,20 +1,18 @@
-package acme.entities.spamWord;
+package acme.entities.component;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import acme.entities.configuration.Configuration;
-import acme.framework.entities.AbstractEntity;
+import acme.entities.Item;
+import acme.framework.datatypes.Money;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class SpamWord extends AbstractEntity{
+public class Component extends Item{
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -23,17 +21,11 @@ public class SpamWord extends AbstractEntity{
 	// Attributes -------------------------------------------------------------
 	
 	@NotNull
-	protected SpamType type;
-	
-	@NotBlank
-	protected String word;
+	@Valid
+	protected Money retailPrice;
 	
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 	
-	@ManyToOne(optional=false)
-	@NotNull
-	@Valid
-	protected Configuration configuration;
 }

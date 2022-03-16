@@ -2,6 +2,7 @@ package acme.entities.acceptedCurrency;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -30,5 +31,6 @@ public class AcceptedCurrency extends AbstractEntity{
 	
 	@ManyToOne(optional=false)
 	@NotNull
+	@Valid
 	protected Configuration configuration;
 }

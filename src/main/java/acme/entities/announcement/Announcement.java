@@ -1,4 +1,4 @@
-package acme.entities;
+package acme.entities.announcement;
 
 import java.util.Date;
 
@@ -7,6 +7,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -22,19 +23,20 @@ public class Announcement extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
+	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	protected Date				creationMoment;
 
 	@NotBlank
-	@Length(min = 1, max = 101)
+	@Length(min = 1, max = 100)
 	protected String			title;
 
 	@NotBlank
-	@Length(min = 1, max = 256)
+	@Length(min = 1, max = 255)
 	protected String			body;
 	
-	protected Boolean criticalFlag;
+	protected boolean criticalFlag;
 	
 	@URL
 	protected String link;
