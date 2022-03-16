@@ -1,0 +1,8 @@
+key,name,code,technology,description,retail_price,link
+component-01,Sample-Component-01,ABC-123,Sample-Technology-01,Sample-Description-01,0.1,http://sample-link-01.com
+component-02,Sample-Component-02,DEF-456-B,Sample-Technology-02,Sample-Description-02,0.01,http://sample-link-02.com
+component-03,Sample-Component-03,GHI-789,Sample-Technology-03,Sample-Description-03,0.2,http://sample-link-03.com
+component-04,Sample-Component-04,JKL-012-D,Sample-Technology-04,Sample-Description-04,0.02,http://sample-link-04.com
+component-05,Sample-Component-05,MNO-345,Sample-Technology-05,Sample-Description-05,0.3,http://sample-link-05.com
+component-06,Sample-Component-06,PQR-678-F,Sample-Technology-06,Sample-Description-06,0.03,http://sample-link-06.com
+component-07,Sample-Component-07,STU-901,Sample-Technology-07,Sample-Description-07,0.4,http://sample-link-07.com

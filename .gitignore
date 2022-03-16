@@ -32,5 +32,6 @@ mvnw\.cmd
 
 ### Directorios a evitar ###
 
+logs/
 logs/.log
 /.apt_generated_tests/
