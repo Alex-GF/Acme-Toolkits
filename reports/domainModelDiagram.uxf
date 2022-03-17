@@ -556,8 +556,8 @@ PatronDashboard
     <coordinates>
       <x>1507</x>
       <y>1166</y>
-      <w>363</w>
-      <h>154</h>
+      <w>407</w>
+      <h>187</h>
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Entity&gt;&gt;
@@ -565,68 +565,12 @@ Configuration
 --
 
 + defaultCurrency: String {NotBlank}
-+ strongSpamThreshold: double {Min(0)}
-+ weakSpamThreshold: double {Min(0)}</panel_attributes>
++ acceptedCurrencies: String {NotBlank}
++ strongSpamWords: String {NotBlank}
++ strongSpamThreshold: double {Range(0,1), Digits(1,2)}
++ weakSpamWord: String {NotBlank}
++ weakSpamThreshold: double {Range(0,1), Digits(1,2)}</panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1298</x>
-      <y>1430</y>
-      <w>253</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>bg=green
-&lt;&lt;Entity&gt;&gt;
-AcceptedCurrency
---
-
-+ currency: String {NotBlank}</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1419</x>
-      <y>1309</y>
-      <w>297</w>
-      <h>143</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-x
-m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>240.0;10.0;240.0;60.0;10.0;60.0;10.0;110.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1782</x>
-      <y>1430</y>
-      <w>253</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>bg=green
-&lt;&lt;Entity&gt;&gt;
-SpamWord
---
-
-+ type: SpamType {NotNull}
-+ word: String {NotBlank}</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1672</x>
-      <y>1309</y>
-      <w>297</w>
-      <h>143</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-x
-m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0;230.0;60.0;230.0;110.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -652,9 +596,9 @@ SpamType
       <w>154</w>
       <h>99</h>
     </coordinates>
-    <panel_attributes>default currency 
-must be an accepted 
-currency
+    <panel_attributes>defaultCurrency 
+must be in the accepted 
+currencies list
 bg=pink</panel_attributes>
     <additional_attributes/>
   </element>
@@ -749,5 +693,35 @@ m1=1
 m2=0..*
  esInstanciaDe &gt;</panel_attributes>
     <additional_attributes>130.0;10.0;130.0;130.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1375</x>
+      <y>1441</y>
+      <w>627</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>DEFAULT VALUES
+
+defaultCurrency = "EUR"
+acceptedCurrencies = "EUR, GBP, USD"
+strongSpamWords = "sex, sexo, hard core, viagra, cialis"
+strongSpamThreshold = 0.10
+weakSpamThreshold = "sexy, nigeria, you've won, has ganado, one million, un millon"
+weakSpamThreshold = 0.25
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1694</x>
+      <y>1342</y>
+      <w>33</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

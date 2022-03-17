@@ -1,8 +1,10 @@
 package acme.entities.configuration;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.Range;
 
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
@@ -22,10 +24,21 @@ public class Configuration extends AbstractEntity{
 	@NotBlank
 	protected String defaultCurrency;
 	
-	@Min(0)
+	@NotBlank
+	protected String acceptedCurrencies;
+	
+	@NotBlank
+	protected String strongSpamWords;
+	
+	@Range(min=0, max=1)
+	@Digits(integer=1, fraction=2)
 	protected double strongSpamThreshold;
 	
-	@Min(0)
+	@NotBlank
+	protected String weakSpamWords;
+	
+	@Range(min=0, max=1)
+	@Digits(integer=1, fraction=2)
 	protected double weakSpamThreshold;
 	
 	
