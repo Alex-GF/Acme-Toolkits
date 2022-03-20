@@ -3,6 +3,7 @@ package acme.entities.quantity;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import acme.entities.component.Component;
@@ -22,18 +23,20 @@ public class Quantity extends AbstractEntity{
 	
 	// Attributes -------------------------------------------------------------
 	
-	@NotNull
-	protected Integer amount;
+	@Min(1)
+	protected int amount;
 	
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 	
-	@ManyToOne
+	@NotNull
+	@ManyToOne(optional = false)
 	@Valid
 	protected Component component;
 	
-	@ManyToOne
+	@NotNull
+	@ManyToOne(optional = false)
 	@Valid
 	protected Toolkit toolkit;
 	

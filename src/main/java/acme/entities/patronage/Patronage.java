@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -16,9 +17,10 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.Period;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
+import acme.roles.Inventor;
+import acme.roles.Patron;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,6 +31,8 @@ import lombok.Setter;
 public class Patronage extends AbstractEntity{
 	
 	protected static final long	serialVersionUID	= 1L;
+	
+	// Attributes --------------------------------------------------------------
 	
 	@NotNull
 	protected Status status;
@@ -52,9 +56,27 @@ public class Patronage extends AbstractEntity{
 	protected Date creationMoment;
 	
 	@NotNull
-	@Valid
-	protected Period period;
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date startDate;
+	
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date finishDate;
 	
 	@URL
 	protected String link;
+	
+	// Relationships --------------------------------------------------------------
+	
+	@NotNull
+	@ManyToOne(optional = false)
+	@Valid
+	protected Patron patron;
+	
+	@NotNull
+	@ManyToOne(optional = false)
+	@Valid
+	protected Inventor inventor;
+	
+	
 }
