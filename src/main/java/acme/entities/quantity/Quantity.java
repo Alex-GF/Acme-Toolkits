@@ -1,11 +1,13 @@
-package acme.entities.acceptedCurrency;
+package acme.entities.quantity;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotBlank;
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-import acme.entities.configuration.Configuration;
+import acme.entities.component.Component;
+import acme.entities.toolkit.Toolkit;
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +15,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class AcceptedCurrency extends AbstractEntity{
+public class Quantity extends AbstractEntity{
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -21,14 +23,21 @@ public class AcceptedCurrency extends AbstractEntity{
 	
 	// Attributes -------------------------------------------------------------
 	
-	@NotBlank
-	protected String currency;
+	@Min(1)
+	protected int amount;
 	
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 	
-	@ManyToOne(optional=false)
 	@NotNull
-	protected Configuration configuration;
+	@ManyToOne(optional = false)
+	@Valid
+	protected Component component;
+	
+	@NotNull
+	@ManyToOne(optional = false)
+	@Valid
+	protected Toolkit toolkit;
+	
 }
