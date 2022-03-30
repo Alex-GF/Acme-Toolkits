@@ -1,15 +1,16 @@
-package acme.entities;
+package acme.entities.item;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,14 +18,17 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Item extends AbstractEntity{
+public class Item extends AbstractEntity{
 
 	// Serialisation identifier -----------------------------------------------
 
 	protected static final long	serialVersionUID	= 1L;
 	
 	// Attributes -------------------------------------------------------------
+	
+	@NotNull
+	protected ItemType type;
+	
 	@NotBlank
 	@Length(min = 1, max = 101)
 	protected String name;
@@ -40,6 +44,10 @@ public abstract class Item extends AbstractEntity{
 	@NotBlank
 	@Length(min = 1, max = 256)
 	protected String description;
+	
+	@NotNull
+	@Valid
+	protected Money retailPrice;
 	
 	@URL
 	protected String link;

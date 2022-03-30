@@ -1,8 +1,0 @@
-key,name,code,technology,description,retail_price,link,key:toolkit
-tool-01,Sample-Tool-01,ABC-123-A,Sample-Technology-01,Sample-Description-01,"EUR 0.10",http://sample-link-01.com,toolkit-01
-tool-02,Sample-Tool-02,DEF-456,Sample-Technology-02,Sample-Description-02,"EUR 0.01",http://sample-link-02.com,toolkit-01
-tool-03,Sample-Tool-03,GHI-789-C,Sample-Technology-03,Sample-Description-03,"GBP 0",http://sample-link-03.com,toolkit-02
-tool-04,Sample-Tool-04,JKL-012,Sample-Technology-04,Sample-Description-04,"GBP 0.02",http://sample-link-04.com,toolkit-03
-tool-05,Sample-Tool-05,MNO-345-E,Sample-Technology-05,Sample-Description-05,"USD 0",http://sample-link-05.com,toolkit-04
-tool-06,Sample-Tool-06,PQR-678,Sample-Technology-06,Sample-Description-06,"USD 0.03",http://sample-link-06.com,toolkit-05
-tool-07,Sample-Tool-07,STU-901-G,Sample-Technology-07,Sample-Description-07,"EUR 0.40",http://sample-link-07.com,toolkit-06
