@@ -1,0 +1,15 @@
+# i18n-es.i18n
+
+authenticated.item.list.label.name = Nombre
+authenticated.item.list.label.technology = Tecnología
+authenticated.item.list.label.code = Código
+authenticated.item.list.label.retailPrice = Precio de venta
+
+authenticated.item.form.label.name = Nombre
+authenticated.item.form.label.technology = Tecnología
+authenticated.item.form.label.code = Código
+authenticated.item.form.label.retailPrice = Precio de venta
+authenticated.item.form.label.description = Descripción
+authenticated.item.form.label.link = Link
+authenticated.item..form.button.create = Crear
+authenticated.item..form.label.confirmation = Confirmar
