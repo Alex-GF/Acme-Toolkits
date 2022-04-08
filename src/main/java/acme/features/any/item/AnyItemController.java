@@ -30,7 +30,7 @@ public class AnyItemController extends AbstractController<Any,Item> {
 		@PostConstruct
 		protected void initialise() {
 			super.addCommand("list-all-component","list", this.anyComponentListAllService);
-//			super.addCommand("show",this.anyItemShowService);
+			super.addCommand("show",this.anyItemShowService);
 			super.addCommand("list-all-tool","list", this.anyToolListAllService);
 
 		}
