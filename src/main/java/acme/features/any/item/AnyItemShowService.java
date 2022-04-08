@@ -1,4 +1,4 @@
-package acme.features.any.component;
+package acme.features.any.item;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,12 +10,12 @@ import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AnyComponentShowService implements AbstractShowService<Any,Item>{
+public class AnyItemShowService implements AbstractShowService<Any,Item>{
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyComponentRepository anyComponentRepository;
+	protected AnyItemRepository anyComponentRepository;
 
 	// AbstractShowService<Authenticated, Item> interface ---------------------------
 
