@@ -48,7 +48,7 @@ public class AnyUserAccountListAllService implements AbstractListService<Any,Use
 			StringBuilder buffer;
 			Collection<UserRole> roles;
 			
-			request.unbind(entity, model, "identity.name", "identity.surname", "identity.email", "username");
+			request.unbind(entity, model, "identity.name", "identity.surname", "username");
 
 			roles = entity.getRoles();
 			buffer = new StringBuilder();

@@ -15,9 +15,10 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
-<acme:list>
-	<acme:list-column code="any.user-account.list.label.identity.name" path="identity.name" width="20%"/>
-	<acme:list-column code="any.user-account.list.label.identity.surname" path="identity.surname" width="20%"/>
-	<acme:list-column code="any.user-account.list.label.username" path="username" width="20%"/>
-	<acme:list-column code="any.user-account.list.label.role-list" path="roleList" width="40%"/>
-</acme:list>	
+<acme:form>
+	<acme:input-textbox code="any.user-account.form.label.identity.name" path="username" readonly="true"/>
+	<acme:input-textbox code="any.user-account.form.label.identity.surname" path="identity.name" readonly="true"/>
+	<acme:input-textbox code="any.user-account.form.label.username" path="identity.surname" readonly="true"/>
+	<acme:input-email code="any.user-account.form.label.identity.email" path="identity.email" readonly="true"/>
+	<acme:input-textbox code="any.user-account.form.label.role-list" path="roleList" readonly="true"/>
+</acme:form>	
