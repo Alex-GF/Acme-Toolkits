@@ -1,4 +1,4 @@
-package acme.features.any.component;
+package acme.features.any.item;
 
 import java.util.Collection;
 
@@ -14,12 +14,12 @@ import acme.framework.services.AbstractListService;
 @Service
 public class AnyComponentListAllService implements AbstractListService<Any,Item>{
 	
-	// Internal state ---------------------------------------------------------
+		// Internal state ---------------------------------------------------------
 
 		@Autowired
-		protected AnyComponentRepository anyComponentRepository;
+		protected AnyItemRepository anyComponentRepository;
 
-		// AbstractListService<Employer, Job> interface ---------------------------
+		// AbstractListService<Any, Item> interface ---------------------------
 
 
 		@Override
