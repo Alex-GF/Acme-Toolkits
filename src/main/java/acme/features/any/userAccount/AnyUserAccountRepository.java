@@ -17,5 +17,5 @@ public interface AnyUserAccountRepository extends AbstractRepository{
     Collection<UserAccount> findAllUserAccounts();
 
     @Query("SELECT ua FROM UserAccount ua WHERE ua.id = :userAccountId")
-    UserAccount getUserAccountById(int userAccountId);
+    UserAccount findUserAccountById(int userAccountId);
 }
