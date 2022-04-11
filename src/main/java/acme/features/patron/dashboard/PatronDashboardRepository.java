@@ -1,4 +1,4 @@
-package acme.features.patron.dashboard;
+package acme.features.patron.dashboard.dashboard;
 
 import acme.framework.repositories.AbstractRepository;
 
