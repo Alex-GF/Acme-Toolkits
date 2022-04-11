@@ -1,0 +1,7 @@
+# i18n-en.i18n
+
+authenticated.announcement.list.label.creationMoment = Creation Moment
+authenticated.announcement.list.label.title = Title
+authenticated.announcement.list.label.body = Body
+authenticated.announcement.list.label.criticalFlag = Critical
+authenticated.announcement.list.label.link = Link

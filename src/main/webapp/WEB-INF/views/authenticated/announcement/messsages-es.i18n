@@ -1,0 +1,9 @@
+# i18n-es.i18n
+
+authenticated.announcement.list.label.creationMoment = Fecha de creación
+authenticated.announcement.list.label.title = Título
+authenticated.announcement.list.label.body = Cuerpo
+authenticated.announcement.list.label.criticalFlag = Crítico
+authenticated.announcement.list.label.link = Link
+
+
