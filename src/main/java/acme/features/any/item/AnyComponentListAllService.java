@@ -17,7 +17,7 @@ public class AnyComponentListAllService implements AbstractListService<Any,Item>
 		// Internal state ---------------------------------------------------------
 
 		@Autowired
-		protected AnyItemRepository anyComponentRepository;
+		protected AnyItemRepository anyItemRepository;
 
 		// AbstractListService<Any, Item> interface ---------------------------
 
@@ -35,7 +35,7 @@ public class AnyComponentListAllService implements AbstractListService<Any,Item>
 
 			Collection<Item> result;
 
-			result = this.anyComponentRepository.findAllComponent();
+			result = this.anyItemRepository.findAllComponent();
 			
 			
 

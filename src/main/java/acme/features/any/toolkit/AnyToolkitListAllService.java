@@ -6,9 +6,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
-import acme.component.ExchangeRate;
+import acme.entities.currencyExchange.RateExchange;
 import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
@@ -40,6 +39,8 @@ public class AnyToolkitListAllService implements AbstractListService<Any, Toolki
 		
 		final Map<String,Money> totalPrice = this.totalPrice();
 		
+		result.stream().forEach(t -> t.setTotalPrice(totalPrice.get(t.getCode())));
+		
 		return result;
 	}
 
@@ -47,13 +48,9 @@ public class AnyToolkitListAllService implements AbstractListService<Any, Toolki
 	public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
 		assert request != null;
 		assert entity != null;
-		assert model != null;
+		assert model != null;	
 		
-		final Map<String,Money> totalPrice = this.totalPrice();
-		
-		for(final String code : totalPrice.keySet()) model.setAttribute(code, totalPrice.get(code));
-		
-		request.unbind(entity, model, "title", "code");
+		request.unbind(entity, model, "title", "code", "totalPrice");
 		
 	}
 	
@@ -71,20 +68,19 @@ public class AnyToolkitListAllService implements AbstractListService<Any, Toolki
 			final Money itemMoneyEur = this.changeCurrency(itemMoney, "EUR");
 			
 			if(result.containsKey(q.getToolkit().getCode())) {
-				final Money afterUpdate = result.get(q.getToolkit().getCode());
+				final Money beforeUpdate = result.get(q.getToolkit().getCode());
 				
-				final Money beforeUpdate = new Money();
-				beforeUpdate.setAmount(afterUpdate.getAmount()+(itemMoney.getAmount()*q.getAmount()));
-				beforeUpdate.setCurrency("EUR");
+				final Money afterUpdate = new Money();
+				afterUpdate.setAmount(beforeUpdate.getAmount()+(itemMoneyEur.getAmount()*q.getAmount()));
+				afterUpdate.setCurrency("EUR");
 				
-				
-				result.put(q.getToolkit().getCode(),beforeUpdate);
+				result.put(q.getToolkit().getCode(),afterUpdate);
 			}else {
-				final Money firsValueMoney = new Money();
-				firsValueMoney.setAmount(itemMoney.getAmount()*q.getAmount());
-				firsValueMoney.setCurrency("EUR");
-				
-				result.put(q.getToolkit().getCode(),firsValueMoney);
+				final Money firstMoneyValue = new Money();
+				firstMoneyValue.setCurrency("EUR");
+				final double newAumount = itemMoneyEur.getAmount()*q.getAmount();
+				firstMoneyValue.setAmount(newAumount);
+				result.put(q.getToolkit().getCode(),firstMoneyValue);
 			}
 			
 		}
@@ -94,40 +90,20 @@ public class AnyToolkitListAllService implements AbstractListService<Any, Toolki
 	}
 	
 	public Money changeCurrency(final Money source, final String targetCurrency) {
-		Money targetMoney = new Money();
 		
-		RestTemplate api;
-		ExchangeRate record;
-		String sourceCurrency;
-		Double sourceAmount, targetAmount, rate;
-		final Money target;
+		Money result = new Money();
 		
-		try {
-			api = new RestTemplate();
-
-			sourceCurrency = source.getCurrency();
-			sourceAmount = source.getAmount();
-
-			record = api.getForObject( //
-				"https://api.exchangerate.host/latest?base={0}&symbols={1}", //
-				ExchangeRate.class, //
-				sourceCurrency, //
-				targetCurrency //
-			);
-
-			assert record != null;
-			rate = record.getRates().get(targetCurrency);
-			targetAmount = rate * sourceAmount;
-
-			targetMoney.setAmount(targetAmount);
-			targetMoney.setCurrency(sourceCurrency);
+		if(source.getCurrency().equals(targetCurrency)) {
+			result = source;
+		}else {
+			final RateExchange rateExchange = this.anyToolkitRepository.findRateExchangeBySourceCurrency(source.getCurrency(),targetCurrency);
 			
-		} catch (final Throwable oops) {
-			targetMoney = null;
+			result.setCurrency(targetCurrency);
+			result.setAmount(source.getAmount()*rateExchange.getRate());
+			
 		}
 		
-		return targetMoney;
-		
+		return result;
 	}
 	
 	

@@ -6,5 +6,5 @@
 <acme:list>
 	<acme:list-column code="any.toolkit.list.label.code" path="code"/>
 	<acme:list-column code="any.toolkit.list.label.title" path="title"/>
-	<acme:list-column code="any.toolkit.list.label.totalPrice" path="${totalPrice.code}"/>
+	<acme:list-column code="any.toolkit.list.label.totalPrice" path="totalPrice"/>
 </acme:list>
