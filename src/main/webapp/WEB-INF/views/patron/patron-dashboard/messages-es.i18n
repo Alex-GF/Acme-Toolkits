@@ -1,0 +1,16 @@
+# i18n-es.i18n
+#
+# Copyright (C) 2012-2022 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+patron.dashboard.form.title = Panel de patrones
+patron.dashboard.form.label.number-of-patronages-by-status = Patrocinios por estado
+patron.dashboard.form.label.average-number-of-budgets-by-currency-and-status = Precio medio de un presupuesto por divisa y estado
+patron.dashboard.form.label.deviation-of-budgets-by-currency-and-status = Desviacion del precio de los presupuestos por divisa y estado
+patron.dashboard.form.label.min-budget-by-currency-and-status = Precio mínimo de un presupuesto por divisa y estado
+patron.dashboard.form.label.max-budget-by-currency-and-status = Precio máximo de un presupuesto por divisa y estado

@@ -1,6 +1,7 @@
 package acme.features.any.userAccount;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,7 +55,9 @@ public class AnyUserAccountListAllService implements AbstractListService<Any,Use
 			buffer = new StringBuilder();
 			for (final UserRole role : roles) {
 				buffer.append(role.getAuthorityName());
-				buffer.append(" ");
+				if(roles.stream().collect(Collectors.toList()).get(roles.size()-1)!=role) {
+					buffer.append(", ");
+				}
 			}
 
 			model.setAttribute("roleList", buffer.toString());

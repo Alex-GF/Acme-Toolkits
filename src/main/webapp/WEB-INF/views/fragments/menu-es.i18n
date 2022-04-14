@@ -19,6 +19,11 @@ master.menu.sign-out = Salir
 
 master.menu.anonymous = Anónimo
 master.menu.anonymous.favourite-link = Enlace favorito
+master.menu.any.user-account = Listado de cuentas de usuario
+
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Autenticado
 
 # master.menu.administrator ###################################################
 
@@ -38,6 +43,11 @@ master.menu.provider.favourite-link = Enlace favorito
 
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
+
+# master.menu.patron #######################################################
+
+master.menu.patron = Patrón
+master.menu.patron.patron-dashboard = Panel de patrones
 
 # master.menu.user-account ####################################################
 
