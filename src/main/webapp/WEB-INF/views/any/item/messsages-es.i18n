@@ -11,5 +11,5 @@ any.item.form.label.code = Código
 any.item.form.label.retailPrice = Precio de venta
 any.item.form.label.description = Descripción
 any.item.form.label.link = Link
-any.item..form.button.create = Crear
-any.item..form.label.confirmation = Confirmar
+any.item.form.button.create = Crear
+any.item.form.label.confirmation = Confirmar

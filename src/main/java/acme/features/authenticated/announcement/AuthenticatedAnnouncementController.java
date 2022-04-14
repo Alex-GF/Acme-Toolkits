@@ -9,23 +9,24 @@ import acme.entities.announcement.Announcement;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Authenticated;
 
-
 @Controller
-public class AuthenticatedAnnouncementController extends AbstractController<Authenticated, Announcement>{
+public class AuthenticatedAnnouncementController extends AbstractController<Authenticated, Announcement> {
+
+	// Internal state ---------------------------------------------------------
+
+	@Autowired
+	protected AuthenticatedAnnouncementListRecentService	announcementListRecentService;
 	
-		// Internal state ---------------------------------------------------------
-		
-		@Autowired
-		protected AuthenticatedAnnouncementListRecentService announcementListRecentService; 
-		
-		
-		// Constructors -----------------------------------------------------------
-		
-		
-		@PostConstruct
-		protected void initialise() {
-			super.addCommand("list-recent","list", this.announcementListRecentService);
-		
-		}
+	@Autowired
+	protected AuthenticatedAnnouncementShowService showService;
+
+	// Constructors -----------------------------------------------------------
+
+
+	@PostConstruct
+	protected void initialise() {
+		super.addCommand("list-recent", "list", this.announcementListRecentService);
+		super.addCommand("show", this.showService);
+	}
 
 }

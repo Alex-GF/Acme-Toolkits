@@ -9,4 +9,5 @@
 	<acme:list-column code="authenticated.announcement.list.label.body" path="body"/>
 	<acme:list-column code="authenticated.announcement.list.label.criticalFlag" path="criticalFlag"/>
 	<acme:list-column code="authenticated.announcement.list.label.link" path="link"/>
-</acme:list>
+</acme:list> 
+
