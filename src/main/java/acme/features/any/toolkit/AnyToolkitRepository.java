@@ -22,4 +22,10 @@ public interface AnyToolkitRepository extends AbstractRepository{
 	@Query("SELECT r FROM RateExchange r WHERE r.currencyExchange.base = :sourceCurrency and r.currency = :targetCurrency")
 	RateExchange findRateExchangeBySourceCurrency(String sourceCurrency, String targetCurrency);
 	
+	@Query("SELECT t FROM Toolkit t WHERE t.id = :toolkitId")
+	Toolkit findToolkitById(int toolkitId);
+	
+	@Query("SELECT q FROM Quantity q WHERE q.toolkit.id = :toolkitId")
+	Collection<Quantity> findAllQuantityByToolkitId(int toolkitId);
+	
 }

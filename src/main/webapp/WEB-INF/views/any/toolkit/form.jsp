@@ -5,11 +5,13 @@
 
 <acme:form readonly="${readonly}">
 	<acme:input-textbox code="any.toolkit.form.label.code" path="code"/>	
-	<acme:input-textbox code="any.toolkit.form.label.name" path="name"/>
-	<acme:input-textbox code="any.toolkit.form.label.technology" path="technology"/>
-	<acme:input-textbox code="any.toolkit.form.label.retailPrice" path="retailPrice"/>
+	<acme:input-textbox code="any.toolkit.form.label.title" path="title"/>
+	<acme:input-money code="any.toolkit.form.label.totalPrice" path="totalPrice"/>
 	<acme:input-textbox code="any.toolkit.form.label.description" path="description"/>
+	<acme:input-textbox code="any.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
 	<acme:input-url code="any.toolkit.form.label.link" path="link"/>
+	
+	<acme:button code="any.toolkit.form.label.items" action="/any/item/list?toolkitId=${id}"/>
 	
 	<jstl:if test="${!readonly}">
 		<acme:input-checkbox code="any.toolkit.form.label.confirmation" path="confirmation"/>

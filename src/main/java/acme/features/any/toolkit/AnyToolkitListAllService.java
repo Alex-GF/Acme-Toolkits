@@ -7,7 +7,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.currencyExchange.RateExchange;
 import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
@@ -65,7 +64,7 @@ public class AnyToolkitListAllService implements AbstractListService<Any, Toolki
 		for(final Quantity q : quantities) {
 			final Money itemMoney = q.getItem().getRetailPrice();
 			
-			final Money itemMoneyEur = this.changeCurrency(itemMoney, "EUR");
+			final Money itemMoneyEur = MoneyExchange.changeCurrency(itemMoney, "EUR", this.anyToolkitRepository);
 			
 			if(result.containsKey(q.getToolkit().getCode())) {
 				final Money beforeUpdate = result.get(q.getToolkit().getCode());
@@ -89,22 +88,7 @@ public class AnyToolkitListAllService implements AbstractListService<Any, Toolki
 		return result;
 	}
 	
-	public Money changeCurrency(final Money source, final String targetCurrency) {
-		
-		Money result = new Money();
-		
-		if(source.getCurrency().equals(targetCurrency)) {
-			result = source;
-		}else {
-			final RateExchange rateExchange = this.anyToolkitRepository.findRateExchangeBySourceCurrency(source.getCurrency(),targetCurrency);
-			
-			result.setCurrency(targetCurrency);
-			result.setAmount(source.getAmount()*rateExchange.getRate());
-			
-		}
-		
-		return result;
-	}
+	
 	
 	
 }

@@ -11,13 +11,13 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AnyItemRepository extends AbstractRepository{
 	
-	@Query("SELECT i FROM Item i WHERE i.type = acme.entities.item.ItemType.COMPONENT")
-	Collection<Item> findAllComponent();
-	
-	@Query("SELECT i FROM Item i WHERE i.type = acme.entities.item.ItemType.TOOL")
-	Collection<Item> findAllTool();
+	@Query("SELECT i FROM Item i")
+	Collection<Item> findAllItem();
 	
 	@Query("SELECT i FROM Item i WHERE i.id = :itemId")
 	Item getItemById(int itemId);
+	
+	@Query("SELECT q.item FROM Quantity q WHERE q.toolkit.id = :toolkitId")
+	Collection<Item> findAllItemByToolkitId(int toolkitId);
 	
 }
