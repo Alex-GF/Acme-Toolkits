@@ -1,4 +1,3 @@
-
 package acme.features.authenticated.announcement;
 
 import javax.annotation.PostConstruct;

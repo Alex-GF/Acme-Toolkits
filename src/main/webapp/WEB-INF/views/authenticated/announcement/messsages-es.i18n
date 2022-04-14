@@ -6,7 +6,6 @@ authenticated.announcement.list.label.body = Cuerpo
 authenticated.announcement.list.label.criticalFlag = Crítico
 authenticated.announcement.list.label.link = Link
 
-
 authenticated.announcement.form.label.creationMoment = Fecha de creaación
 authenticated.announcement.form.label.title = Título
 authenticated.announcement.form.label.body = Cuerpo
