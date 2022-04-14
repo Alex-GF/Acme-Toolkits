@@ -20,10 +20,14 @@ master.menu.sign-out = Salir
 master.menu.anonymous = Anónimo
 master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.any.user-account = Listado de cuentas de usuario
+master.menu.anonymous.list-all-toolkit = Listar kits de herramientas
+master.menu.anonymous.list-all-item = Listar items
 
-# master.menu.authenticated #######################################################
+# master.menu.authenticates #######################################################
 
 master.menu.authenticated = Autenticado
+master.menu.anonymous.list-all-item = Listar items
+master.menu.authenticated.list-all-toolkit = Listar kits de herramientas
 
 # master.menu.administrator ###################################################
 

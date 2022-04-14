@@ -4,7 +4,7 @@ any.item.list.label.name = Name
 any.item.list.label.technology = Technology
 any.item.list.label.code = Code
 any.item.list.label.retailPrice = Retail Price
-
+any.item.list.label.type = Type
 
 any.item.form.label.name = Name
 any.item.form.label.technology = Technology
@@ -12,5 +12,6 @@ any.item.form.label.code = Code
 any.item.form.label.retailPrice = Retail Price
 any.item.form.label.description = Description
 any.item.form.label.link = Link
-any.item..form.button.create = Create
-any.item..form.label.confirmation = Confirm
+any.item.form.label.type = Type
+any.item.form.button.create = Create
+any.item.form.label.confirmation = Confirm

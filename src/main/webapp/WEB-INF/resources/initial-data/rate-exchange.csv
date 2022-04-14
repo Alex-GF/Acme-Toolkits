@@ -1,0 +1,7 @@
+key,currency,rate,key:currency-exchange
+rate-exchange-01,USD,1.088126,currency-exchange-01
+rate-exchange-02,GBP,0.835266,currency-exchange-01
+rate-exchange-03,EUR,0.919011,currency-exchange-02
+rate-exchange-04,GBP,0.767619,currency-exchange-02
+rate-exchange-05,EUR,1.197223,currency-exchange-03
+rate-exchange-06,USD,1.30273,currency-exchange-03
