@@ -27,10 +27,12 @@
       		<acme:menu-suboption code="15438310C: Garcia Marin, Jose Luis" action="https://www.fcbarcelona.es/"/>
 			<acme:menu-suboption code="77858361A: Reyes Lopez, Marta" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
 			<acme:menu-suboption code="master.menu.anonymous.list-all-toolkit" action="/any/toolkit/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.list-all-item" action="/any/item/list"/>
 
 		</acme:menu-option>
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.anonymous.list-all-toolkit" action="/any/toolkit/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.list-all-toolkit" action="/any/toolkit/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.list-all-item" action="/any/item/list"/>
 
 		</acme:menu-option>
 

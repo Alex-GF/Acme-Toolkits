@@ -16,13 +16,16 @@ public class AnyToolkitController extends AbstractController<Any, Toolkit>{
 	
 	@Autowired
 	protected AnyToolkitListAllService anyToolkitListAllService;
+	
+	@Autowired
+	protected AnyToolkitShowService anyToolkitShowService;
 			
 	// Constructors -----------------------------------------------------------
 
 	@PostConstruct
-
 	protected void initialise() {				
 		super.addCommand("list", this.anyToolkitListAllService);
+		super.addCommand("show", this.anyToolkitShowService);
 	}
 	
 }

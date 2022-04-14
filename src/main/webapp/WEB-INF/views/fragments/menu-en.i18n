@@ -20,10 +20,14 @@ master.menu.sign-out = Sign out
 master.menu.anonymous = Anonymous
 master.menu.anonymous.favourite-link = Favourite link
 master.menu.anonymous.list-all-toolkit = List all toolkit
+master.menu.anonymous.list-all-item = List all item
 
 # master.menu.authenticates #######################################################
 
 master.menu.authenticated = Authenticated
+master.menu.anonymous.list-all-item = List all item
+master.menu.authenticated.list-all-toolkit = List all toolkit
+
 
 # master.menu.administrator ###################################################
 
