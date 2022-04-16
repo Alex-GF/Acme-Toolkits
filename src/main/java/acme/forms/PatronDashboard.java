@@ -6,7 +6,11 @@ import java.util.Map;
 import org.springframework.data.util.Pair;
 
 import acme.entities.patronage.Status;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class PatronDashboard implements Serializable{
 
 	// Serialisation identifier -----------------------------------------------
