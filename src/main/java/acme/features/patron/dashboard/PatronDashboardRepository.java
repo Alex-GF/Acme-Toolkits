@@ -8,7 +8,8 @@ public interface PatronDashboardRepository extends AbstractRepository{
 	
 	//-----------------------------------------------------------------------------
 	
-	/*@Query("SELECT count(p) FROM Patronage p WHERE p.status = 'PROPOSED")
+	/*
+	 @Query("SELECT count(p) FROM Patronage p WHERE p.status = 'PROPOSED")
 	Integer numberOfPatronagesByStatus();
 
 	@Query("SELECT avg(p.budget) FROM Patronage p GROUP BY p.budget.currency, p.status")

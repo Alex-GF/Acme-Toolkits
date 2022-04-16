@@ -1,0 +1,17 @@
+# i18n-es.i18n
+
+administrator.dashboard.form.label.number-of-components = Número de componentes
+administrator.dashboard.form.label.average-retail-price-of-components-by-technology-and-currency = Media del precio de los compontentes por tecnología y divisa
+administrator.dashboard.form.label.deviation-retail-price-of-components-by-technology-and-currency = Desviación del precio de los compontentes por tecnología y divisa
+administrator.dashboard.form.label.min-retail-price-of-components-by-technology-and-currency = Precio Mínimo de los compontentes por tecnología y divisa
+administrator.dashboard.form.label.max-retail-price-of-components-by-technology-and-currency = Precio Máximo de los compontentes por tecnología y divisa
+administrator.dashboard.form.label.number-of-tools = Número de Herramientas
+administrator.dashboard.form.label.average-retail-price-of-tool-by-currency = Media del precio de las herramientas por divisa 
+administrator.dashboard.form.label.deviation-retail-price-of-tool-by-currency = Desviación del precio de las herramientas por divisa
+administrator.dashboard.form.label.min-retail-price-of-tool-by-currency = Precio mínimo de las herramientas por divisa
+administrator.dashboard.form.label.max-retail-price-of-tool-by-currency = Precio máximo de las herramientas por divisa
+administrator.dashboard.form.label.number-of-patronages-by-status = Número de patrociniospor estado
+administrator.dashboard.form.label.average-budget-of-patronages-by-status = Media del presupuesto de los patrocinios por estado
+administrator.dashboard.form.label.deviation-budget-of-patronages-by-status = Desviación del presupuesto de los patrocinios por estado
+administrator.dashboard.form.label.min-budget-of-patronages-by-status = Presupuesto mínimo de los patrocinios por estado
+administrator.dashboard.form.label.max-budget-of-patronages-by-status = Presupuesto máximo de los patrocinios por estado
