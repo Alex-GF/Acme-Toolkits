@@ -28,12 +28,14 @@ master.menu.anonymous.list-all-item = List all item
 master.menu.authenticated = Authenticated
 master.menu.anonymous.list-all-item = List all item
 master.menu.authenticated.list-all-toolkit = List all toolkit
+master.menu.authenticated.list-all-item = List all item
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.configuration = System configuration
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
@@ -51,7 +53,7 @@ master.menu.consumer.favourite-link = Favourite link
 # master.menu.patron #######################################################
 
 master.menu.patron = Patron
-master.menu.patron.patron-dashboard = Patrons dashboard
+master.menu.patron.patron-dashboard = Dashboard
 
 # master.menu.user-account ####################################################
 
