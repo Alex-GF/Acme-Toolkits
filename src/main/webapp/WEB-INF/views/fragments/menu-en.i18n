@@ -53,6 +53,12 @@ master.menu.consumer.favourite-link = Favourite link
 master.menu.patron = Patron
 master.menu.patron.patron-dashboard = Patrons dashboard
 
+# master.menu.inventor ##########################################################
+
+master.menu.inventor = Inventor
+master.menu.inventor.item.components.mine = Mis componentes
+master.menu.inventor.item.tools.mine = Mis herramientas
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account

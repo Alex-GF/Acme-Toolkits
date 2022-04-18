@@ -15,12 +15,12 @@ public class AdministratorDashboard implements Serializable{
 
 	// Attributes -------------------------------------------------------------
 
-	Integer							  numberOfComponents;
+	int 							  numberOfComponents;
 	Map<Pair<String, String>, Double> averageRetailPriceOfComponentsByTechnologyAndCurrency;
 	Map<Pair<String, String>, Double> deviationRetailPriceOfComponentsByTechnologyAndCurrency;
 	Map<Pair<String, String>, Double> minRetailPriceOfComponentsByTechnologyAndCurrency;
 	Map<Pair<String, String>, Double> maxRetailPriceOfComponentsByTechnologyAndCurrency;
-	Integer							  numberOfTools;
+	int 							  numberOfTools;
 	Map<String, Double>				  averageRetailPriceOfToolsByCurrency;
 	Map<String, Double>				  deviationRetailPriceOfToolsByCurrency;
 	Map<String, Double>				  minRetailPriceOfToolsByCurrency;
