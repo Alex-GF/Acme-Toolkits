@@ -1,4 +1,11 @@
-inventor.patronageReport.list.label.creationMoment=Momento de creación
-inventor.patronageReport.list.label.memorandum=Memoria
+# i18n-en.i18n
+
+inventor.patronageReport.list.label.creationMoment= Creation Moment
+inventor.patronageReport.list.label.memorandum= Memorandum
 inventor.patronageReport.list.label.link=Link
-inventor.patronageReport.list.label.automaticSequenceNumber=Número de secuencia automático
+inventor.patronageReport.list.label.automaticSequenceNumber= Automatic Sequence Number
+
+inventor.patronageReport.form.label.creationMoment= Creation Moment
+inventor.patronageReport.form.label.memorandum= Memorandum
+inventor.patronageReport.form.label.link=Link
+inventor.patronageReport.form.label.automaticSequenceNumber= Automatic Sequence Nu
