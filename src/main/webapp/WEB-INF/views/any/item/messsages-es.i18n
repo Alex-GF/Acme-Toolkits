@@ -4,12 +4,15 @@ any.item.list.label.name = Nombre
 any.item.list.label.technology = Tecnología
 any.item.list.label.code = Código
 any.item.list.label.retailPrice = Precio de venta
+any.item.list.label.type = Tipo
 
 any.item.form.label.name = Nombre
 any.item.form.label.technology = Tecnología
 any.item.form.label.code = Código
 any.item.form.label.retailPrice = Precio de venta
 any.item.form.label.description = Descripción
+any.item.form.label.type = Tipo
 any.item.form.label.link = Link
-any.item..form.button.create = Crear
-any.item..form.label.confirmation = Confirmar
+any.item.form.button.create = Crear
+any.item.form.label.confirmation = Confirmar
+any.item.form.label.toolkit = Kits de herramientas

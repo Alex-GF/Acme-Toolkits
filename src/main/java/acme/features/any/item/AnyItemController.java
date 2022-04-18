@@ -15,13 +15,11 @@ public class AnyItemController extends AbstractController<Any,Item> {
 	// Internal state ---------------------------------------------------------
 
 		@Autowired
-		protected AnyComponentListAllService anyComponentListAllService; 
+		protected AnyItemListAllService anyItemListAllService;
 		
 		@Autowired
 		protected AnyItemShowService anyItemShowService;
 
-		@Autowired
-		protected AnyToolListAllService anyToolListAllService;
 		
 
 		// Constructors -----------------------------------------------------------
@@ -29,9 +27,8 @@ public class AnyItemController extends AbstractController<Any,Item> {
 
 		@PostConstruct
 		protected void initialise() {
-			super.addCommand("list-all-component","list", this.anyComponentListAllService);
+			super.addCommand("list", this.anyItemListAllService);
 			super.addCommand("show",this.anyItemShowService);
-			super.addCommand("list-all-tool","list", this.anyToolListAllService);
 
 		}
 }

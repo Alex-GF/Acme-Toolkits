@@ -12,19 +12,15 @@ import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnyToolListAllService implements AbstractListService<Any, Item>{
-
-	// Internal state ---------------------------------------------------------
-
+public class AnyItemListAllService implements AbstractListService<Any, Item>{
+	
 	@Autowired
-	protected AnyItemRepository anyToolRepository;
-	
-	// AbstractListService<Any, Item> interface ---------------------------
-	
+	protected AnyItemRepository anyItemRepository; 
+
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
-		
+			
 		return true;
 	}
 
@@ -34,7 +30,14 @@ public class AnyToolListAllService implements AbstractListService<Any, Item>{
 		
 		Collection<Item> result;
 		
-		result = this.anyToolRepository.findAllTool();
+		if(request.getModel().hasAttribute("toolkitId")) {
+			
+			final Integer toolkitId = request.getModel().getInteger("toolkitId");
+			
+			result = this.anyItemRepository.findAllItemByToolkitId(toolkitId);
+		}else{
+			result = this.anyItemRepository.findAllItem();
+		}
 		
 		return result;
 	}
@@ -45,8 +48,7 @@ public class AnyToolListAllService implements AbstractListService<Any, Item>{
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "name", "technology", "code","retailPrice");
-		
+		request.unbind(entity, model, "name", "technology", "code","retailPrice","type");
 	}
 
 	

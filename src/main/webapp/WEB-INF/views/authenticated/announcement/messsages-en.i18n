@@ -1,0 +1,16 @@
+# i18n-en.i18n
+
+authenticated.announcement.list.label.creationMoment = Creation Moment
+authenticated.announcement.list.label.title = Title
+authenticated.announcement.list.label.body = Body
+authenticated.announcement.list.label.criticalFlag = Critical
+authenticated.announcement.list.label.link = Link
+
+
+authenticated.announcement.form.label.creationMoment = Creation Moment
+authenticated.announcement.form.label.title = Title
+authenticated.announcement.form.label.body = Body
+authenticated.announcement.form.label.criticalFlag = Critical
+authenticated.announcement.form.label.link = Link
+authenticated.announcement.form.label.confirmation = Confirm
+authenticated.announcement.form.button.create = Crear

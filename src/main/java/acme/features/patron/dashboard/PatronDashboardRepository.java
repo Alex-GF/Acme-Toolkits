@@ -1,27 +1,31 @@
 package acme.features.patron.dashboard;
 
+import java.util.Collection;
+
+import javax.persistence.Tuple;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import acme.entities.patronage.Status;
 import acme.framework.repositories.AbstractRepository;
 
+@Repository
 public interface PatronDashboardRepository extends AbstractRepository{
 	
-	//TODO to be reviewed during third sprint
-	
-	//-----------------------------------------------------------------------------
-	
-	/*@Query("SELECT count(p) FROM Patronage p WHERE p.status = 'PROPOSED")
-	Integer numberOfPatronagesByStatus();
+	@Query("SELECT COUNT(p) FROM Patronage p WHERE p.status = :status")
+	Integer numberOfPatronagesByStatus(Status status);
 
-	@Query("SELECT avg(p.budget) FROM Patronage p GROUP BY p.budget.currency, p.status")
-	Double averageNumberOfBudgetsByCurrencyAndStatus();
+	@Query("SELECT p.budget.currency, AVG(p.budget.amount) FROM Patronage p WHERE p.status = :status GROUP BY p.budget.currency")
+	Collection<Tuple> averageNumberOfBudgetsByCurrencyAndStatus(Status status);
 	
-	@Query("SELECT stddev(p.budget) FROM Patronage p GROUP BY p.budget.currency, p.status")
-	Double deviationOfBudgetsByCurrencyAndStatus();
+	@Query("SELECT p.budget.currency, STDDEV(p.budget.amount) FROM Patronage p WHERE p.status = :status GROUP BY p.budget.currency")
+	Collection<Tuple> deviationOfBudgetsByCurrencyAndStatus(Status status);
 	
-	@Query("SELECT min(p.budget) FROM Patronage p GROUP BY p.budget.currency, p.status")
-	Double minBudgetByCurrencyAndStatus();
+	@Query("SELECT p.budget.currency, MIN(p.budget.amount) FROM Patronage p WHERE p.status = :status GROUP BY p.budget.currency")
+	Collection<Tuple> minBudgetByCurrencyAndStatus(Status status);
 	
-	@Query("SELECT max(p.budget) FROM Patronage p GROUP BY p.budget.currency, p.status")
-	Double maxBudgetByCurrencyAndStatus();
+	@Query("SELECT p.budget.currency, MAX(p.budget.amount) FROM Patronage p WHERE p.status = :status GROUP BY p.budget.currency")
+	Collection<Tuple> maxBudgetByCurrencyAndStatus(Status status);
 	
-	*/
 }

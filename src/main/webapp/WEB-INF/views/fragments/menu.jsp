@@ -20,12 +20,20 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 
-      		<acme:menu-suboption code="20622913D: Cambron Tocados, Vicente" action="https://www.reddit.com/user/isoyreddit/comments/ssn8l8/datos_inquietantes_que_no_querr%C3%A1s_conocer/"/>
+      <acme:menu-suboption code="20622913D: Cambron Tocados, Vicente" action="https://www.reddit.com/user/isoyreddit/comments/ssn8l8/datos_inquietantes_que_no_querr%C3%A1s_conocer/"/>
 			<acme:menu-suboption code="77976719A: Cavero Lopez, Francisco Javier" action="http://www.stackoverflow.com/"/>
-		    <acme:menu-suboption code="32070760C: Dominguez Garoz, Irene Xiang" action="https://www.zara.com/es/"/>
-		    <acme:menu-suboption code="29503178C: Garcia Fernandez, Alejandro" action="http://www.youtube.com/"/>
-		    <acme:menu-suboption code="15438310C: Garcia Marin, Jose Luis" action="https://www.fcbarcelona.es/"/>
+		  <acme:menu-suboption code="32070760C: Dominguez Garoz, Irene Xiang" action="https://www.zara.com/es/"/>
+		  <acme:menu-suboption code="29503178C: Garcia Fernandez, Alejandro" action="http://www.youtube.com/"/>
+		  <acme:menu-suboption code="15438310C: Garcia Marin, Jose Luis" action="https://www.fcbarcelona.es/"/>
 			<acme:menu-suboption code="77858361A: Reyes Lopez, Marta" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
+			<acme:menu-suboption code="master.menu.any.user-account" action="/any/user-account/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.list-all-toolkit" action="/any/toolkit/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.list-all-item" action="/any/item/list"/>
+
+		</acme:menu-option>
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.list-all-toolkit" action="/any/toolkit/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.list-all-item" action="/any/item/list"/>
 
 		</acme:menu-option>
 
@@ -38,6 +46,10 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
 
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.any.user-account" action="/any/user-account/list"/>
+		</acme:menu-option>
+
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
@@ -46,6 +58,10 @@
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 		
+
+		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
+			<acme:menu-suboption code="master.menu.patron.patron-dashboard" action="/patron/patron-dashboard/show"/>
+    </acme:menu-option>
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
 			<acme:menu-suboption code="master.menu.inventor.item.components.mine" action="/inventor/item/list-components-mine"/>
 			<acme:menu-suboption code="master.menu.inventor.item.tools.mine" action="/inventor/item/list-tools-mine"/>
