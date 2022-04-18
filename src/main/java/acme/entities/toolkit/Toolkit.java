@@ -25,6 +25,7 @@ public class Toolkit extends AbstractEntity{
 	
 	@Column(unique = true)
 	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
+	@NotBlank
 	protected String code;
 	
 	@NotBlank

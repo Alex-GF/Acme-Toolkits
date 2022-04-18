@@ -21,6 +21,6 @@ public class InventorComponentController extends AbstractController<Inventor, It
 
 	@PostConstruct
 	protected void initialise() {
-		super.addCommand("component-list", "list", this.listMineService);
+		super.addCommand("list-component-mine", "list", this.listMineService);
 	}
 }
