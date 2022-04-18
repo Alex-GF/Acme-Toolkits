@@ -28,4 +28,7 @@ public interface AnyToolkitRepository extends AbstractRepository{
 	@Query("SELECT q FROM Quantity q WHERE q.toolkit.id = :toolkitId")
 	Collection<Quantity> findAllQuantityByToolkitId(int toolkitId);
 	
+	@Query("SELECT q.toolkit FROM Quantity q WHERE q.item.id = :itemId")
+	Collection<Toolkit> findAllToolkitByItemId(int itemId);
+	
 }

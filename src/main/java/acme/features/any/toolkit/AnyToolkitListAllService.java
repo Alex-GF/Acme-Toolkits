@@ -34,7 +34,12 @@ public class AnyToolkitListAllService implements AbstractListService<Any, Toolki
 		
 		Collection<Toolkit> result;
 		
-		result = this.anyToolkitRepository.findAllToolkit();
+		if(request.getModel().hasAttribute("itemId")) {
+			final int itemId = request.getModel().getInteger("itemId");
+			result = this.anyToolkitRepository.findAllToolkitByItemId(itemId);
+		}else {
+			result = this.anyToolkitRepository.findAllToolkit();
+		}
 		
 		final Map<String,Money> totalPrice = this.totalPrice();
 		
