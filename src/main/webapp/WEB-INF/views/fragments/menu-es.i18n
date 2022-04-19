@@ -42,6 +42,9 @@ master.menu.consumer.favourite-link = Enlace favorito
 # master.menu.inventor ##########################################################
 
 master.menu.inventor = Inventor
+master.menu.inventor.item.components.mine = Mis Componentes
+master.menu.inventor.item.tools.mine = Mis Herramientas
+master.menu.inventor.toolkits.mine = Mis Toolkits
 
 # master.menu.user-account ####################################################
 
