@@ -11,6 +11,6 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface InventorToolkitRepository extends AbstractRepository{
 
-	@Query("SELECT q.toolkit FROM Quantity q WHERE q.inventor.userAccount.id = :inventorId")
+	@Query("SELECT t FROM Toolkit t WHERE t.inventor.userAccount.id = :inventorId")
 	Collection<Toolkit> findToolkitsByInventorId(int inventorId);
 }
