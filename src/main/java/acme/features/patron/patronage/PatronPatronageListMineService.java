@@ -5,8 +5,8 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.item.Item;
-import acme.framework.Patronages.models.Model;
+import acme.entities.patronage.Patronage;
+import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractListService;
 import acme.roles.Patron;
@@ -53,4 +53,6 @@ public class PatronPatronageListMineService implements AbstractListService<Patro
 
         return result;
     }
+
+	
 }

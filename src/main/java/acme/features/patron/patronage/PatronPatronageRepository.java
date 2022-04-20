@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 import acme.entities.patronage.Patronage;
 import acme.framework.repositories.AbstractRepository;
 
-public class PatronPatronageRepository extends AbstractRepository {
+@Repository
+public interface PatronPatronageRepository extends AbstractRepository {
 
     @Query("SELECT p FROM Patronage p WHERE p.patron.userAccount.id = :patronId")
     Collection<Patronage> findPatronagesByPatronId(int patronId);

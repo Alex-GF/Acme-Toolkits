@@ -1,9 +1,10 @@
-package acme.features.patron.patronage;
+package acme.features.patron.patronageReport;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.patronage.Patronage;
+import acme.features.patron.patronage.PatronPatronageRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractShowService;

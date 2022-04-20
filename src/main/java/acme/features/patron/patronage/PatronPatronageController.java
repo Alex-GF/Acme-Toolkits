@@ -9,6 +9,7 @@ import acme.entities.patronage.Patronage;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Patron;
 
+@Controller
 public class PatronPatronageController extends AbstractController<Patron, Patronage> {
 
     // Internal state ---------------------------------------------------------

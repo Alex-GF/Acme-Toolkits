@@ -12,7 +12,7 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Patron;
 
 @Service
-public class PatronPatronageReportListMineService implements AbstractListService<Patron, Patronage> {
+public class PatronPatronageReportListMineService implements AbstractListService<Patron, PatronageReport> {
 
     // Internal state ---------------------------------------------------------
 
@@ -21,35 +21,44 @@ public class PatronPatronageReportListMineService implements AbstractListService
 
     // AbstractListService<Patron, Quantity> interface ---------------------------
 
-    @Override
-    public boolean authorise(final Request<PatronageReport> request) {
-        assert request != null;
+
+    
+
+    
+
+	@Override
+	public boolean authorise(final Request<PatronageReport> request) {
+		assert request != null;
 
         boolean result;
 
         result = request.getPrincipal().hasRole(Patron.class);
 
         return result;
-    }
+	}
 
-    @Override
-    public void unbind(final Request<PatronageReport> request, final PatronageReport entity, final Model model) {
-        assert request != null;
-        assert entity != null;
-        assert model != null;
-
-        request.unbind(entity, model, "creationMoment", "memorandum", "link", "automaticSequenceNumber");
-
-    }
-
-    @Override
-    public Collection<PatronageReport> findMany(final Request<PatronageReport> request) {
-        assert request != null;
+	@Override
+	public Collection<PatronageReport> findMany(final Request<PatronageReport> request) {
+		assert request != null;
 
         Collection<PatronageReport> result;
 
         result = this.repository.findPatronageReportsByPatronId(request.getPrincipal().getAccountId());
 
         return result;
-    }
+	}
+
+	@Override
+	public void unbind(final Request<PatronageReport> request, final PatronageReport entity, final Model model) {
+		assert request != null;
+        assert entity != null;
+        assert model != null;
+
+        request.unbind(entity, model, "creationMoment", "memorandum", "link", "automaticSequenceNumber");
+		
+	}
+
+	
+
+	
 }
