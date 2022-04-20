@@ -9,6 +9,8 @@ inventor.patronage.list.label.startDate=Fecha de inicio
 inventor.patronage.list.label.finishDate=Fecha de finalización
 inventor.patronage.list.label.link=Link
 
+user-account.form.label.patron = Patrón
+
 inventor.patronage.form.label.status=Estado
 inventor.patronage.form.label.code=Código
 inventor.patronage.form.label.legalStuff=Cosas legales

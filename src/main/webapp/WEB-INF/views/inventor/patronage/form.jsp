@@ -13,6 +13,8 @@
 	<acme:input-textbox code="inventor.patronage.form.label.finishDate" path="finishDate"/>
 	<acme:input-url code="inventor.patronage.form.label.link" path="link" />
 	
+	<acme:button code="user-account.form.label.patron" action="/any/user-account/show?id=${patron.userAccount.id}"/>
+	
 	<jstl:if test="${!readonly}">
 		<acme:input-checkbox code="inventor.patronage.form.label.confirmation" path="confirmation"/>
 		<acme:submit code="inventor.patronage.form.button.create" action="#"/>
