@@ -1,0 +1,8 @@
+patron.patronage.list.label.status=Estado
+patron.patronage.list.label.code=Código
+patron.patronage.list.label.legalStuff=Cosas legales
+patron.patronage.list.label.budget=Descripción
+patron.patronage.list.label.creationMoment=Momento de creación
+patron.patronage.list.label.startDate=Fecha de inicio
+patron.patronage.list.label.finishDate=Fecha de finalización
+patron.quantity.list.label.link=Link
