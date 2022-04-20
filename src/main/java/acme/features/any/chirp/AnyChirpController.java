@@ -23,6 +23,7 @@ public class AnyChirpController extends AbstractController<Any, Chirp> {
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("list-recent", "list", this.listRecentService);
+		
 
 	}
 

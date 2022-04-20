@@ -12,12 +12,12 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorComponentListMineService implements AbstractListService<Inventor, Item>{
-	
+public class InventorListToolsMineService implements AbstractListService<Inventor, Item>{
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorComponentRepository repository;
+	protected InventorItemRepository repository;
 
 	// AbstractListService<Inventor, Quantity> interface ---------------------------
 
@@ -49,9 +49,8 @@ public class InventorComponentListMineService implements AbstractListService<Inv
 
 		Collection<Item> result;
 
-		result = this.repository.findComponentsByInventorId(request.getPrincipal().getAccountId());
+		result = this.repository.findToolsByInventorId(request.getPrincipal().getAccountId());
 
 		return result;
 	}
-	
 }

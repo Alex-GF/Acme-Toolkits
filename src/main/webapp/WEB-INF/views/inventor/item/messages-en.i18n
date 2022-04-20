@@ -1,6 +1,6 @@
-inventor.quantity.list.label.name=Nombre
-inventor.quantity.list.label.code=Código
-inventor.quantity.list.label.technology=Tecnología
-inventor.quantity.list.label.description=Descripción
-inventor.quantity.list.label.retail-price=Precio
-inventor.quantity.list.label.link=Link
+inventor.item.list.label.name=Name
+inventor.item.list.label.code=Code
+inventor.item.list.label.technology=Technology
+inventor.item.list.label.description=Description
+inventor.item.list.label.retail-price=Price
+inventor.item.list.label.link=Link

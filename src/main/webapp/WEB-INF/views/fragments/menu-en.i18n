@@ -28,12 +28,14 @@ master.menu.anonymous.list-all-item = List all item
 master.menu.authenticated = Authenticated
 master.menu.anonymous.list-all-item = List all item
 master.menu.authenticated.list-all-toolkit = List all toolkit
+master.menu.authenticated.list-all-item = List all item
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.configuration = System configuration
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
@@ -51,7 +53,14 @@ master.menu.consumer.favourite-link = Favourite link
 # master.menu.patron #######################################################
 
 master.menu.patron = Patron
-master.menu.patron.patron-dashboard = Patrons dashboard
+master.menu.patron.patron-dashboard = Dashboard
+
+# master.menu.inventor ##########################################################
+
+master.menu.inventor = Inventor
+master.menu.inventor.item.components.mine = My Components
+master.menu.inventor.item.tools.mine = My Tools
+master.menu.inventor.toolkits.mine = My Toolkits
 
 
 # master.menu.inventor #######################################################
@@ -68,3 +77,9 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+
+# master.menu.announcements ##########################################
+master.menu.authenticated.announcements = List the announcement
+master.menu.authenticated.chirps = List the chirps 
+master.menu.anonymous.chirps = List the chirps
+master.menu.administrator.dashboard = List administrator dashboard

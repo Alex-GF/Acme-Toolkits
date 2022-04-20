@@ -12,7 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface PatronDashboardRepository extends AbstractRepository{
-	
+
 	@Query("SELECT COUNT(p) FROM Patronage p WHERE p.status = :status")
 	Integer numberOfPatronagesByStatus(Status status);
 

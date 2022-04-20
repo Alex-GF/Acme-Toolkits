@@ -47,7 +47,7 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "assemblyNotes", "code", "totalPrice", "description", "link");
+		request.unbind(entity, model, "title", "assemblyNotes", "code", "totalPrice", "description", "published", "link");
 		model.setAttribute("readonly", true);
 		
 	}

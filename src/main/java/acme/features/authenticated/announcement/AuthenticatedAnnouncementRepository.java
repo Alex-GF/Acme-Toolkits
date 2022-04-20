@@ -16,6 +16,6 @@ public interface AuthenticatedAnnouncementRepository extends AbstractRepository{
 	Collection<Announcement> findRecentAnnouncements(Date deadline);
 
 	@Query("select a from Announcement a where a.id = :id")
-	Announcement getItemById(int id);
+	Announcement getAnnouncementById(int id);
 	
 }

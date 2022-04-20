@@ -1,15 +1,15 @@
-key,type,name,code,technology,description,retail_price,link
-item-01,TOOL,Sample-Item-01,ABC-123-A,Sample-Technology-01,Sample-Description-01,"EUR 0.10",http://sample-link-01.com
-item-02,TOOL,Sample-Item-02,DEF-456,Sample-Technology-02,Sample-Description-02,"EUR 0.01",http://sample-link-02.com
-item-03,TOOL,Sample-Item-03,GHI-789-C,Sample-Technology-03,Sample-Description-03,"GBP 0",http://sample-link-03.com
-item-04,TOOL,Sample-Item-04,JKL-012,Sample-Technology-04,Sample-Description-04,"GBP 0.02",http://sample-link-04.com
-item-05,TOOL,Sample-Item-05,MNO-345-E,Sample-Technology-05,Sample-Description-05,"USD 0",http://sample-link-05.com
-item-06,TOOL,Sample-Item-06,PQR-678,Sample-Technology-06,Sample-Description-06,"USD 0.03",http://sample-link-06.com
-item-07,TOOL,Sample-Item-07,STU-901-G,Sample-Technology-07,Sample-Description-07,"EUR 0.40",http://sample-link-07.com
-item-08,COMPONENT,Sample-Component-01,ABC-123,Sample-Technology-01,Sample-Description-01,"EUR 0.10",http://sample-link-01.com
-item-09,COMPONENT,Sample-Component-02,DEF-456-B,Sample-Technology-02,Sample-Description-02,"EUR 0.01",http://sample-link-02.com
-item-10,COMPONENT,Sample-Component-03,GHI-789,Sample-Technology-03,Sample-Description-03,"GBP 0.20",http://sample-link-03.com
-item-11,COMPONENT,Sample-Component-04,JKL-012-D,Sample-Technology-04,Sample-Description-04,"EUR 0.02",http://sample-link-04.com
-item-12,COMPONENT,Sample-Component-05,MNO-345,Sample-Technology-05,Sample-Description-05,"EUR 0.30",http://sample-link-05.com
-item-13,COMPONENT,Sample-Component-06,PQR-678-F,Sample-Technology-06,Sample-Description-06,"USD 0.03",http://sample-link-06.com
-item-14,COMPONENT,Sample-Component-07,STU-901,Sample-Technology-07,Sample-Description-07,"EUR 0.40",http://sample-link-07.com
+key,type,name,code,technology,description,retail_price,link,key:inventor
+item-01,TOOL,Sample-Tool-01,ABC-123-A,Sample-Technology-01,Sample-Description-01,"EUR 0.10",http://sample-link-01.com,inventor-01
+item-02,TOOL,Sample-Tool-02,DEF-456,Sample-Technology-02,Sample-Description-02,"EUR 0.01",http://sample-link-02.com,inventor-02
+item-03,TOOL,Sample-Tool-03,GHI-789-C,Sample-Technology-03,Sample-Description-03,"GBP 12.0",http://sample-link-03.com,inventor-01
+item-04,TOOL,Sample-Tool-04,JKL-012,Sample-Technology-04,Sample-Description-04,"GBP 0.02",http://sample-link-04.com,inventor-02
+item-05,TOOL,Sample-Tool-05,MNO-345-E,Sample-Technology-05,Sample-Description-05,"USD 23.0",http://sample-link-05.com,inventor-01
+item-06,TOOL,Sample-Tool-06,PQR-678,Sample-Technology-06,Sample-Description-06,"USD 0.03",http://sample-link-06.com,inventor-02
+item-07,TOOL,Sample-Tool-07,STU-901-G,Sample-Technology-07,Sample-Description-07,"EUR 0.40",http://sample-link-07.com,inventor-01
+item-08,COMPONENT,Sample-Component-01,ABC-123,Sample-Technology-01,Sample-Description-01,"EUR 0.10",http://sample-link-01.com,inventor-02
+item-09,COMPONENT,Sample-Component-02,DEF-456-B,Sample-Technology-02,Sample-Description-02,"EUR 0.01",http://sample-link-02.com,inventor-01
+item-10,COMPONENT,Sample-Component-03,GHI-789,Sample-Technology-03,Sample-Description-03,"GBP 0.20",http://sample-link-03.com,inventor-02
+item-11,COMPONENT,Sample-Component-04,JKL-012-D,Sample-Technology-04,Sample-Description-04,"EUR 0.02",http://sample-link-04.com,inventor-01
+item-12,COMPONENT,Sample-Component-05,MNO-345,Sample-Technology-05,Sample-Description-05,"EUR 0.30",http://sample-link-05.com,inventor-02
+item-13,COMPONENT,Sample-Component-06,PQR-678-F,Sample-Technology-06,Sample-Description-06,"USD 0.03",http://sample-link-06.com,inventor-01
+item-14,COMPONENT,Sample-Component-07,STU-901,Sample-Technology-07,Sample-Description-07,"EUR 0.40",http://sample-link-07.com,inventor-02
