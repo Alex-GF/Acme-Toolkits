@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.currencyExchange.RateExchange;
+import acme.entities.currencyExchange.CurrencyExchange;
 import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.repositories.AbstractRepository;
@@ -19,8 +19,8 @@ public interface AnyToolkitRepository extends AbstractRepository{
 	@Query("SELECT q.toolkit FROM Quantity q WHERE q.toolkit.published = true")
 	Collection<Toolkit> findAllToolkit();
 	
-	@Query("SELECT r FROM RateExchange r WHERE r.currencyExchange.base = :sourceCurrency and r.currency = :targetCurrency")
-	RateExchange findRateExchangeBySourceCurrency(String sourceCurrency, String targetCurrency);
+	@Query("SELECT c FROM CurrencyExchange c WHERE c.sourceCurrency = :sourceCurrency and c.targetCurrency = :targetCurrency")
+	CurrencyExchange findCurrencyExchangeBySourceCurrency(String sourceCurrency, String targetCurrency);
 	
 	@Query("SELECT q.toolkit FROM Quantity q WHERE q.toolkit.id = :toolkitId AND q.toolkit.published = true")
 	Toolkit findToolkitById(int toolkitId);
