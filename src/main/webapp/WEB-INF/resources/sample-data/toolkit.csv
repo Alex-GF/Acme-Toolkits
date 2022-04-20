@@ -1,8 +1,9 @@
-key,code,title,description,assemblyNotes,link
-toolkit-01,ABC-123-A,Sample-Title-01,Sample-Description-01,Sample-AssemblyNotes-01,http://sample-link-01.com
-toolkit-02,DEF-456,Sample-Title-02,Sample-Description-02,Sample-AssemblyNotes-02,http://sample-link-02.com
-toolkit-03,GHI-789-C,Sample-Title-03,Sample-Description-03,Sample-AssemblyNotes-03,http://sample-link-03.com
-toolkit-04,JKL-012,Sample-Title-04,Sample-Description-04,Sample-AssemblyNotes-04,http://sample-link-04.com
-toolkit-05,MNO-345-E,Sample-Title-05,Sample-Description-05,Sample-AssemblyNotes-05,http://sample-link-05.com
-toolkit-06,PQR-678,Sample-Title-06,Sample-Description-06,Sample-AssemblyNotes-06,http://sample-link-06.com
-toolkit-07,STU-901-G,Sample-Title-07,Sample-Description-07,Sample-AssemblyNotes-07,http://sample-link-07.com
+key,code,title,description,assembly-notes,published,link,key:inventor
+toolkit-01,ABC-123-A,Sample-Toolkit-01,Sample-Description-01,Sample-AssemblyNotes-01,true,http://sample-link-01.com,inventor-01
+toolkit-02,DEF-456,Sample-Toolkit-02,Sample-Description-02,Sample-AssemblyNotes-02,true,http://sample-link-02.com,inventor-02
+toolkit-03,GHI-789-C,Sample-Toolkit-03,Sample-Description-03,Sample-AssemblyNotes-03,true,http://sample-link-03.com,inventor-01
+toolkit-04,JKL-012,Sample-Toolkit-04,Sample-Description-04,Sample-AssemblyNotes-04,true,http://sample-link-04.com,inventor-02
+toolkit-05,MNO-345-E,Sample-Toolkit-05,Sample-Description-05,Sample-AssemblyNotes-05,false,http://sample-link-05.com,inventor-01
+toolkit-06,PQR-678,Sample-Toolkit-06,Sample-Description-06,Sample-AssemblyNotes-06,false,http://sample-link-06.com,inventor-02
+toolkit-07,STU-901-G,Sample-Toolkit-07,Sample-Description-07,Sample-AssemblyNotes-07,false,http://sample-link-07.com,inventor-01
+toolkit-08,STU-902-G,Sample-Toolkit-08,Sample-Description-08,Sample-AssemblyNotes-08,true,http://sample-link-08.com,inventor-01

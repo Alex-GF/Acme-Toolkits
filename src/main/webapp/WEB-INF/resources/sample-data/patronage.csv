@@ -1,8 +1,8 @@
 key,status,code,legal-stuff,budget,creation-moment,start-date,finish-date,link,key:patron,key:inventor
-patronage-01,PROPOSED,DHV-538-E,"Legal stuff 1","EUR 1,234.34","2021/11/01 01:11","2021/12/11 01:11","2022/05/20 01:11",https://www.example1.com,patron-01,inventor-01
-patronage-02,ACCEPTED,VBD-572,"Legal stuff 2","EUR 1,234.34","2021/3/21 01:11","2021/12/11 01:11","2022/05/20 01:11",https://www.example2.com,patron-01,inventor-02
-patronage-03,DENIED,SQO-272-W,"Legal stuff 3","EUR 1,234.34","2021/10/05 01:11","2021/12/11 01:11","2022/05/20 01:11",https://www.example3.com,patron-01,inventor-02
-patronage-04,ACCEPTED,DAD-797,"Legal stuff 4","EUR 1,234.34","2021/04/08 01:11","2021/12/11 01:11","2022/05/20 01:11",null,patron-01,inventor-02
-patronage-05,PROPOSED,OCQ-581-Y,"Legal stuff 5","EUR 1,234.34","2021/08/29 01:11","2021/12/11 01:11","2022/05/20 01:11",https://www.example4.com,patron-01,inventor-02
-patronage-06,DENIED,ASP-857-E,"Legal stuff 6","EUR 1,234.34","2021/09/19 01:11","2021/12/11 01:11","2022/05/20 01:11",null,patron-02,inventor-01
-patronage-07,DENIED,ZED-245,"Legal stuff 7","EUR 1,234.34","2020/04/20 01:11","2021/12/11 01:11","2022/05/20 01:11",https://www.example5.com,patron-02,inventor-01
+patronage-01,PROPOSED,DHV-538-E,"Legal stuff 1","EUR 1,000.34","2021/11/01 01:11","2021/12/11 01:11","2022/05/20 01:11",https://www.example1.com,patron-01,inventor-01
+patronage-02,ACCEPTED,VBD-572,"Legal stuff 2","EUR 1,534.69","2021/3/21 01:11","2021/12/11 01:11","2022/05/20 01:11",https://www.example2.com,patron-01,inventor-02
+patronage-03,DENIED,SQO-272-W,"Legal stuff 3","EUR 1,274.64","2021/10/05 01:11","2021/12/11 01:11","2022/05/20 01:11",https://www.example3.com,patron-01,inventor-02
+patronage-04,ACCEPTED,DAD-797,"Legal stuff 4","EUR 1,894.34","2021/04/08 01:11","2021/12/11 01:11","2022/05/20 01:11",null,patron-01,inventor-02
+patronage-05,PROPOSED,OCQ-581-Y,"Legal stuff 5","EUR 2,234.74","2021/08/29 01:11","2021/12/11 01:11","2022/05/20 01:11",https://www.example4.com,patron-01,inventor-02
+patronage-06,DENIED,ASP-857-E,"Legal stuff 6","EUR 2,264.54","2021/09/19 01:11","2021/12/11 01:11","2022/05/20 01:11",null,patron-02,inventor-01
+patronage-07,DENIED,ZED-245,"Legal stuff 7","EUR 1,888.04","2020/04/20 01:11","2021/12/11 01:11","2022/05/20 01:11",https://www.example5.com,patron-02,inventor-01

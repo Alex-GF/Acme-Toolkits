@@ -27,6 +27,7 @@ public class Configuration extends AbstractEntity{
 	protected String defaultCurrency;
 	
 	@NotBlank
+	//Patron
 	protected String acceptedCurrencies;
 	
 	@NotBlank
