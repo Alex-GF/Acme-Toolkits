@@ -49,8 +49,13 @@ public class InventorListToolkitsMineService implements AbstractListService<Inve
 		assert request != null;
 
 		Collection<Toolkit> result;
-
-		result = this.repository.findToolkitsByInventorId(request.getPrincipal().getAccountId());
+		
+		if(request.getModel().hasAttribute("itemId")) {
+			final int itemId = request.getModel().getInteger("itemId");
+			result = this.repository.findToolkitsByInventorIdAndItemId(request.getPrincipal().getAccountId(), itemId);
+		}else {
+			result = this.repository.findToolkitsByInventorId(request.getPrincipal().getAccountId());
+		}
 
 		return result;
 	}
