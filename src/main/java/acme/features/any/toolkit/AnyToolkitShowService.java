@@ -49,6 +49,7 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 
 		request.unbind(entity, model, "title", "assemblyNotes", "code", "totalPrice", "description", "published", "link");
 		model.setAttribute("readonly", true);
+		model.setAttribute("inventor.fullName", entity.getInventor().getIdentity().getFullName());
 		
 	}
 	

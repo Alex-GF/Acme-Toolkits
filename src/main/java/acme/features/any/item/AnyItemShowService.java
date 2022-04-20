@@ -48,6 +48,7 @@ public class AnyItemShowService implements AbstractShowService<Any,Item>{
 
 		request.unbind(entity, model, "name", "technology", "code", "retailPrice", "description", "link","type");
 		model.setAttribute("readonly", true);
+		model.setAttribute("inventor.fullName", entity.getInventor().getIdentity().getFullName());
 	}
 
 }
