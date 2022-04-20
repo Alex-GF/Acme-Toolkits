@@ -1,15 +1,15 @@
 key,type,name,code,technology,description,retail_price,link,key:inventor
-item-01,TOOL,Sample-Tool-01,ABC-123-A,Sample-Technology-01,Sample-Description-01,"EUR 0.10",http://sample-link-01.com,inventor-01
-item-02,TOOL,Sample-Tool-02,DEF-456,Sample-Technology-02,Sample-Description-02,"EUR 0.01",http://sample-link-02.com,inventor-02
-item-03,TOOL,Sample-Tool-03,GHI-789-C,Sample-Technology-03,Sample-Description-03,"GBP 12.0",http://sample-link-03.com,inventor-01
-item-04,TOOL,Sample-Tool-04,JKL-012,Sample-Technology-04,Sample-Description-04,"GBP 0.02",http://sample-link-04.com,inventor-02
-item-05,TOOL,Sample-Tool-05,MNO-345-E,Sample-Technology-05,Sample-Description-05,"USD 23.0",http://sample-link-05.com,inventor-01
-item-06,TOOL,Sample-Tool-06,PQR-678,Sample-Technology-06,Sample-Description-06,"USD 0.03",http://sample-link-06.com,inventor-02
-item-07,TOOL,Sample-Tool-07,STU-901-G,Sample-Technology-07,Sample-Description-07,"EUR 0.40",http://sample-link-07.com,inventor-01
-item-08,COMPONENT,Sample-Component-01,ABC-123,Sample-Technology-01,Sample-Description-01,"EUR 0.10",http://sample-link-01.com,inventor-02
-item-09,COMPONENT,Sample-Component-02,DEF-456-B,Sample-Technology-02,Sample-Description-02,"EUR 0.01",http://sample-link-02.com,inventor-01
-item-10,COMPONENT,Sample-Component-03,GHI-789,Sample-Technology-03,Sample-Description-03,"GBP 0.20",http://sample-link-03.com,inventor-02
-item-11,COMPONENT,Sample-Component-04,JKL-012-D,Sample-Technology-04,Sample-Description-04,"EUR 0.02",http://sample-link-04.com,inventor-01
-item-12,COMPONENT,Sample-Component-05,MNO-345,Sample-Technology-05,Sample-Description-05,"EUR 0.30",http://sample-link-05.com,inventor-02
-item-13,COMPONENT,Sample-Component-06,PQR-678-F,Sample-Technology-06,Sample-Description-06,"USD 0.03",http://sample-link-06.com,inventor-01
-item-14,COMPONENT,Sample-Component-07,STU-901,Sample-Technology-07,Sample-Description-07,"EUR 0.40",http://sample-link-07.com,inventor-02
+item-01,TOOL,Destornillador,ABC-123-A,Bosch,Instrumento de hierro u otra materia que sirve para destornillar y atornillar.,EUR 7.10,https://www.leroymerlin.es/productos,inventor-01
+item-02,TOOL,Martillo,DEF-456,Makita,"Herramienta de percusión compuesta de una cabeza, por lo común de hierro, y un mango, generalmente de madera",EUR 10.01,https://www.leroymerlin.es/productos,inventor-02
+item-03,TOOL,Alicates,GHI-789-C,Einhell,"Tenaza pequeña de acero con brazos encorvados y puntas cuadrangulares o de forma de cono truncado, y que sirve para coger y sujetar objetos menudos o para torcer alambres, chapitas delgadas o cosas parecidas.",GBP 12.0,https://www.leroymerlin.es/productos,inventor-01
+item-04,TOOL,Tenazas,JKL-012,DeWalt,"Instrumento de metal, compuesto de dos brazos trabados por un clavillo o eje que permite abrirlos y volverlos a cerrar, que se usa para sujetar fuertemente una cosa, o arrancarla o cortarla",GBP 8.56,https://www.leroymerlin.es/productos,inventor-02
+item-05,TOOL,Taladro,MNO-345-E,Mannesmann,Herramienta aguda o cortante con que se agujerea la madera u otra cosa,USD 23.0,https://www.leroymerlin.es/productos,inventor-01
+item-06,TOOL,LLave inglesa,PQR-678,Black+Decker,Herramienta que sirve para apretar o aflojar tuercas.,USD 14.03,https://www.leroymerlin.es/productos,inventor-02
+item-07,TOOL,Sierra,STU-901-G,RYOBI,"Herramienta para cortar madera, piedra u otros objetos duros, que generalmente consiste en una hoja de acero dentada sujeta a una empuñadura, bastidor o armazón",EUR 9.40,https://www.leroymerlin.es/productos,inventor-01
+item-08,COMPONENT,Clavo,ABC-123,Bosch,"Pieza metálica, larga y delgada, con cabeza y punta, que sirve para introducirla en alguna parte, o para asegurar una cosa a otra",EUR 0.10,https://www.leroymerlin.es/productos,inventor-02
+item-09,COMPONENT,Tornillo,DEF-456-B,Makita,"Pieza cilíndrica o cónica, por lo general metálica, con resalte en hélice y cabeza apropiada para enroscarla.",EUR 0.20,https://www.leroymerlin.es/productos,inventor-01
+item-10,COMPONENT,Arandela,GHI-789,Einhell,"Pieza generalmente circular, fina y perforada, que se usa para mantener apretados una tuerca o un tornillo, asegurar el cierre hermético de una junta o evitar el roce entre dos piezas",GBP 0.20,https://www.leroymerlin.es/productos,inventor-02
+item-11,COMPONENT,Tuercas,JKL-012-D,DeWalt,Pieza con un hueco labrado en espiral que ajusta exactamente en el filete de un tornillo,EUR 0.07,https://www.leroymerlin.es/productos,inventor-01
+item-12,COMPONENT,Bridas,MNO-345,Mannesmann,"Tira dentada de plástico o de metal, no retráctil una vez enganchada, que permite atar, unir o inmovilizar.",EUR 1.30,https://www.leroymerlin.es/productos,inventor-02
+item-13,COMPONENT,Brocas,PQR-678-F,Black+Decker,Barrena de boca cónica que se usa con las máquinas de taladrar.,USD 6.69,https://www.leroymerlin.es/productos,inventor-01
+item-14,COMPONENT,Espiche,STU-901,RYOBI,"Estaca pequeña que sirve para cerrar un agujero, como las que se colocan en las cubas para que no salga el líquido o en los botes para que no se aneguen",EUR 0.40,https://www.leroymerlin.es/productos,inventor-02
