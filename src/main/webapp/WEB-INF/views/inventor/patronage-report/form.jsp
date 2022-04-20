@@ -4,11 +4,10 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form readonly="${readonly}">
-	<acme:input-textbox code="inventor.patronageReport.list.label.creationMoment" path="creationMoment" />	
-	<acme:input-textbox code="inventor.patronageReport.list.label.memorandum" path="memorandum" />
-	<acme:input-textbox code="inventor.patronageReport.list.label.automaticSequenceNumber" path="automaticSequenceNumber" />
-	<acme:input-url code="inventor.patronageReport.list.label.link" path="link" />
-	
+	<acme:input-textbox code="inventor.patronageReport.form.label.creationMoment" path="creationMoment" />	
+	<acme:input-textbox code="inventor.patronageReport.form.label.memorandum" path="memorandum" />
+	<acme:input-textbox code="inventor.patronageReport.form.label.automaticSequenceNumber" path="automaticSequenceNumber" />
+	<acme:input-url code="inventor.patronageReport.form.label.link" path="link" />
 	
 	<jstl:if test="${!readonly}">
 		<acme:input-checkbox code="inventor.patronageReport.form.label.confirmation" path="confirmation"/>

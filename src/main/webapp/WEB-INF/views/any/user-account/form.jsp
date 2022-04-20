@@ -16,9 +16,8 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:input-textbox code="any.user-account.form.label.identity.name" path="username" readonly="true"/>
-	<acme:input-textbox code="any.user-account.form.label.identity.surname" path="identity.name" readonly="true"/>
-	<acme:input-textbox code="any.user-account.form.label.username" path="identity.surname" readonly="true"/>
+	<acme:input-textbox code="any.user-account.form.label.identity.name" path="identity.name" readonly="true"/>
+	<acme:input-textbox code="any.user-account.form.label.identity.surname" path="identity.surname" readonly="true"/>
 	<acme:input-email code="any.user-account.form.label.identity.email" path="identity.email" readonly="true"/>
 	<acme:input-textbox code="any.user-account.form.label.role-list" path="roleList" readonly="true"/>
 </acme:form>	

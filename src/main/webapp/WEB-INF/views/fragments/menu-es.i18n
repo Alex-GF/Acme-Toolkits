@@ -55,6 +55,13 @@ master.menu.consumer.favourite-link = Enlace favorito
 master.menu.patron = Patrón
 master.menu.patron.patron-dashboard = Panel
 
+# master.menu.inventor ##########################################################
+
+master.menu.inventor = Inventor
+master.menu.inventor.item.components.mine = Mis Componentes
+master.menu.inventor.item.tools.mine = Mis Herramientas
+master.menu.inventor.toolkits.mine = Mis Toolkits
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
@@ -64,10 +71,8 @@ master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 
-################################
-master.menu.authenticated = Autenticado
-master.menu.authenticated.list-chirp = Listar Chirps
-master.menu.authenticated.list-announcement = Listar Anuncios
-master.menu.anonymous.list-chirp = Listar Chirps
-master.menu.administrator.dashboard = Dashboard
-
+# master.menuse.announcements #############################################################
+master.menu.authenticated.announcements = Listar los anuncios 
+master.menu.authenticated.chirps = Listar los chirps 
+master.menu.anonymous.chirps = Listar los chirps
+master.menu.administrator.dashboard = Listar el panel del administrador

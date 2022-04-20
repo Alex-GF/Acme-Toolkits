@@ -34,9 +34,6 @@ public class AnyUserAccountListAllService implements AbstractListService<Any,Use
 			assert request != null;
 	        Collection<UserAccount> result;
 	        result = this.anyUserAccountRepository.findAllUserAccounts();
-	        for (final UserAccount userAccount : result) {
-	            userAccount.getRoles().forEach(r -> { ; });
-	        }
 	        return result;
 		}
 
@@ -49,7 +46,7 @@ public class AnyUserAccountListAllService implements AbstractListService<Any,Use
 			StringBuilder buffer;
 			Collection<UserRole> roles;
 			
-			request.unbind(entity, model, "identity.name", "identity.surname", "username");
+			request.unbind(entity, model, "identity.name", "identity.surname");
 
 			roles = entity.getRoles();
 			buffer = new StringBuilder();
