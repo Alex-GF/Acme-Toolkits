@@ -9,7 +9,7 @@ patron.patronage.list.label.startDate = Start Date
 patron.patronage.list.label.finishDate = Finish Date
 patron.patronage.list.label.link = Link
 
-user-account.form.label.patron = Patron
+user-account.form.label.inventor = Inventor
 
 patron.patronage.form.label.status = Status
 patron.patronage.form.label.code = Code

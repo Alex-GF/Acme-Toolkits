@@ -19,5 +19,5 @@
 		<acme:submit code="patron.patronage.form.button.create" action="#"/>
 	</jstl:if>
 
-	<acme:button code="patron.patronage.form.label.confirmation" action="/any/user-account/show?id=${inventor.userAccount.id}"/>
+	<acme:button code="user-account.form.label.inventor" action="/any/user-account/show?id=${inventor.userAccount.id}"/>
 </acme:form>
