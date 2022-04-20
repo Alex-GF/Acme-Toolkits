@@ -1,25 +1,11 @@
 # i18n-es.i18n
-#
-# Copyright (C) 2012-2022 Rafael Corchuelo.
-#
-# In keeping with the traditional purpose of furthering education and research, it is
-# the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
 
-employer.duty.form.label.title = Título:
-employer.duty.form.label.description = Descripción:
-employer.duty.form.label.work-load = Carga de trabajo:
-employer.duty.form.label.moreInfo = Más información: (Opcional)
+patron.patronageReport.list.label.creationMoment=Momento de creación
+patron.patronageReport.list.label.memorandum=Memoria
+patron.patronageReport.list.label.link=Link
+patron.patronageReport.list.label.automaticSequenceNumber=Número de secuencia automático
 
-employer.duty.form.button.create = Crear	
-employer.duty.form.button.update = Actualizar
-employer.duty.form.button.delete = Borrar
-
-employer.duty.form.placeholder.work-load = 0.00 - 100.00
-
-employer.duty.list.label.title = Título
-employer.duty.list.label.work-load = Carga
-
-employer.duty.list.button.create = Crear
+patron.patronageReport.form.label.creationMoment=Momento de creación
+patron.patronageReport.form.label.memorandum=Memoria
+patron.patronageReport.form.label.link=Link
+patron.patronageReport.form.label.automaticSequenceNumber=Número de secuencia automático

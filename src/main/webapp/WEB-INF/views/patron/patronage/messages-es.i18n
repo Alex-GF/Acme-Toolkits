@@ -1,25 +1,21 @@
 # i18n-es.i18n
 #
-# Copyright (C) 2012-2022 Rafael Corchuelo.
-#
-# In keeping with the traditional purpose of furthering education and research, it is
-# the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
+patron.patronage.list.label.status=Estado
+patron.patronage.list.label.code=Código
+patron.patronage.list.label.legalStuff=Cosas legales
+patron.patronage.list.label.budget=Presupuesto
+patron.patronage.list.label.creationMoment=Momento de creación
+patron.patronage.list.label.startDate=Fecha de inicio
+patron.patronage.list.label.finishDate=Fecha de finalización
+patron.patronage.list.label.link=Link
 
-employer.duty.form.label.title = Título:
-employer.duty.form.label.description = Descripción:
-employer.duty.form.label.work-load = Carga de trabajo:
-employer.duty.form.label.moreInfo = Más información: (Opcional)
+user-account.form.label.inventor = Inventor
 
-employer.duty.form.button.create = Crear	
-employer.duty.form.button.update = Actualizar
-employer.duty.form.button.delete = Borrar
-
-employer.duty.form.placeholder.work-load = 0.00 - 100.00
-
-employer.duty.list.label.title = Título
-employer.duty.list.label.work-load = Carga
-
-employer.duty.list.button.create = Crear
+patron.patronage.form.label.status=Estado
+patron.patronage.form.label.code=Código
+patron.patronage.form.label.legalStuff=Cosas legales
+patron.patronage.form.label.budget=Presupuesto
+patron.patronage.form.label.creationMoment=Momento de creación
+patron.patronage.form.label.startDate=Fecha de inicio
+patron.patronage.form.label.finishDate=Fecha de finalización
+patron.patronage.form.label.link=Link
