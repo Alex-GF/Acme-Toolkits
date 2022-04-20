@@ -1,0 +1,11 @@
+# i18n-es.i18n
+
+patron.patronageReport.list.label.creationMoment=Momento de creación
+patron.patronageReport.list.label.memorandum=Memoria
+patron.patronageReport.list.label.link=Link
+patron.patronageReport.list.label.automaticSequenceNumber=Número de secuencia automático
+
+patron.patronageReport.form.label.creationMoment=Momento de creación
+patron.patronageReport.form.label.memorandum=Memoria
+patron.patronageReport.form.label.link=Link
+patron.patronageReport.form.label.automaticSequenceNumber=Número de secuencia automático
