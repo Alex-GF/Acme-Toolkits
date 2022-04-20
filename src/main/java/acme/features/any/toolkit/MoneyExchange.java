@@ -1,6 +1,6 @@
 package acme.features.any.toolkit;
 
-import acme.entities.currencyExchange.RateExchange;
+import acme.entities.currencyExchange.CurrencyExchange;
 import acme.framework.datatypes.Money;
 
 public class MoneyExchange {
@@ -13,10 +13,10 @@ public class MoneyExchange {
 			if(source.getCurrency().equals(targetCurrency)) {
 				result = source;
 			}else {
-				final RateExchange rateExchange = anyToolkitRepository.findRateExchangeBySourceCurrency(source.getCurrency(),targetCurrency);
+				final CurrencyExchange currencyExchange = anyToolkitRepository.findCurrencyExchangeBySourceCurrency(source.getCurrency(),targetCurrency);
 				
 				result.setCurrency(targetCurrency);
-				result.setAmount(source.getAmount()*rateExchange.getRate());
+				result.setAmount(source.getAmount()*currencyExchange.getRate());
 				
 			}
 			

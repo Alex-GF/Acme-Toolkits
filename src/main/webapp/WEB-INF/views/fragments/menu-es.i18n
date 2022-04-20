@@ -26,8 +26,9 @@ master.menu.anonymous.list-all-item = Listar items
 # master.menu.authenticates #######################################################
 
 master.menu.authenticated = Autenticado
-master.menu.anonymous.list-all-item = Listar items
+master.menu.authenticated.list-all-item = Listar items
 master.menu.authenticated.list-all-toolkit = Listar kits de herramientas
+master.menu.authenticated.money-exchange.perform = Cambio de dinero
 
 # master.menu.administrator ###################################################
 

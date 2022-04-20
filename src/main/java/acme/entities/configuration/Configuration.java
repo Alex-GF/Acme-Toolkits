@@ -3,6 +3,7 @@ package acme.entities.configuration;
 import javax.persistence.Entity;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Range;
 
@@ -22,6 +23,7 @@ public class Configuration extends AbstractEntity{
 	// Attributes -------------------------------------------------------------
 	
 	@NotBlank
+	@Pattern(regexp = "^[A-Z]{3}$")
 	protected String defaultCurrency;
 	
 	@NotBlank
