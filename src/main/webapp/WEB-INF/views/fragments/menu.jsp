@@ -29,17 +29,19 @@
 			<acme:menu-suboption code="master.menu.any.user-account" action="/any/user-account/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.list-all-toolkit" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.list-all-item" action="/any/item/list"/>
-
+			<acme:menu-suboption code="master.menu.anonymous.chirps" action="/any/chirp/list-recent"/>
 		</acme:menu-option>
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.list-all-toolkit" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-all-item" action="/any/item/list"/>
-
+			<acme:menu-suboption code="master.menu.authenticated.chirps" action="/any/chirp/list-recent"/>
+			<acme:menu-suboption code="master.menu.authenticated.announcements" action="/authenticated/announcement/list-recent"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-suboption code="master.menu.administrator.configuration" action="/administrator/configuration/show"/>
+			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/administrator-dashboard/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			
