@@ -1,0 +1,72 @@
+package acme.features.inventor.toolkit;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import acme.entities.toolkit.Toolkit;
+import acme.framework.components.models.Model;
+import acme.framework.controllers.Request;
+import acme.framework.services.AbstractShowService;
+import acme.roles.Inventor;
+
+@Service
+public class InventorShowToolkitService implements AbstractShowService<Inventor, Toolkit>{
+	
+	@Autowired
+	protected InventorToolkitRepository inventorToolkitRepository;
+	
+	@Override
+	public boolean authorise(final Request<Toolkit> request) {
+		assert request != null;
+		
+		return true;
+	}
+
+	@Override
+	public Toolkit findOne(final Request<Toolkit> request) {
+		assert request != null;
+		
+		final Toolkit result;
+		
+		final int toolkitId = request.getModel().getInteger("id");
+		result = this.inventorToolkitRepository.findToolkitById(toolkitId);
+		
+		return result;
+	}
+
+	@Override
+	public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, "title", "assemblyNotes", "code", "description", "published", "link");
+		model.setAttribute("readonly", true);
+		model.setAttribute("inventor.fullName", entity.getInventor().getIdentity().getFullName());
+		
+	}
+	
+	// Ancillary methods ------------------------------------------------------
+	
+	/*private Money totalPriceOfToolktit(final int toolkitId) {
+		final Money result = new Money();
+		result.setAmount(0.0);
+		result.setCurrency("EUR");
+		
+		final Collection<Quantity> quantities = this.inventorToolkitRepository.findAllQuantityByToolkitId(toolkitId);
+		
+		for(final Quantity q : quantities) {
+			final Money itemMoney = q.getItem().getRetailPrice();
+			final Integer amountItem = q.getAmount();
+			
+			final Money itemMoneyExchanged = MoneyExchange.changeCurrency(itemMoney, "EUR", this.anyToolkitRepository);
+			
+			final Double newAmount = result.getAmount() + itemMoneyExchanged.getAmount()*amountItem;
+			result.setAmount(newAmount);
+			
+		}
+		
+		return result;
+	}*/
+	
+}

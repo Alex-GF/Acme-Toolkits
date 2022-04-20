@@ -20,4 +20,7 @@ public interface InventorToolkitRepository extends AbstractRepository{
 			"WHERE q.toolkit.inventor.userAccount.id = :inventorId " + 
 			"AND q.item.id = :itemId GROUP BY q.toolkit")
 	Collection<Toolkit> findToolkitsByInventorIdAndItemId(int inventorId, int itemId);
+	
+	@Query("SELECT t FROM Toolkit t WHERE t.id = :toolkitId")
+	Toolkit findToolkitById(int toolkitId);
 }
