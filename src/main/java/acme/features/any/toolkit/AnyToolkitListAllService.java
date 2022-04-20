@@ -52,7 +52,7 @@ public class AnyToolkitListAllService implements AbstractListService<Any, Toolki
 	public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
 		assert request != null;
 		assert entity != null;
-		assert model != null;	
+		assert model != null;
 		
 		request.unbind(entity, model, "title", "code", "totalPrice");
 		
