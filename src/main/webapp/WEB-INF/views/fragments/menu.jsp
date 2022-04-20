@@ -19,7 +19,6 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-
       <acme:menu-suboption code="20622913D: Cambron Tocados, Vicente" action="https://www.reddit.com/user/isoyreddit/comments/ssn8l8/datos_inquietantes_que_no_querr%C3%A1s_conocer/"/>
 			<acme:menu-suboption code="77976719A: Cavero Lopez, Francisco Javier" action="http://www.stackoverflow.com/"/>
 		  <acme:menu-suboption code="32070760C: Dominguez Garoz, Irene Xiang" action="https://www.zara.com/es/"/>
@@ -31,6 +30,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.list-all-item" action="/any/item/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.chirps" action="/any/chirp/list-recent"/>
 		</acme:menu-option>
+    
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.list-all-toolkit" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-all-item" action="/any/item/list"/>
@@ -47,6 +47,13 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/administrator-dashboard/show"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.list-chirp" action="/any/chirp/list-recent"/>
+			<acme:menu-suboption code="master.menu.authenticated.list-announcement" action="/authenticated/announcement/list-recent"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
