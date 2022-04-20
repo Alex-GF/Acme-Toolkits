@@ -10,11 +10,9 @@
 
 any.user-account.list.label.identity.name = Name
 any.user-account.list.label.identity.surname = Surname
-any.user-account.list.label.username = Username
 any.user-account.list.label.role-list = Roles
 
 any.user-account.form.label.identity.name = Name:
 any.user-account.form.label.identity.surname = Surname:
-any.user-account.form.label.username = Username:
 any.user-account.form.label.identity.email = Email:
 any.user-account.form.label.role-list = Roles:
