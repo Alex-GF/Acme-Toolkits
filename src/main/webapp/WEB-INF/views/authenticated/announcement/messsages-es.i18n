@@ -2,9 +2,7 @@
 
 authenticated.announcement.list.label.creationMoment = Fecha de creación
 authenticated.announcement.list.label.title = Título
-authenticated.announcement.list.label.body = Cuerpo
 authenticated.announcement.list.label.criticalFlag = Crítico
-authenticated.announcement.list.label.link = Link
 
 authenticated.announcement.form.label.creationMoment = Fecha de creaación
 authenticated.announcement.form.label.title = Título
