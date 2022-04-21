@@ -16,7 +16,7 @@ public class AdministratorConfigurationShowTest extends TestHarness{
             final String weakSpamThreshold) {
         super.signIn("administrator", "administrator");
 
-        super.clickOnMenu("Configuration", "Show the configuration");
+        super.clickOnMenu("Administrator", "System configuration");
         
         super.checkFormExists();
         super.checkInputBoxHasValue("defaultCurrency", defaultCurrency);
