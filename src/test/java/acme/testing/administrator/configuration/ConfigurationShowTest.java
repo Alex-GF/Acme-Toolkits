@@ -1,11 +1,15 @@
 package acme.testing.administrator.configuration;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
-public class ConfigurationShowTest extends TestHarness{
+import acme.testing.TestHarness;
+
+public class AdminsitratorConfigurationShowTest extends TestHarness{
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/adminsitration/configuration/show.csv", encounding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/administrator/configuration/show.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     public void positive(final int recordIndex, final String defaultCurrency, final String acceptedCurrencies,
             final String strongSpamWords, final String strongSpamThreshold, final String weakSpamWords,
