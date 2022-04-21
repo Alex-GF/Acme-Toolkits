@@ -1,0 +1,22 @@
+# i18n-es.i18n
+
+any.quantity.list.label.name = Nombre
+any.quantity.list.label.technology = Tecnología
+any.quantity.list.label.code = Código
+any.quantity.list.label.retailPrice = Precio de venta
+any.quantity.list.label.type = Tipo
+any.quantity.list.label.quantity = Cantidad
+any.quantity.list.label.inventor = Inventor
+
+any.quantity.form.label.name = Nombre
+any.quantity.form.label.technology = Tecnología
+any.quantity.form.label.code = Código
+any.quantity.form.label.retailPrice = Precio de venta
+any.quantity.form.label.description = Descripción
+any.quantity.form.label.type = Tipo
+any.quantity.form.label.link = Link
+any.quantity.form.button.create = Crear
+any.quantity.form.label.confirmation = Confirmar
+any.quantity.form.label.toolkit = Kits de herramientas
+any.quantity.form.label.quantity = Cantidad
+any.quantity.form.label.inventor = Inventor
