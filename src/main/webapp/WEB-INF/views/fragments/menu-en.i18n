@@ -21,7 +21,7 @@ master.menu.anonymous = Anonymous
 master.menu.anonymous.favourite-link = Favourite link
 master.menu.any.user-account = User accounts list
 master.menu.anonymous.list-all-toolkit = List all toolkit
-master.menu.anonymous.list-all-item = List all item
+master.menu.anonymous.list-all-item = List all items
 
 # master.menu.authenticates #######################################################
 
