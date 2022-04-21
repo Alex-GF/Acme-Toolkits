@@ -8,6 +8,7 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
+import acme.utils.ChangeCurrencyLibrary;
 
 @Service
 public class InventorPatronageShowService implements AbstractShowService<Inventor, Patronage> {
@@ -15,6 +16,9 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 
 		@Autowired
 		protected InventorPatronageRepository repository;
+		
+		@Autowired
+		protected ChangeCurrencyLibrary changeLibrary;
 
 		@Override
 		public boolean authorise(final Request<Patronage> request) {
@@ -47,6 +51,12 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 
 			id = request.getModel().getInteger("id");
 			result = this.repository.getPatronageById(id);
+			
+			final String defaultCurrency = this.repository.findDefaultCurrency();
+			
+			if(!(result.getBudget().getCurrency().equals(defaultCurrency))){
+				result.setBudget(this.changeLibrary.computeMoneyExchange(result.getBudget(), defaultCurrency).getTarget());
+			}
 
 			return result;
 		}

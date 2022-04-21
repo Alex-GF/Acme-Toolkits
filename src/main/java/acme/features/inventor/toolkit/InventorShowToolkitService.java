@@ -1,19 +1,27 @@
 package acme.features.inventor.toolkit;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
+import acme.utils.ChangeCurrencyLibrary;
 
 @Service
 public class InventorShowToolkitService implements AbstractShowService<Inventor, Toolkit>{
 	
 	@Autowired
 	protected InventorToolkitRepository inventorToolkitRepository;
+	
+	@Autowired
+	protected ChangeCurrencyLibrary changeLibrary;
 	
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
@@ -31,13 +39,17 @@ public class InventorShowToolkitService implements AbstractShowService<Inventor,
 		final int toolkitId = request.getModel().getInteger("id");
 		result = this.inventorToolkitRepository.findToolkitById(toolkitId);
 		
+		final Money totalPrice = this.totalPriceOfToolktit(toolkitId);
+		result.setTotalPrice(totalPrice);
+		
 		return result;
 	}
 
 	@Override
 	public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
 		assert request != null;
-		assert entity != null;
+		assert entity != null;	
+
 		assert model != null;
 
 		request.unbind(entity, model, "title", "assemblyNotes", "code", "description", "published", "link");
@@ -48,10 +60,13 @@ public class InventorShowToolkitService implements AbstractShowService<Inventor,
 	
 	// Ancillary methods ------------------------------------------------------
 	
-	/*private Money totalPriceOfToolktit(final int toolkitId) {
+	private Money totalPriceOfToolktit(final int toolkitId) {
+		
+		final String defaultCurrency = this.inventorToolkitRepository.findDefaultCurrency();
+		
 		final Money result = new Money();
 		result.setAmount(0.0);
-		result.setCurrency("EUR");
+		result.setCurrency(defaultCurrency);
 		
 		final Collection<Quantity> quantities = this.inventorToolkitRepository.findAllQuantityByToolkitId(toolkitId);
 		
@@ -59,7 +74,13 @@ public class InventorShowToolkitService implements AbstractShowService<Inventor,
 			final Money itemMoney = q.getItem().getRetailPrice();
 			final Integer amountItem = q.getAmount();
 			
-			final Money itemMoneyExchanged = MoneyExchange.changeCurrency(itemMoney, "EUR", this.anyToolkitRepository);
+			Money itemMoneyExchanged;
+			
+			if(itemMoney.getCurrency().equals(defaultCurrency)) {
+				itemMoneyExchanged = itemMoney;
+			}else {
+				itemMoneyExchanged = this.changeLibrary.computeMoneyExchange(itemMoney,defaultCurrency).getTarget();
+			}
 			
 			final Double newAmount = result.getAmount() + itemMoneyExchanged.getAmount()*amountItem;
 			result.setAmount(newAmount);
@@ -67,6 +88,6 @@ public class InventorShowToolkitService implements AbstractShowService<Inventor,
 		}
 		
 		return result;
-	}*/
+	}
 	
 }

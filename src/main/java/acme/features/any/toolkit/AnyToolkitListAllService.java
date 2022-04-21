@@ -14,12 +14,16 @@ import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
+import acme.utils.ChangeCurrencyLibrary;
 
 @Service
 public class AnyToolkitListAllService implements AbstractListService<Any, Toolkit>{
 	
 	@Autowired
 	protected AnyToolkitRepository anyToolkitRepository;
+	
+	@Autowired
+	protected ChangeCurrencyLibrary changeLibrary;
 
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
@@ -69,20 +73,28 @@ public class AnyToolkitListAllService implements AbstractListService<Any, Toolki
 		for(final Quantity q : quantities) {
 			final Money itemMoney = q.getItem().getRetailPrice();
 			
-			final Money itemMoneyEur = MoneyExchange.changeCurrency(itemMoney, "EUR", this.anyToolkitRepository);
+			final String defaultCurrency = this.anyToolkitRepository.findDefaultCurrency();
+			
+			Money itemDefaultMoney;
+			
+			if(itemMoney.getCurrency().equals(defaultCurrency)) {
+				itemDefaultMoney = itemMoney;
+			}else {
+				itemDefaultMoney = this.changeLibrary.computeMoneyExchange(itemMoney, defaultCurrency).getTarget();
+			}
 			
 			if(result.containsKey(q.getToolkit().getCode())) {
 				final Money beforeUpdate = result.get(q.getToolkit().getCode());
 				
 				final Money afterUpdate = new Money();
-				afterUpdate.setAmount(beforeUpdate.getAmount()+(itemMoneyEur.getAmount()*q.getAmount()));
+				afterUpdate.setAmount(beforeUpdate.getAmount()+(itemDefaultMoney.getAmount()*q.getAmount()));
 				afterUpdate.setCurrency("EUR");
 				
 				result.put(q.getToolkit().getCode(),afterUpdate);
 			}else {
 				final Money firstMoneyValue = new Money();
 				firstMoneyValue.setCurrency("EUR");
-				final double newAumount = itemMoneyEur.getAmount()*q.getAmount();
+				final double newAumount = itemDefaultMoney.getAmount()*q.getAmount();
 				firstMoneyValue.setAmount(newAumount);
 				result.put(q.getToolkit().getCode(),firstMoneyValue);
 			}

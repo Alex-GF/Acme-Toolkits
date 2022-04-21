@@ -11,12 +11,12 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface InventorItemRepository extends AbstractRepository{
 	
-	@Query("SELECT i FROM Item i WHERE i.type = acme.entities.item.ItemType.COMPONENT AND i.inventor.userAccount.id = :inventorId")
-	Collection<Item> findComponentsByInventorId(int inventorId);
-	
-	@Query("SELECT i FROM Item i WHERE i.type = acme.entities.item.ItemType.TOOL AND i.inventor.userAccount.id = :inventorId")
-	Collection<Item> findToolsByInventorId(int inventorId);
+	@Query("SELECT i FROM Item i WHERE i.inventor.userAccount.id = :inventorId")
+	Collection<Item> findItemsByInventorId(int inventorId);
 	
 	@Query("SELECT i FROM Item i WHERE i.inventor.userAccount.id = :inventorId AND i.id = :itemId")
 	Item findItemById(int inventorId, int itemId);
+	
+	@Query("SELECT c.defaultCurrency FROM Configuration c")
+	String findDefaultCurrency();
 }
