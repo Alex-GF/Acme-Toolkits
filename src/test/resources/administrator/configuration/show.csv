@@ -1,2 +1,2 @@
 recordIndex,default-currency,accepted-currencies,strong-spam-words,strong-spam-threshold,weak-spam-words,weak-spam-threshold
-1,"EUR","EUR, GBP, USD", "sex, sexo, hard core, viagra, cialis", 0.10, "sexy, nigeria, you've won, has ganado, one million, un millon", 0.25
+0,"EUR","EUR, GBP, USD", "sex, sexo, hard core, viagra, cialis", 0.10, "sexy, nigeria, you've won, has ganado, one million, un millon", 0.25
