@@ -17,10 +17,14 @@ public class InventorToolkitController extends AbstractController<Inventor, Tool
 		@Autowired
 		protected InventorListToolkitsMineService	listToolkitsMineService;
 		
+		@Autowired
+		protected InventorShowToolkitService showToolkitService;
+		
 		// Constructors -----------------------------------------------------------
 
 		@PostConstruct
 		protected void initialise() {
 			super.addCommand("list-mine", "list", this.listToolkitsMineService);
+			super.addCommand("show", this.showToolkitService);
 		}
 }

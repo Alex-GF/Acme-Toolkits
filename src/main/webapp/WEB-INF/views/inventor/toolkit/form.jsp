@@ -12,7 +12,7 @@
 	<acme:input-textbox code="any.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
 	<acme:input-url code="any.toolkit.form.label.link" path="link"/>
 	
-	<acme:button code="any.toolkit.form.label.items" action="/any/quantity/list?toolkitId=${id}"/>
+	<acme:button code="any.toolkit.form.label.items" action="/inventor/quantity/list?toolkitId=${id}"/>
 	
 	<jstl:if test="${!readonly}">
 		<acme:input-checkbox code="any.toolkit.form.label.confirmation" path="confirmation"/>

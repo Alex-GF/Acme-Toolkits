@@ -1,4 +1,4 @@
-key,sourceCurrency,date,targetCurrency,rate
+key,source-currency,date,target-currency,rate
 currency-exchange-01,EUR,2022/04/12 10:17,USD,1.088126
 currency-exchange-02,EUR,2022/04/12 10:17,GBP,0.835266
 currency-exchange-03,USD,2022/04/12 10:17,EUR,0.919011

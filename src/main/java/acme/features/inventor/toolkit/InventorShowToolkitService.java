@@ -1,23 +1,19 @@
-package acme.features.any.toolkit;
-
-import java.util.Collection;
+package acme.features.inventor.toolkit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.datatypes.Money;
-import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
+import acme.roles.Inventor;
 
 @Service
-public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
-
+public class InventorShowToolkitService implements AbstractShowService<Inventor, Toolkit>{
+	
 	@Autowired
-	protected AnyToolkitRepository anyToolkitRepository;
+	protected InventorToolkitRepository inventorToolkitRepository;
 	
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
@@ -33,10 +29,7 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 		final Toolkit result;
 		
 		final int toolkitId = request.getModel().getInteger("id");
-		result = this.anyToolkitRepository.findToolkitById(toolkitId);
-		
-		final Money totalPrice = this.totalPriceOfToolktit(toolkitId);
-		result.setTotalPrice(totalPrice);
+		result = this.inventorToolkitRepository.findToolkitById(toolkitId);
 		
 		return result;
 	}
@@ -47,7 +40,7 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "assemblyNotes", "code", "totalPrice", "description", "published", "link");
+		request.unbind(entity, model, "title", "assemblyNotes", "code", "description", "published", "link");
 		model.setAttribute("readonly", true);
 		model.setAttribute("inventor.fullName", entity.getInventor().getIdentity().getFullName());
 		
@@ -55,12 +48,12 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 	
 	// Ancillary methods ------------------------------------------------------
 	
-	private Money totalPriceOfToolktit(final int toolkitId) {
+	/*private Money totalPriceOfToolktit(final int toolkitId) {
 		final Money result = new Money();
 		result.setAmount(0.0);
 		result.setCurrency("EUR");
 		
-		final Collection<Quantity> quantities = this.anyToolkitRepository.findAllQuantityByToolkitId(toolkitId);
+		final Collection<Quantity> quantities = this.inventorToolkitRepository.findAllQuantityByToolkitId(toolkitId);
 		
 		for(final Quantity q : quantities) {
 			final Money itemMoney = q.getItem().getRetailPrice();
@@ -74,6 +67,6 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 		}
 		
 		return result;
-	}
-
+	}*/
+	
 }
