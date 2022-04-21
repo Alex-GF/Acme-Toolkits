@@ -1,9 +1,9 @@
 key,title,creation-moment,critical-flag,body,link
 announcement-01,Nuevo Destornilllador,2022/04/10 17:00,true,Nuevo destronillador a la venta,https://www.leroymerlin.es/productos
-announcement-02,Nuevo Tornillo,2022/04/10 23:00,true,Un nuevo tipo de tornillos ha llegado,https://www.leroymerlin.es/productos
+announcement-02,Nuevo Tornillo,2022/04/10 23:00,true,Un nuevo tipo de tornillos ha llegado,null
 announcement-03,Nuevo Alicate,2022/04/11 06:45,false,Nuevo alicate multiusos para el hogar,https://www.leroymerlin.es/productos
 announcement-04,Nuevo tipo de brocas,2022/04/9 00:00,true,Nuevo tipo de brocas para tu taladro,https://www.leroymerlin.es/productos
-announcement-05,Oferta en clavos,2022/04/8 10:00,false,Los clavos más baratos ahora,https://www.leroymerlin.es/productos
+announcement-05,Oferta en clavos,2022/04/8 10:00,false,Los clavos más baratos ahora,null
 announcement-06,Oferta en arancelas,2022/04/8 11:00,false,LLevate tus arancelas casi gratis,https://www.leroymerlin.es/productos
 announcement-07,Oferta en tornillos,2019/04/7 12:00,true,Estamos regalando tornillitos,https://www.leroymerlin.es/productos
 announcement-08,Oferta en bridas,2019/05/15 18:30,false,"Orferta en nuestras bridas, muy utiles para todo",https://www.leroymerlin.es/productos
