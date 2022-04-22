@@ -12,12 +12,16 @@ import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
+import acme.utils.ChangeCurrencyLibrary;
 
 @Service
 public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 
 	@Autowired
 	protected AnyToolkitRepository anyToolkitRepository;
+	
+	@Autowired
+	protected ChangeCurrencyLibrary changeLibrary;
 	
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
@@ -56,9 +60,12 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 	// Ancillary methods ------------------------------------------------------
 	
 	private Money totalPriceOfToolktit(final int toolkitId) {
+		
+		final String defaultCurrency = this.anyToolkitRepository.findDefaultCurrency();
+		
 		final Money result = new Money();
 		result.setAmount(0.0);
-		result.setCurrency("EUR");
+		result.setCurrency(defaultCurrency);
 		
 		final Collection<Quantity> quantities = this.anyToolkitRepository.findAllQuantityByToolkitId(toolkitId);
 		
@@ -66,7 +73,13 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 			final Money itemMoney = q.getItem().getRetailPrice();
 			final Integer amountItem = q.getAmount();
 			
-			final Money itemMoneyExchanged = MoneyExchange.changeCurrency(itemMoney, "EUR", this.anyToolkitRepository);
+			Money itemMoneyExchanged;
+			
+			if(itemMoney.getCurrency().equals(defaultCurrency)) {
+				itemMoneyExchanged = itemMoney;
+			}else {
+				itemMoneyExchanged = this.changeLibrary.computeMoneyExchange(itemMoney,defaultCurrency).getTarget();
+			}
 			
 			final Double newAmount = result.getAmount() + itemMoneyExchanged.getAmount()*amountItem;
 			result.setAmount(newAmount);

@@ -10,6 +10,7 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
+import acme.utils.ChangeCurrencyLibrary;
 
 @Service
 public class InventorPatronageListMineService implements AbstractListService<Inventor, Patronage> {
@@ -17,6 +18,9 @@ public class InventorPatronageListMineService implements AbstractListService<Inv
 
 		@Autowired
 		protected InventorPatronageRepository repository;
+		
+		@Autowired
+		protected ChangeCurrencyLibrary changeLibrary;
 
 		@Override
 		public boolean authorise(final Request<Patronage> request) {
@@ -36,6 +40,10 @@ public class InventorPatronageListMineService implements AbstractListService<Inv
 			Collection<Patronage> result;
 
 			result = this.repository.findPatronagesByInventorId(request.getPrincipal().getAccountId());
+			
+			final String defaultCurrency = this.repository.findDefaultCurrency();
+			
+			result.stream().filter(p->!(p.getBudget().getCurrency().equals(defaultCurrency))).forEach(p->p.setBudget(this.changeLibrary.computeMoneyExchange(p.getBudget(), defaultCurrency).getTarget()));
 
 			return result;
 		}

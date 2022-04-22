@@ -8,6 +8,7 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
+import acme.utils.ChangeCurrencyLibrary;
 
 @Service
 public class AnyItemShowService implements AbstractShowService<Any,Item>{
@@ -16,6 +17,9 @@ public class AnyItemShowService implements AbstractShowService<Any,Item>{
 
 	@Autowired
 	protected AnyItemRepository anyComponentRepository;
+	
+	@Autowired
+	protected ChangeCurrencyLibrary changeLibrary;
 
 	// AbstractShowService<Authenticated, Item> interface ---------------------------
 
@@ -36,6 +40,12 @@ public class AnyItemShowService implements AbstractShowService<Any,Item>{
 
 		id = request.getModel().getInteger("id");
 		result = this.anyComponentRepository.getItemById(id);
+		
+		final String defaultCurrency = this.anyComponentRepository.findDefaultCurrency();
+		
+		if(!(result.getRetailPrice().getCurrency().equals(defaultCurrency))) {
+			result.setRetailPrice(this.changeLibrary.computeMoneyExchange(result.getRetailPrice(), defaultCurrency).getTarget());
+		}
 
 		return result;
 	}
