@@ -83,4 +83,3 @@ master.menu.user-account.become-consumer = Become a consumer
 master.menu.authenticated.announcements = List the announcement
 master.menu.authenticated.chirps = List the chirps 
 master.menu.anonymous.chirps = List the chirps
-master.menu.administrator.dashboard = List administrator dashboard

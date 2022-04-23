@@ -14,8 +14,8 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AdministratorDashboardRepository extends AbstractRepository{
 	
-
-	
+	@Query("SELECT c.acceptedCurrencies FROM Configuration c")
+	String getAcceptedCurrencies();
 	
 	@Query("SELECT COUNT(i) FROM Item i WHERE i.type = acme.entities.item.ItemType.COMPONENT")
 	Integer numberOfComponents();
@@ -61,5 +61,6 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 	
 	@Query("SELECT MAX(p.budget.amount) FROM Patronage p WHERE p.status = :status")
 	Double maxBudgetOfPatronagesByStatus(Status status);
+	
 }
 
