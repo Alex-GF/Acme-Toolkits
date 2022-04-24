@@ -34,7 +34,7 @@ master.menu.authenticated.money-exchange.perform = Cambio de dinero
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
-master.menu.administrator.dashboard = Panel de indicadores
+master.menu.administrator.dashboard = Panel
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.configuration = Configuración del sistema
 master.menu.administrator.populate-initial = Poblar BD (inicial)
@@ -83,4 +83,3 @@ master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.authenticated.announcements = Listar los anuncios 
 master.menu.authenticated.chirps = Listar los chirps 
 master.menu.anonymous.chirps = Listar los chirps
-master.menu.administrator.dashboard = Listar el panel del administrador

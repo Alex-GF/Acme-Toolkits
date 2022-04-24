@@ -1,15 +1,16 @@
 # i18n-en.i18n
 
+administrator.dashboard.form.title = Administrator dashsboard
 administrator.dashboard.form.label.number-of-components = Number of components 
 administrator.dashboard.form.label.average-retail-price-of-components-by-technology-and-currency = Average retail price of components by technology and currency  
 administrator.dashboard.form.label.deviation-retail-price-of-components-by-technology-and-currency = Deviation retail price of components by technology and currency 
 administrator.dashboard.form.label.min-retail-price-of-components-by-technology-and-currency = Minimum retail price of components by technology and currency 
 administrator.dashboard.form.label.max-retail-price-of-components-by-technology-and-currency = Maximum retail price of components by technology and currency 
 administrator.dashboard.form.label.number-of-tools = Number of tools
-administrator.dashboard.form.label.average-retail-price-of-tool-by-currency = Average retail price of tools by currency
-administrator.dashboard.form.label.deviation-retail-price-of-tool-by-currency = Deviation retail price of tools by currency
-administrator.dashboard.form.label.min-retail-price-of-tool-by-currency = Minimum retail price of tools by currency
-administrator.dashboard.form.label.max-retail-price-of-tool-by-currency = Maximum retail price of tools by currency
+administrator.dashboard.form.label.average-retail-price-of-tools-by-currency = Average retail price of tools by currency
+administrator.dashboard.form.label.deviation-retail-price-of-tools-by-currency = Deviation retail price of tools by currency
+administrator.dashboard.form.label.min-retail-price-of-tools-by-currency = Minimum retail price of tools by currency
+administrator.dashboard.form.label.max-retail-price-of-tools-by-currency = Maximum retail price of tools by currency
 administrator.dashboard.form.label.number-of-patronages-by-status = Number of patronages by status
 administrator.dashboard.form.label.average-budget-of-patronages-by-status = Average budget of patronages by status 
 administrator.dashboard.form.label.deviation-budget-of-patronages-by-status = Deviation budget of patronages by status
