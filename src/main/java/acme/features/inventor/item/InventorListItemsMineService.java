@@ -10,14 +10,18 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
+import acme.utils.ChangeCurrencyLibrary;
 
 @Service
-public class InventorListToolsMineService implements AbstractListService<Inventor, Item>{
+public class InventorListItemsMineService implements AbstractListService<Inventor, Item>{
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected InventorItemRepository repository;
+	
+	@Autowired
+	protected ChangeCurrencyLibrary changeLibrary;
 
 	// AbstractListService<Inventor, Quantity> interface ---------------------------
 
@@ -49,7 +53,11 @@ public class InventorListToolsMineService implements AbstractListService<Invento
 
 		Collection<Item> result;
 
-		result = this.repository.findToolsByInventorId(request.getPrincipal().getAccountId());
+		result = this.repository.findItemsByInventorId(request.getPrincipal().getAccountId());
+		
+		final String defaultCurrency = this.repository.findDefaultCurrency();
+		
+		result.stream().filter(p->!(p.getRetailPrice().getCurrency().equals(defaultCurrency))).forEach(p->p.setRetailPrice(this.changeLibrary.computeMoneyExchange(p.getRetailPrice(), defaultCurrency).getTarget()));
 
 		return result;
 	}

@@ -60,8 +60,7 @@ master.menu.patron.patronageReport.list = Patronage report list
 # master.menu.inventor ##########################################################
 
 master.menu.inventor = Inventor
-master.menu.inventor.item.components.mine = My Components
-master.menu.inventor.item.tools.mine = My Tools
+master.menu.inventor.item.mine = My Items
 master.menu.inventor.toolkits.mine = My Toolkits
 
 

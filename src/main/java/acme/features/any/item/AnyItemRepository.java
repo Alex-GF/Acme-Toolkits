@@ -20,4 +20,6 @@ public interface AnyItemRepository extends AbstractRepository{
 	@Query("SELECT q.item FROM Quantity q WHERE q.toolkit.id = :toolkitId")
 	Collection<Item> findAllItemByToolkitId(int toolkitId);
 	
+	@Query("SELECT c.defaultCurrency FROM Configuration c")
+	String findDefaultCurrency();
 }

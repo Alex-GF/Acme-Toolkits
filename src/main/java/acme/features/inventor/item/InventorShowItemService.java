@@ -8,6 +8,7 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
+import acme.utils.ChangeCurrencyLibrary;
 
 @Service
 public class InventorShowItemService implements AbstractShowService<Inventor,Item> {
@@ -16,6 +17,9 @@ public class InventorShowItemService implements AbstractShowService<Inventor,Ite
 
 	@Autowired
 	protected InventorItemRepository inventorItemRepository;
+	
+	@Autowired
+	protected ChangeCurrencyLibrary changeLibrary;
 
 	// AbstractShowService<Authenticated, Item> interface ---------------------------
 
@@ -40,6 +44,12 @@ public class InventorShowItemService implements AbstractShowService<Inventor,Ite
 
 		itemId = request.getModel().getInteger("id");
 		result = this.inventorItemRepository.findItemById(request.getPrincipal().getAccountId(), itemId);
+		
+		final String defaultCurrency = this.inventorItemRepository.findDefaultCurrency();
+		
+		if(!(result.getRetailPrice().getCurrency().equals(defaultCurrency))){
+			result.setRetailPrice(this.changeLibrary.computeMoneyExchange(result.getRetailPrice(), defaultCurrency).getTarget());
+		}
 
 		return result;
 	}

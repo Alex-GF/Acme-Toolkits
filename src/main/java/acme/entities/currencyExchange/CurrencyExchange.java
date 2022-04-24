@@ -39,9 +39,8 @@ public class CurrencyExchange extends AbstractEntity{
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date date;
 	
-	@NotNull
 	@Positive
-	protected Double rate;
+	protected double rate;
 	
 	// Derived attributes -----------------------------------------------------
 

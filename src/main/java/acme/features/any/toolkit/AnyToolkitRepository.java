@@ -31,4 +31,7 @@ public interface AnyToolkitRepository extends AbstractRepository{
 	@Query("SELECT DISTINCT(q.toolkit) FROM Quantity q WHERE q.item.id = :itemId AND q.toolkit.published = true")
 	Collection<Toolkit> findAllToolkitByItemId(int itemId);
 	
+	@Query("SELECT c.defaultCurrency FROM Configuration c")
+	String findDefaultCurrency();
+	
 }
