@@ -21,7 +21,7 @@ public class PatronPatronageListMineTest extends TestHarness{
 
 		super.clickOnMenu("Patron", "Patronage list");
 		super.checkListingExists();
-		super.sortListing(3, "asc");
+		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, budget);
 		super.checkColumnHasValue(recordIndex, 2, creationMoment);
@@ -39,7 +39,7 @@ public class PatronPatronageListMineTest extends TestHarness{
 		super.checkInputBoxHasValue("finishDate", finishDate);
 		super.checkInputBoxHasValue("link", link);
 		
-		super.clickOnButton("Patron");
+		super.clickOnButton("Inventor");
 		super.checkFormExists();
 		super.checkInputBoxHasValue("identity.name", name);
 		super.checkInputBoxHasValue("identity.surname", surname);

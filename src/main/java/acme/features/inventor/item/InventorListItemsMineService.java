@@ -57,7 +57,9 @@ public class InventorListItemsMineService implements AbstractListService<Invento
 		
 		final String defaultCurrency = this.repository.findDefaultCurrency();
 		
-		result.stream().filter(p->!(p.getRetailPrice().getCurrency().equals(defaultCurrency))).forEach(p->p.setRetailPrice(this.changeLibrary.computeMoneyExchange(p.getRetailPrice(), defaultCurrency).getTarget()));
+		result.stream()
+			.filter(p->!(p.getRetailPrice().getCurrency().equals(defaultCurrency)))
+			.forEach(p->p.setRetailPrice(this.changeLibrary.computeMoneyExchange(p.getRetailPrice(), defaultCurrency).getTarget()));
 
 		return result;
 	}

@@ -1,5 +1,5 @@
 recordIndex,code,title,totalPrice,description,assembly-notes,link,inventor
 0,ABC-123-A,Sample-Toolkit-01,"EUR 42.68",Sample-Description-01,Sample-AssemblyNotes-01,http://sample-link-01.com, "Navarro, Alberto"
 1,DEF-456,Sample-Toolkit-02,"EUR 3.20",Sample-Description-02,Sample-AssemblyNotes-02,http://sample-link-02.com, "Navarro, Alberto"
-2,GHI-789-C,Sample-Toolkit-03,"EUR 43.37",Sample-Description-03,Sample-AssemblyNotes-03,http://sample-link-03.com, "Navarro, Alberto"
+2,GHI-789-C,Sample-Toolkit-03,"EUR 43.40",Sample-Description-03,Sample-AssemblyNotes-03,http://sample-link-03.com, "Navarro, Alberto"
 3,JKL-012,Sample-Toolkit-04,"EUR 20.19",Sample-Description-04,Sample-AssemblyNotes-04,http://sample-link-04.com, "Martín, Javier"

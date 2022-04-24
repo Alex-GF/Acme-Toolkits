@@ -1,7 +1,7 @@
 recordIndex,type,name,code,technology,description,retail_price,link,inventor
 0,COMPONENT,Espiche,STU-901,RYOBI,"Estaca pequeña que sirve para cerrar un agujero, como las que se colocan en las cubas para que no salga el líquido o en los botes para que no se aneguen",EUR 0.40,https://www.leroymerlin.es/productos,"Martín, Javier"
 1,COMPONENT,Brocas,PQR-678-F,Black+Decker,Barrena de boca cónica que se usa con las máquinas de taladrar.,EUR 6.20,https://www.leroymerlin.es/productos,"Navarro, Alberto"
-2,TOOL,LLave inglesa,PQR-678,Black+Decker,Herramienta que sirve para apretar o aflojar tuercas.,EUR 12.99,https://www.leroymerlin.es/productos,"Martín, Javier"
+2,TOOL,Llave inglesa,PQR-678,Black+Decker,Herramienta que sirve para apretar o aflojar tuercas.,EUR 12.99,https://www.leroymerlin.es/productos,"Martín, Javier"
 3,TOOL,Taladro,MNO-345-E,Mannesmann,Herramienta aguda o cortante con que se agujerea la madera u otra cosa,EUR 21.30,https://www.leroymerlin.es/productos,"Navarro, Alberto"
 4,COMPONENT,Bridas,MNO-345,Mannesmann,"Tira dentada de plástico o de metal, no retráctil una vez enganchada, que permite atar, unir o inmovilizar.",EUR 1.30,https://www.leroymerlin.es/productos,"Martín, Javier"
 5,COMPONENT,Tuercas,JKL-012-D,DeWalt,Pieza con un hueco labrado en espiral que ajusta exactamente en el filete de un tornillo,EUR 0.07,https://www.leroymerlin.es/productos,"Navarro, Alberto"

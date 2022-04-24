@@ -64,7 +64,7 @@ public class ChangeCurrencyLibrary {
 			targetAmount = rate * sourceAmount;
 
 			target = new Money();
-			target.setAmount(targetAmount);
+			target.setAmount(Double.parseDouble(String.format("%.2f", targetAmount)));
 			target.setCurrency(targetCurrency);
 
 			result = new MoneyExchange();
