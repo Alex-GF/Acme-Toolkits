@@ -1,4 +1,3 @@
 record-index,status,code,legal-stuff,budget,creation-moment,start-date,finish-date,link,name,surname,email,role-list
-0,DENIED,ASP-857-E,"Legal stuff 6","EUR 2,264.54","2020/09/19 01:11","2025/12/11 01:11","2030/12/11 01:11",,"Elon","Musk","elon.musk@acme.com","Patron"
-1,DENIED,ZED-245,"Legal stuff 7","EUR 1,888.04","2020/04/20 01:11","2025/12/11 01:11","2030/12/11 01:11",https://www.example5.com,"Elon","Musk","elon.musk@acme.com","Patron"
-2,PROPOSED,DHV-538-E,"Legal stuff 1","EUR 1,000.34","2020/11/01 01:11","2020/12/01 01:11","2021/01/01 01:11",https://www.example1.com,"Bill","Gates","bill.gates@acme.com","Patron"
+1,ACCEPTED,DAD-797,"Legal stuff 4","EUR 1,894.34","2020/04/08 01:11","2020/12/11 01:11","2030/12/11 01:11".Javier,Martin,null,Inventor
+2

@@ -11,15 +11,15 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AnyItemRepository extends AbstractRepository{
 	
-	@Query("SELECT i FROM Item i")
+	@Query("select i from Item i where i.published = true")
 	Collection<Item> findAllItem();
 	
-	@Query("SELECT i FROM Item i WHERE i.id = :itemId")
+	@Query("select i from Item i where i.id = :itemId")
 	Item getItemById(int itemId);
 	
-	@Query("SELECT q.item FROM Quantity q WHERE q.toolkit.id = :toolkitId")
+	@Query("select q.item from Quantity q where q.toolkit.id = :toolkitId")
 	Collection<Item> findAllItemByToolkitId(int toolkitId);
 	
-	@Query("SELECT c.defaultCurrency FROM Configuration c")
+	@Query("select c.defaultCurrency from Configuration c")
 	String findDefaultCurrency();
 }

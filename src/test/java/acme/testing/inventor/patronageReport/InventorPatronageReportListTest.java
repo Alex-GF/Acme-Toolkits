@@ -11,7 +11,7 @@ public class InventorPatronageReportListTest extends TestHarness{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/patronageReport/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positive(final int recordIndex, final String memorandum, final String creationMoment, final String automaticSequenceNumber, final String link){
+	public void positive(final int recordIndex, final String memorandum, final String creationMoment, final String automaticSequenceNumber, final String patronage){
 		
 		super.signIn("inventor1", "inventor1");
 
@@ -21,7 +21,7 @@ public class InventorPatronageReportListTest extends TestHarness{
 		super.checkColumnHasValue(recordIndex, 0, creationMoment);
 		super.checkColumnHasValue(recordIndex, 1, memorandum);
 		super.checkColumnHasValue(recordIndex, 2, automaticSequenceNumber);
-		super.checkColumnHasValue(recordIndex, 3, link);
+		super.checkColumnHasValue(recordIndex, 3, patronage);
 		
 		
 		super.clickOnListingRecord(recordIndex);
@@ -29,7 +29,8 @@ public class InventorPatronageReportListTest extends TestHarness{
 		super.checkInputBoxHasValue("creationMoment", creationMoment);
 		super.checkInputBoxHasValue("memorandum", memorandum);
 		super.checkInputBoxHasValue("automaticSequenceNumber", automaticSequenceNumber);
-		super.checkInputBoxHasValue("link", link);
+		
+		super.checkButtonExists("Patronage");
 		
 		super.signOut();
 		

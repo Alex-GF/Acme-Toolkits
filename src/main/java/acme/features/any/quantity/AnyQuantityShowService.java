@@ -8,12 +8,17 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
+import acme.utils.ChangeCurrencyLibrary;
 
 @Service
 public class AnyQuantityShowService implements AbstractShowService<Any, Quantity>{
 
 	@Autowired
 	protected AnyQuantityRepository anyQuantityRepository;
+	
+	@Autowired
+	protected ChangeCurrencyLibrary changeLibrary;
+	
 	
 	@Override
 	public boolean authorise(final Request<Quantity> request) {
@@ -33,6 +38,10 @@ public class AnyQuantityShowService implements AbstractShowService<Any, Quantity
 		id = request.getModel().getInteger("id");
 		
 		result = this.anyQuantityRepository.findQuantityById(id);
+		
+		final String defaultCurrency = this.anyQuantityRepository.findDefaultCurrency();
+		
+		result.getItem().setRetailPrice(this.changeLibrary.computeMoneyExchange(result.getItem().getRetailPrice(), defaultCurrency).getTarget());
 		
 		return result;
 	}

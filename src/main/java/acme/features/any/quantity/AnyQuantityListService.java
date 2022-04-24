@@ -10,12 +10,16 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
+import acme.utils.ChangeCurrencyLibrary;
 
 @Service
 public class AnyQuantityListService implements AbstractListService<Any, Quantity>{
 
 	@Autowired
 	protected AnyQuantityRepository anyQuantityRepository;
+	
+	@Autowired
+	protected ChangeCurrencyLibrary changeLibrary;
 	
 	@Override
 	public boolean authorise(final Request<Quantity> request) {
@@ -35,6 +39,11 @@ public class AnyQuantityListService implements AbstractListService<Any, Quantity
 		id = request.getModel().getInteger("toolkitId");
 		result = this.anyQuantityRepository.findAllQuantityByToolkitId(id);
 		
+		final String defaultCurrency = this.anyQuantityRepository.findDefaultCurrency();
+		
+		result.stream()
+		.filter(p->!(p.getItem().getRetailPrice().getCurrency().equals(defaultCurrency)))
+		.forEach(p->p.getItem().setRetailPrice(this.changeLibrary.computeMoneyExchange(p.getItem().getRetailPrice(), defaultCurrency).getTarget()));
 		
 		
 		return result;
