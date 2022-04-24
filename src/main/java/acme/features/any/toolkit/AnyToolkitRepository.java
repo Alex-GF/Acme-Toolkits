@@ -16,7 +16,7 @@ public interface AnyToolkitRepository extends AbstractRepository{
 	@Query("SELECT q FROM Quantity q WHERE q.toolkit.published = true")
 	Collection<Quantity> findAllQuantity();
 	
-	@Query("SELECT q.toolkit FROM Quantity q WHERE q.toolkit.published = true")
+	@Query("SELECT DISTINCT(q.toolkit) FROM Quantity q WHERE q.toolkit.published = true")
 	Collection<Toolkit> findAllToolkit();
 	
 	@Query("SELECT c FROM CurrencyExchange c WHERE c.sourceCurrency = :sourceCurrency and c.targetCurrency = :targetCurrency")

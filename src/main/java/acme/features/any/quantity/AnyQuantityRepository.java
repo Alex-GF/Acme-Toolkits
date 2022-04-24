@@ -16,4 +16,7 @@ public interface AnyQuantityRepository extends AbstractRepository{
 	
 	@Query("SELECT q FROM Quantity q WHERE q.id = :id")
 	Quantity findQuantityById(int id);
+	
+	@Query("SELECT c.defaultCurrency FROM Configuration c")
+	String findDefaultCurrency();
 }

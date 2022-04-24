@@ -28,7 +28,7 @@ public class AuthenticatedAnnouncementListRecentService implements AbstractListS
 	@Override
 	public boolean authorise(final Request<Announcement> request) {
 		assert request != null;
-		return true;
+		return request.getPrincipal().isAuthenticated();
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class AuthenticatedAnnouncementListRecentService implements AbstractListS
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "creationMoment", "title", "body","criticalFlag","link");
+		request.unbind(entity, model, "creationMoment", "title","criticalFlag");
 		
 	}
 

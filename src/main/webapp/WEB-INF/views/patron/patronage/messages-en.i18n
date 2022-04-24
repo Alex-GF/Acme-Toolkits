@@ -2,12 +2,8 @@
 #
 patron.patronage.list.label.status = Status
 patron.patronage.list.label.code = Code
-patron.patronage.list.label.legalStuff = Legal Stuff
 patron.patronage.list.label.budget = Budget
 patron.patronage.list.label.creationMoment = Creation Moment
-patron.patronage.list.label.startDate = Start Date
-patron.patronage.list.label.finishDate = Finish Date
-patron.patronage.list.label.link = Link
 
 user-account.form.label.inventor = Inventor
 

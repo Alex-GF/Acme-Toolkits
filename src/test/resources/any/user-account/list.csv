@@ -1,0 +1,5 @@
+record-index,name,surname,email,role-List,role-show
+0,"Alberto","Navarro","alberto.navarro@acme.com","Inventor","Inventor"
+1,"Bill","Gates","bill.gates@acme.com","Patron, Inventor","Inventor, Patron"
+2,"Elon","Musk","elon.musk@acme.com","Patron","Patron"
+3,"Javier","Martín","javier.martin@acme.com","Inventor","Inventor"

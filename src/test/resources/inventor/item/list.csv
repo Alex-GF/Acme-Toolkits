@@ -1,0 +1,8 @@
+recordIndex,type,name,code,technology,description,retail-price,link
+0,TOOL,Destornillador,ABC-123-A,Bosch,Instrumento de hierro u otra materia que sirve para destornillar y atornillar.,EUR 7.10,https://www.leroymerlin.es/productos
+1,COMPONENT,Tornillo,DEF-456-B,Makita,"Pieza cilíndrica o cónica, por lo general metálica, con resalte en hélice y cabeza apropiada para enroscarla.",EUR 0.20,https://www.leroymerlin.es/productos
+2,TOOL,Alicates,GHI-789-C,Einhell,"Tenaza pequeña de acero con brazos encorvados y puntas cuadrangulares o de forma de cono truncado, y que sirve para coger y sujetar objetos menudos o para torcer alambres, chapitas delgadas o cosas parecidas.",EUR 14.28,https://www.leroymerlin.es/productos
+3,COMPONENT,Tuercas,JKL-012-D,DeWalt,Pieza con un hueco labrado en espiral que ajusta exactamente en el filete de un tornillo,EUR 0.07,https://www.leroymerlin.es/productos
+4,TOOL,Taladro,MNO-345-E,Mannesmann,Herramienta aguda o cortante con que se agujerea la madera u otra cosa,EUR 21.30,https://www.leroymerlin.es/productos
+5,COMPONENT,Brocas,PQR-678-F,Black+Decker,Barrena de boca cónica que se usa con las máquinas de taladrar.,EUR 6.20,https://www.leroymerlin.es/productos
+6,TOOL,Sierra,STU-901-G,RYOBI,"Herramienta para cortar madera, piedra u otros objetos duros, que generalmente consiste en una hoja de acero dentada sujeta a una empuñadura, bastidor o armazón",EUR 9.40,https://www.leroymerlin.es/productos

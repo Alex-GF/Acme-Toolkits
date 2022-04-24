@@ -43,7 +43,7 @@ public class InventorListItemsMineService implements AbstractListService<Invento
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "link");
+		request.unbind(entity, model, "name", "code", "technology", "retailPrice", "type");
 		
 	}
 
@@ -57,7 +57,9 @@ public class InventorListItemsMineService implements AbstractListService<Invento
 		
 		final String defaultCurrency = this.repository.findDefaultCurrency();
 		
-		result.stream().filter(p->!(p.getRetailPrice().getCurrency().equals(defaultCurrency))).forEach(p->p.setRetailPrice(this.changeLibrary.computeMoneyExchange(p.getRetailPrice(), defaultCurrency).getTarget()));
+		result.stream()
+			.filter(p->!(p.getRetailPrice().getCurrency().equals(defaultCurrency)))
+			.forEach(p->p.setRetailPrice(this.changeLibrary.computeMoneyExchange(p.getRetailPrice(), defaultCurrency).getTarget()));
 
 		return result;
 	}

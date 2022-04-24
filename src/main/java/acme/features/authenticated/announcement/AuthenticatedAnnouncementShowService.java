@@ -52,7 +52,7 @@ public class AuthenticatedAnnouncementShowService implements AbstractShowService
 
 		id = request.getModel().getInteger("id");
 		result = this.authenticatedAnnouncementRepository.getAnnouncementById(id);
-
+		
 		return result;
 	}
 
