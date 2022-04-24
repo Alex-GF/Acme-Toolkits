@@ -3,10 +3,11 @@
 
 inventor.patronageReport.list.label.creationMoment= Creation Moment
 inventor.patronageReport.list.label.memorandum= Memorandum
-inventor.patronageReport.list.label.link=Link
+inventor.patronageReport.list.label.patronage=Patronage
 inventor.patronageReport.list.label.automaticSequenceNumber= Automatic Sequence Number
 
 inventor.patronageReport.form.label.creationMoment= Creation Moment
 inventor.patronageReport.form.label.memorandum= Memorandum
 inventor.patronageReport.form.label.link=Link
+inventor.patronageReport.form.label.patronage=Patronage
 inventor.patronageReport.form.label.automaticSequenceNumber= Automatic Sequence Number

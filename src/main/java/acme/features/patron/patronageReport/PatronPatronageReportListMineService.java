@@ -54,7 +54,7 @@ public class PatronPatronageReportListMineService implements AbstractListService
         assert entity != null;
         assert model != null;
 
-        request.unbind(entity, model, "creationMoment", "memorandum", "link", "automaticSequenceNumber");
+        request.unbind(entity, model, "creationMoment", "memorandum", "patronage.code", "automaticSequenceNumber");
 		
 	}
 

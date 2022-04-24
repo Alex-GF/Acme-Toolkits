@@ -9,6 +9,7 @@
 	<acme:input-textbox code="patron.patronageReport.form.label.automaticSequenceNumber" path="automaticSequenceNumber" />
 	<acme:input-url code="patron.patronageReport.form.label.link" path="link" />
 	
+	<acme:button code="patron.patronageReport.form.label.patronage" action="/patron/patronage/show?id=${patronage.id}"/>
 	
 	<jstl:if test="${!readonly}">
 		<acme:input-checkbox code="patron.patronageReport.form.label.confirmation" path="confirmation"/>

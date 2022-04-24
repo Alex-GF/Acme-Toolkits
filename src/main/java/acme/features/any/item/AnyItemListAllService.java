@@ -38,7 +38,8 @@ public class AnyItemListAllService implements AbstractListService<Any, Item>{
 		
 		final String defaultCurrency = this.anyItemRepository.findDefaultCurrency();
 		
-		result.stream().filter(p-> !(p.getRetailPrice().getCurrency().equals(defaultCurrency))).forEach(p -> p.setRetailPrice(this.changeLibrary.computeMoneyExchange(p.getRetailPrice(), defaultCurrency).getTarget()));
+		result.stream().filter(p-> !(p.getRetailPrice().getCurrency().equals(defaultCurrency)))
+						.forEach(p -> p.setRetailPrice(this.changeLibrary.computeMoneyExchange(p.getRetailPrice(), defaultCurrency).getTarget()));
 		
 		return result;
 	}

@@ -2,10 +2,11 @@
 
 inventor.patronageReport.list.label.creationMoment=Momento de creación
 inventor.patronageReport.list.label.memorandum=Memoria
-inventor.patronageReport.list.label.link=Link
+inventor.patronageReport.list.label.patronage=Patrocinio
 inventor.patronageReport.list.label.automaticSequenceNumber=Número de secuencia automático
 
 inventor.patronageReport.form.label.creationMoment=Momento de creación
 inventor.patronageReport.form.label.memorandum=Memoria
 inventor.patronageReport.form.label.link=Link
+inventor.patronageReport.form.label.patronage=Patrocinio
 inventor.patronageReport.form.label.automaticSequenceNumber=Número de secuencia automático

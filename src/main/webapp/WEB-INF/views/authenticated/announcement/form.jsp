@@ -6,7 +6,7 @@
 <acme:form readonly="${readonly}">
 	<acme:input-textbox code="authenticated.announcement.form.label.creationMoment" path="creationMoment"/>	
 	<acme:input-textbox code="authenticated.announcement.form.label.title" path="title"/>
-	<acme:input-textbox code="authenticated.announcement.form.label.body" path="body"/>
+	<acme:input-textarea code="authenticated.announcement.form.label.body" path="body"/>
 	<acme:input-textbox code="authenticated.announcement.form.label.criticalFlag" path="criticalFlag"/>
 	<acme:input-url code="authenticated.announcement.form.label.link" path="link"/>
 	
