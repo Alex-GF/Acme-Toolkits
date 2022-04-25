@@ -27,7 +27,7 @@ Announcement
       <x>351</x>
       <y>153</y>
       <w>504</w>
-      <h>162</h>
+      <h>171</h>
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Entity&gt;&gt;
@@ -40,6 +40,7 @@ Item
 + technology: String {NotBlank, Length(1,100)}
 + description: String {NotBlank, Length(1,255)}
 + retailPrice: Money {NotNull}
++ published: boolean
 + link: String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
@@ -182,7 +183,7 @@ Toolkit
 + title: String {NotBlank, Legnth(1, 100)}
 + description: String {NotBlank, Length(1,255)}
 + assemblyNotes: String {NotBlank, Length(1,255)}
-+ isDraft: boolean
++ published: boolean
 + link: String {URL}
 
 + / totalPrice: Money {Transient}</panel_attributes>
@@ -741,15 +742,15 @@ bg=pink</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>513</x>
-      <y>306</y>
-      <w>612</w>
-      <h>459</h>
+      <y>315</y>
+      <w>603</w>
+      <h>450</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 inventedBy v
 m1=1
 m2=0..*</panel_attributes>
-    <additional_attributes>420.0;480.0;570.0;480.0;570.0;100.0;10.0;100.0;10.0;10.0</additional_attributes>
+    <additional_attributes>420.0;470.0;570.0;470.0;570.0;90.0;10.0;90.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
