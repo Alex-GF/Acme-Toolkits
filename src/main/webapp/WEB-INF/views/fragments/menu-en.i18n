@@ -35,6 +35,7 @@ master.menu.authenticated.money-exchange.perform = Money exchange
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.announcement = Create an announcement
 master.menu.administrator.configuration = System configuration
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
@@ -52,11 +53,6 @@ master.menu.patron.patronageReport.list = Patronage report list
 master.menu.inventor = Inventor
 master.menu.inventor.item.mine = My Items
 master.menu.inventor.toolkits.mine = My Toolkits
-
-
-# master.menu.inventor #######################################################
-
-master.menu.inventor =Inventor
 master.menu.inventor.patronage.list = Patronage list
 master.menu.inventor.patronageReport.list = Patronage report list
 
@@ -64,10 +60,10 @@ master.menu.inventor.patronageReport.list = Patronage report list
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
-master.menu.user-account.provider = Provider data
-master.menu.user-account.become-provider = Become a provider
-master.menu.user-account.consumer = Consumer data
-master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.patron = Patron data
+master.menu.user-account.become-patron = Become a patron
+master.menu.user-account.inventor = Inventor data
+master.menu.user-account.become-inventor = Become an inventor
 
 # master.menu.announcements ##########################################
 master.menu.authenticated.announcements = List the announcements

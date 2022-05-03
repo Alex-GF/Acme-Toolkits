@@ -250,6 +250,13 @@
 			<artifactId>opencsv</artifactId>
 			<version>5.4</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/net.moznion/random-string -->
+		<dependency>
+		    <groupId>net.moznion</groupId>
+		    <artifactId>random-string</artifactId>
+		    <version>1.1.0</version>
+		</dependency>
 
 	</dependencies>
 
