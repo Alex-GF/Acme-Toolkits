@@ -43,7 +43,7 @@ public class InventorShowItemService implements AbstractShowService<Inventor,Ite
 		final int itemId;
 
 		itemId = request.getModel().getInteger("id");
-		result = this.inventorItemRepository.findItemById(request.getPrincipal().getAccountId(), itemId);
+		result = this.inventorItemRepository.findItemByInventorAndItemId(request.getPrincipal().getAccountId(), itemId);
 		
 		final String defaultCurrency = this.inventorItemRepository.findDefaultCurrency();
 		
@@ -60,6 +60,6 @@ public class InventorShowItemService implements AbstractShowService<Inventor,Ite
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "name", "technology", "code", "retailPrice", "description", "link", "type");
+		request.unbind(entity, model, "name", "technology", "code", "retailPrice", "description", "link", "type", "published");
 	}
 }
