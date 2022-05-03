@@ -61,10 +61,10 @@ master.menu.inventor.patronageReport.list = Lista de informes de mis patrocinios
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
-master.menu.user-account.provider = Datos de proveedor
-master.menu.user-account.become-provider = Hazte proveedor
-master.menu.user-account.consumer = Datos de consumidor
-master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.patron = Datos de patrón
+master.menu.user-account.become-patron = Hazte patrón
+master.menu.user-account.inventor = Datos de inventor
+master.menu.user-account.become-inventor = Hazte inventor
 
 # master.menuse.announcements #############################################################
 master.menu.authenticated.announcements = Listar los anuncios 

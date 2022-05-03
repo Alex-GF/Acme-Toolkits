@@ -4,3 +4,11 @@ inventor.item.list.label.technology=Technology
 inventor.item.list.label.description=Description
 inventor.item.list.label.retail-price=Price
 inventor.item.list.label.type=Item type
+inventor.item.list.label.publish = Published
+inventor.item.list.button.create = Create
+
+inventor.item.form.button.update = Update
+inventor.item.form.button.delete = Delete
+inventor.item.form.button.create = Create
+inventor.item.form.button.publish = Publish
+inventor.item.form.error.acceptedCurrency = Currency not accepted
