@@ -15,3 +15,13 @@ patron.patronage.form.label.creationMoment=Momento de creación
 patron.patronage.form.label.startDate=Fecha de inicio
 patron.patronage.form.label.finishDate=Fecha de finalización
 patron.patronage.form.label.link=Link
+patron.patronage.form.label.published = Publicado
+patron.patronage.form.label.inventor = Inventor
+
+patron.patronage.form.button.update = Actualizar
+patron.patronage.form.button.delete = Eliminar
+patron.patronage.form.button.publish = Publicar
+patron.patronage.form.button.create = Crear
+
+
+patron.patronage.list.button.create = Crear
