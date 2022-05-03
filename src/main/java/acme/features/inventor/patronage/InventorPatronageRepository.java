@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.patronage.Patronage;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Patron;
 
 
 @Repository
@@ -24,5 +25,8 @@ public interface InventorPatronageRepository extends AbstractRepository{
 	
 	@Query("SELECT c.acceptedCurrencies FROM Configuration c")
 	List<String> findAcceptedCurrencies();
+
+	@Query("SELECT p.patron FROM Patronage p WHERE p.id = :patronageId")
+	Patron getPatronByPatronageId(Integer patronageId);
 
 }
