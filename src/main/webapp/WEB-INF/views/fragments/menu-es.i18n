@@ -36,6 +36,7 @@ master.menu.authenticated.money-exchange.perform = Cambio de dinero
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel
 master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.announcement = Crea un anuncio
 master.menu.administrator.configuration = Configuración del sistema
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
