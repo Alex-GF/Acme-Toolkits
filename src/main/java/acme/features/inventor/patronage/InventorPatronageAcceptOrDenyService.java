@@ -51,7 +51,7 @@ public class InventorPatronageAcceptOrDenyService implements AbstractUpdateServi
 			assert entity != null;
 			assert errors != null;
 
-			request.bind(entity, errors, "status", "code", "legalStuff", "budget", "creationMoment", "startDate", "finishDate", "link", "patron");
+			request.bind(entity, errors, "status", "code", "legalStuff", "budget", "creationMoment", "startDate", "finishDate", "link");
 			
 		}
 
@@ -84,7 +84,7 @@ public class InventorPatronageAcceptOrDenyService implements AbstractUpdateServi
 			assert request != null;
 			assert entity != null;
 
-			entity.setPatron(this.repository.getPatronByPatronageId(request.getModel().getInteger("id")));
+			//entity.setPatron(this.repository.getPatronByPatronageId(request.getModel().getInteger("id")));
 			this.repository.save(entity);
 			
 		}

@@ -3,7 +3,7 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
-<acme:form >
+<acme:form readonly="${readonly}" >
 
 	<acme:input-select code="inventor.patronage.form.label.status" path="status">
 		<acme:input-option code="ACCEPTED" value="ACCEPTED" selected="${status == 'ACCEPTED'}"/>
@@ -22,8 +22,9 @@
 	<acme:button code="user-account.form.label.patron" action="/any/user-account/show?id=${patron.userAccount.id}"/>
 	
 	
-	<jstl:if test="${status = 'PROPOSED'}">
+	<jstl:if test="${status == 'PROPOSED'}">
 		<acme:submit code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/>
 	</jstl:if>
 </acme:form>
-<h2>${status}</h2>
+
+
