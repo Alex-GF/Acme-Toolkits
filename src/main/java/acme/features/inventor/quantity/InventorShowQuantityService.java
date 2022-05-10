@@ -45,5 +45,6 @@ public class InventorShowQuantityService implements AbstractShowService<Inventor
 		
 		request.unbind(entity, model, "item.code","item.name","item.technology","item.retailPrice","item.type","item.description","item.link","item.inventor.name","item.inventor.surname", "amount");		
 		model.setAttribute("inventor.fullName", entity.getToolkit().getInventor().getIdentity().getFullName());
+		model.setAttribute("readonly", entity.getToolkit().isPublished());
 	}
 }

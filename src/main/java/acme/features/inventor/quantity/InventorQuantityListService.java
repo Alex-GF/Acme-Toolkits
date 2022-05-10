@@ -39,8 +39,7 @@ public class InventorQuantityListService implements AbstractListService<Inventor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "item.code", "item.name", "item.technology", "item.retailPrice", "item.type", "amount");
-		
+		request.unbind(entity, model, "item.code", "item.name", "item.technology", "item.retailPrice", "item.type",  "amount");
 	}
 
 	@Override

@@ -1,4 +1,11 @@
-inventor.quantity.list.label.code=Code
-inventor.quantity.list.label.title=Title
-inventor.quantity.list.label.link=Link
+inventor.toolkit.list.label.code=Code
+inventor.toolkit.list.label.title=Title
+inventor.toolkit.list.label.publish=Published
 inventor.toolkit.form.label.totalPrice=Total Price
+
+inventor.toolkit.list.button.create=Create
+
+inventor.toolkit.form.button.update = Update
+inventor.toolkit.form.button.delete = Delete
+inventor.toolkit.form.button.create = Create
+inventor.toolkit.form.button.publish = Publish

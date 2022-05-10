@@ -5,7 +5,7 @@ any.toolkit.list.label.technology = Tecnología
 any.toolkit.list.label.code = Código
 any.toolkit.list.label.totalPrice = Precio total
 
-any.toolkit.form.label.title = Nombre
+any.toolkit.form.label.title = Título
 any.toolkit.form.label.code = Código
 any.toolkit.form.label.totalPrice = Precio total
 any.toolkit.form.label.description = Descripción
@@ -15,3 +15,4 @@ any.toolkit.form.button.create = Crear
 any.toolkit.form.label.confirmation = Confirmar
 any.toolkit.form.label.items = Listar items
 any.toolkit.form.label.inventor = Inventor
+any.toolkit.form.label.published=Publicado
