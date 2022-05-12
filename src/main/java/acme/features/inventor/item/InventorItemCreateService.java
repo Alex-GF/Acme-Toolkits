@@ -85,6 +85,12 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 			
 			errors.state(request, acceptedCurrency, "retailPrice", "inventor.item.form.error.acceptedCurrency");
 			
+			boolean positiveValue;
+			
+			positiveValue = entity.getRetailPrice().getAmount()>0;
+			
+			errors.state(request, positiveValue, "retailPrice", "inventor.item.form.error.positiveValue");
+			
 		}
 	}
 
