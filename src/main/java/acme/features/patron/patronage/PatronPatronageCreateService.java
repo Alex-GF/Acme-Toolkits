@@ -39,6 +39,11 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 
 		request.bind(entity,errors,"status", "code", "legalStuff", "budget", "creationMoment", "startDate", "finishDate","link");
 		
+		final Inventor inventor = this.patronPatronageRepository.getInventorByInventorId(request.getModel().getInteger("inventor"));
+		
+		entity.setInventor(inventor);
+		
+		
 	}
 
 	@Override
@@ -92,7 +97,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		final List<String> acceptedCurrencies = AcceptedCurrencyLibrary.getAcceptedCurrencies(this.patronPatronageRepository.findAcceptedCurrencies());
 
 		
-		if (errors.hasErrors("creationMoment") || errors.hasErrors("startDate")) {
+		if (!errors.hasErrors("startDate")) {
 			
 			final Calendar calendar = Calendar.getInstance();
 			Date minimumPeriod;
@@ -101,24 +106,13 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			calendar.add(Calendar.MONTH, 1);
 			minimumPeriod = calendar.getTime();
 			
+			
 			errors.state(request, entity.getStartDate().after(minimumPeriod), "startDate", "patron.patronage.form.error.acceptedPeriodTime");
 			
 		}
-		
-		if (errors.hasErrors("startDate") || errors.hasErrors("finishDate")) {
-			
-			final Calendar calendar = Calendar.getInstance();
-			Date minimumPeriod;
-			
-			calendar.setTime(entity.getStartDate());
-			calendar.add(Calendar.MONTH, 1);
-			minimumPeriod = calendar.getTime();
-			
-			errors.state(request, entity.getFinishDate().after(minimumPeriod), "getFinishDate", "patron.patronage.form.error.acceptedPeriodTime");
-			
-		}
 
-		if(!errors.hasErrors("retailPrice")) {
+
+		if(!errors.hasErrors("budget")) {
 			boolean acceptedCurrency;
 
 			acceptedCurrency = acceptedCurrencies.contains(entity.getBudget().getCurrency());

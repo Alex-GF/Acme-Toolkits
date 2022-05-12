@@ -16,11 +16,11 @@
 	<acme:input-moment code="patron.patronage.form.label.startDate" path="startDate" />
 	<acme:input-moment code="patron.patronage.form.label.finishDate" path="finishDate" />
 	<acme:input-textbox code="patron.patronage.form.label.link" path="link" />
-	<acme:input-textbox code="patron.patronage.form.label.published" path="published" />
+	<acme:input-textbox readonly="true" code="patron.patronage.form.label.published" path="published" />
 	<jstl:if test="${ command == 'create' }">
-		<acme:input-select code="patron.patronage.form.label.inventor" path="inventor.name">
+		<acme:input-select code="patron.patronage.form.label.inventor" path="inventor">
 			<jstl:forEach items="${ inventorsList }" var="inventors">
-				<acme:input-option code="${ inventors.userAccount.identity.surname}, ${ inventors.userAccount.identity.name}" value="${ inventors }"/>
+				<acme:input-option code="${ inventors.userAccount.identity.surname}, ${ inventors.userAccount.identity.name}" value="${ inventors.id }"/>
 			</jstl:forEach>
 		</acme:input-select>
 	</jstl:if>

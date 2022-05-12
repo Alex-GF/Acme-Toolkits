@@ -86,7 +86,7 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		final List<String> acceptedCurrencies = AcceptedCurrencyLibrary.getAcceptedCurrencies(this.repository.findAcceptedCurrencies());
 
 		
-		if (errors.hasErrors("creationMoment") || errors.hasErrors("startDate")) {
+		if (!errors.hasErrors("startDate")) {
 			
 			final Calendar calendar = Calendar.getInstance();
 			Date minimumPeriod;
@@ -95,11 +95,13 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 			calendar.add(Calendar.MONTH, 1);
 			minimumPeriod = calendar.getTime();
 			
+			
 			errors.state(request, entity.getStartDate().after(minimumPeriod), "startDate", "patron.patronage.form.error.acceptedPeriodTime");
 			
 		}
 
-		if(!errors.hasErrors("retailPrice")) {
+
+		if(!errors.hasErrors("budget")) {
 			boolean acceptedCurrency;
 
 			acceptedCurrency = acceptedCurrencies.contains(entity.getBudget().getCurrency());
