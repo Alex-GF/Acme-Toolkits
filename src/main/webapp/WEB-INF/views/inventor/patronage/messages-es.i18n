@@ -15,3 +15,5 @@ inventor.patronage.form.label.creationMoment=Momento de creación
 inventor.patronage.form.label.startDate=Fecha de inicio
 inventor.patronage.form.label.finishDate=Fecha de finalización
 inventor.patronage.form.label.link=Link
+
+inventor.patronage.form.button.update = Actualizar estado
