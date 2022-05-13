@@ -15,6 +15,10 @@
 		<acme:input-option code="TOOL" value="TOOL" selected="${status == 'TOOL'}"/>
 		<acme:input-option code="COMPONENT" value="COMPONENT" selected="${status == 'COMPONENT'}"/>
 	</acme:input-select>
+	
+	<jstl:if test="${command != 'create'}">
+		<acme:button code="any.item.form.label.toolkit" action="/inventor/toolkit/list-mine?itemId=${id}"/>
+	</jstl:if>
 
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(command, 'show, update, delete') && published == true}">

@@ -14,5 +14,5 @@
 
 </acme:list>
 
-<acme:button code="inventor.quantity.list.button.create" action="/inventor/quantity/create?toolkitId=${masterId}"/>
+<acme:button test="${!isPublished}" code="inventor.quantity.list.button.create" action="/inventor/quantity/create?toolkitId=${masterId}"/>
 	
