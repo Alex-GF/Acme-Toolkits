@@ -1,6 +1,7 @@
 package acme.features.inventor.toolkit;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -12,9 +13,8 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface InventorToolkitRepository extends AbstractRepository{
 
-	@Query("SELECT q.toolkit FROM Quantity q " + 
-		"WHERE q.toolkit.inventor.userAccount.id = :inventorId " + 
-		"AND q.toolkit.published = true GROUP BY q.toolkit")
+	@Query("SELECT t FROM Toolkit t " + 
+		"WHERE t.inventor.userAccount.id = :inventorId ")
 	Collection<Toolkit> findToolkitsByInventorId(int inventorId);
 	
 	@Query("SELECT q.toolkit FROM Quantity q " + 
@@ -30,4 +30,7 @@ public interface InventorToolkitRepository extends AbstractRepository{
 	
 	@Query("SELECT c.defaultCurrency FROM Configuration c")
 	String findDefaultCurrency();
+	
+	@Query("SELECT t.code FROM Toolkit t")
+	List<String> findAllToolkitCodes();
 }

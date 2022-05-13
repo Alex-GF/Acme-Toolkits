@@ -3,20 +3,36 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
-<acme:form readonly="${readonly}">
-	<acme:input-textbox code="any.quantity.form.label.code" path="item.code"/>	
-	<acme:input-textbox code="any.quantity.form.label.name" path="item.name"/>
-	<acme:input-textbox code="any.quantity.form.label.technology" path="item.technology"/>
-	<acme:input-money code="any.quantity.form.label.retailPrice" path="item.retailPrice"/>
-	<acme:input-textbox code="any.quantity.form.label.description" path="item.description"/>
-	<acme:input-textbox code="any.quantity.form.label.inventor" path="inventor.fullName"/>
-	<acme:input-url code="any.quantity.form.label.link" path="item.link"/>
-	<acme:input-textbox code="any.quantity.form.label.type" path="item.type"/>
-	<acme:input-textbox code="any.quantity.form.label.quantity" path="amount"/>
+ 
+<acme:form>
+	<jstl:choose>
 	
+		<jstl:when test="${command == 'create' }">
+			<acme:input-select  code="inventor.quantity.form.label.item" path="itemId">
+				<jstl:forEach items="${itemList}" var="items">
+					<acme:input-option code="${items.name}" value="${items.id}"/>
+				</jstl:forEach>
+			</acme:input-select>
+		</jstl:when>
+		<jstl:otherwise>
+			<acme:input-textbox  code="inventor.quantity.form.label.item" path="item.name" readonly="true"/>
+		</jstl:otherwise>
 	
-	<!--<jstl:if test="${!readonly}">
-		<acme:input-checkbox code="any.quantity..form.label.confirmation" path="confirmation"/>
-		<acme:submit code="any.quantity.form.button.create" action="#"/>
-	</jstl:if>-->
+	</jstl:choose>
+	<acme:input-textbox  code="inventor.quantity.form.label.toolkit" path="toolkit.id" readonly="true"/>
+	<acme:input-textbox code="inventor.quantity.form.label.inventor" path="toolkit.inventor.fullName" readonly="true"/>
+	<acme:input-textbox code="inventor.quantity.form.label.quantity" path="amount" readonly="${toolkit.published}"/>
+
+	<jstl:choose>
+		
+		<jstl:when test="${command == 'create'}">
+			<acme:submit code="inventor.quantity.form.button.create" action="/inventor/quantity/create"/>
+		</jstl:when>
+		<jstl:when test="${command == 'show'}">
+			<acme:submit code="inventor.quantity.form.button.update" action="/inventor/quantity/update"/>
+			<acme:submit code="inventor.quantity.form.button.delete" action="/inventor/quantity/delete"/>
+		</jstl:when>
+	
+	</jstl:choose>
+
 </acme:form>

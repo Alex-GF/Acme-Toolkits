@@ -19,6 +19,18 @@ public class PatronPatronageController extends AbstractController<Patron, Patron
 
     @Autowired
     protected PatronPatronageShowService showService;
+    
+    @Autowired
+    protected PatronPatronagePublishService publishService;
+    
+    @Autowired
+    protected PatronPatronageCreateService createService;
+    
+    @Autowired
+    protected PatronPatronageUpdateService updateService;
+    
+    @Autowired
+    protected PatronPatronageDeleteService deleteService;
 
     // Constructors -----------------------------------------------------------
 
@@ -26,5 +38,10 @@ public class PatronPatronageController extends AbstractController<Patron, Patron
     protected void initialise() {
         super.addCommand("list", this.listMineService);
         super.addCommand("show", this.showService);
+        super.addCommand("create", this.createService);
+        super.addCommand("update", this.updateService);
+        super.addCommand("delete", this.deleteService);
+        
+        super.addCommand("publish", "update", this.publishService);
     }
 }
