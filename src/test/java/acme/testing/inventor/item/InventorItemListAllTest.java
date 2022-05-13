@@ -35,7 +35,6 @@ public class InventorItemListAllTest extends TestHarness{
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("link", link);
-		super.checkInputBoxHasValue("type", type);
 		
 		
 		super.checkButtonExists("Toolkits");
