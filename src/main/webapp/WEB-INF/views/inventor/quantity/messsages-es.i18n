@@ -9,15 +9,12 @@ inventor.quantity.list.label.quantity = Cantidad
 inventor.quantity.list.label.inventor = Inventor
 inventor.quantity.list.button.create=Añadir Item
 
-inventor.quantity.form.label.name = Nombre
-inventor.quantity.form.label.technology = Tecnología
-inventor.quantity.form.label.code = Código
-inventor.quantity.form.label.retailPrice = Precio de venta
-inventor.quantity.form.label.description = Descripción
-inventor.quantity.form.label.type = Tipo
-inventor.quantity.form.label.link = Link
-inventor.quantity.form.button.create = Crear
-inventor.quantity.form.label.confirmation = Confirmar
-inventor.quantity.form.label.toolkit = Kits de herramientas
+inventor.quantity.form.label.item = Ítem
+inventor.quantity.form.label.toolkit = Kit de herramientas
 inventor.quantity.form.label.quantity = Cantidad
 inventor.quantity.form.label.inventor = Inventor
+inventor.quantity.form.button.create = Crear
+inventor.quantity.form.button.update = Actualizar
+inventor.quantity.form.button.delete = Eliminar
+
+inventor.quantity.form.error.amount = La cantidad debe ser mayor que 0
