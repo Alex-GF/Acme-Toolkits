@@ -1,22 +1,20 @@
 # i18n-es.i18n
 
-any.quantity.list.label.name = Nombre
-any.quantity.list.label.technology = Tecnología
-any.quantity.list.label.code = Código
-any.quantity.list.label.retailPrice = Precio de venta
-any.quantity.list.label.type = Tipo
-any.quantity.list.label.quantity = Cantidad
-any.quantity.list.label.inventor = Inventor
+inventor.quantity.list.label.name = Nombre
+inventor.quantity.list.label.technology = Tecnología
+inventor.quantity.list.label.code = Código
+inventor.quantity.list.label.retailPrice = Precio de venta
+inventor.quantity.list.label.type = Tipo
+inventor.quantity.list.label.quantity = Cantidad
+inventor.quantity.list.label.inventor = Inventor
+inventor.quantity.list.button.create=Añadir Item
 
-any.quantity.form.label.name = Nombre
-any.quantity.form.label.technology = Tecnología
-any.quantity.form.label.code = Código
-any.quantity.form.label.retailPrice = Precio de venta
-any.quantity.form.label.description = Descripción
-any.quantity.form.label.type = Tipo
-any.quantity.form.label.link = Link
-any.quantity.form.button.create = Crear
-any.quantity.form.label.confirmation = Confirmar
-any.quantity.form.label.toolkit = Kits de herramientas
-any.quantity.form.label.quantity = Cantidad
-any.quantity.form.label.inventor = Inventor
+inventor.quantity.form.label.item = Ítem
+inventor.quantity.form.label.toolkit = Kit de herramientas
+inventor.quantity.form.label.quantity = Cantidad
+inventor.quantity.form.label.inventor = Inventor
+inventor.quantity.form.button.create = Crear
+inventor.quantity.form.button.update = Actualizar
+inventor.quantity.form.button.delete = Eliminar
+
+inventor.quantity.form.error.amount = La cantidad debe ser mayor que 0

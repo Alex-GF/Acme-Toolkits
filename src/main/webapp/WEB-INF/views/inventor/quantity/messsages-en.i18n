@@ -1,22 +1,20 @@
 # i18n-en.i18n
 
-any.quantity.list.label.name = Name
-any.quantity.list.label.technology = Technology
-any.quantity.list.label.code = Code
-any.quantity.list.label.retailPrice = Retail Price
-any.quantity.list.label.type = Type
-any.quantity.list.label.quantity = Amount
-any.quantity.list.label.inventor = Inventor
+inventor.quantity.list.label.name = Name
+inventor.quantity.list.label.technology = Technology
+inventor.quantity.list.label.code = Code
+inventor.quantity.list.label.retailPrice = Retail Price
+inventor.quantity.list.label.type = Type
+inventor.quantity.list.label.quantity = Amount
+inventor.quantity.list.label.inventor = Inventor
+inventor.quantity.list.button.create=Add Item
 
-any.quantity.form.label.name = Name
-any.quantity.form.label.technology = Technology
-any.quantity.form.label.code = Code
-any.quantity.form.label.retailPrice = Retail Price
-any.quantity.form.label.description = Description
-any.quantity.form.label.link = Link
-any.quantity.form.label.type = Type
-any.quantity.form.button.create = Create
-any.quantity.form.label.confirmation = Confirm
-any.quantity.form.label.toolkit = Toolkits
-any.quantity.form.label.quantity = Amount
-any.quantity.form.label.inventor = Inventor
+inventor.quantity.form.label.item = Item
+inventor.quantity.form.label.toolkit = Toolkit
+inventor.quantity.form.label.quantity = Amount
+inventor.quantity.form.label.inventor = Inventor
+inventor.quantity.form.button.create = Create
+inventor.quantity.form.button.update = Update
+inventor.quantity.form.button.delete = Delete
+
+inventor.quantity.form.error.amount = The amount must be greater than 0

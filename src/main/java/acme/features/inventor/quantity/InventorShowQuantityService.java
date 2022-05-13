@@ -43,7 +43,7 @@ public class InventorShowQuantityService implements AbstractShowService<Inventor
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "item.code","item.name","item.technology","item.retailPrice","item.type","item.description","item.link","item.inventor.name","item.inventor.surname", "amount");		
-		model.setAttribute("inventor.fullName", entity.getToolkit().getInventor().getIdentity().getFullName());
+		request.unbind(entity, model, "item.name", "toolkit.id", "toolkit.published", "amount");		
+		model.setAttribute("toolkit.inventor.fullName", entity.getToolkit().getInventor().getIdentity().getFullName());
 	}
 }

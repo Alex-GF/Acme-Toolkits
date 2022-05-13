@@ -25,7 +25,11 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
 		
-		return true;
+		boolean result;
+
+		result = request.getPrincipal().hasRole(Inventor.class);
+
+		return result;
 	}
 
 	@Override

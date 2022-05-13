@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.quantity.Quantity;
+import acme.entities.toolkit.Toolkit;
+import acme.features.inventor.toolkit.InventorToolkitRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.helpers.CollectionHelper;
 import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
@@ -18,6 +21,9 @@ public class InventorQuantityListService implements AbstractListService<Inventor
 
 	@Autowired
 	protected InventorQuantityRepository repository;
+	
+	@Autowired
+	protected InventorToolkitRepository inventorToolkitRepository;
 
 	// AbstractListService<Inventor, Quantity> interface ---------------------------
 
@@ -32,6 +38,20 @@ public class InventorQuantityListService implements AbstractListService<Inventor
 
 		return result;
 	}
+	
+	@Override
+	public void unbind(final Request<Quantity> request, final Collection<Quantity> entities, final Model model) {
+		assert request != null;
+		assert !CollectionHelper.someNull(entities);
+		assert model != null;
+
+		final int masterId = request.getModel().getInteger("toolkitId");
+		final Toolkit toolkit = this.inventorToolkitRepository.findToolkitById(masterId);
+		
+		model.setAttribute("masterId", masterId);
+		model.setAttribute("toolkit.published", toolkit.isPublished());
+		
+	}
 
 	@Override
 	public void unbind(final Request<Quantity> request, final Quantity entity, final Model model) {
@@ -40,7 +60,6 @@ public class InventorQuantityListService implements AbstractListService<Inventor
 		assert model != null;
 
 		request.unbind(entity, model, "item.code", "item.name", "item.technology", "item.retailPrice", "item.type", "amount");
-		
 	}
 
 	@Override
