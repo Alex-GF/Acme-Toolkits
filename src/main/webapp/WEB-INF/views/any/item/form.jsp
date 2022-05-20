@@ -13,10 +13,4 @@
 	<acme:input-url code="any.item.form.label.link" path="link"/>
 	<acme:input-textbox code="any.item.form.label.type" path="type"/>
 	
-	<acme:button code="any.item.form.label.toolkit" action="/any/toolkit/list?itemId=${id}"/>
-	
-	<!--<jstl:if test="${!readonly}">
-		<acme:input-checkbox code="any.item..form.label.confirmation" path="confirmation"/>
-		<acme:submit code="any.item..form.button.create" action="#"/>
-	</jstl:if>-->
 </acme:form>
