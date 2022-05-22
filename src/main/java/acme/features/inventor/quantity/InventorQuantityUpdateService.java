@@ -99,9 +99,12 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 	public void update(final Request<Quantity> request, final Quantity entity) {
 		assert request != null;
 		assert entity != null;
-
+		
 		this.inventorQuantityRepository.save(entity);
+		
 	}
+	
+	
 
 	
 	

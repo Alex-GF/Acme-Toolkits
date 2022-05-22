@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
+import acme.features.inventor.quantity.InventorQuantityRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
@@ -19,6 +20,9 @@ public class InventorShowToolkitService implements AbstractShowService<Inventor,
 	
 	@Autowired
 	protected InventorToolkitRepository inventorToolkitRepository;
+	
+	@Autowired
+	protected InventorQuantityRepository inventorQuantityRepository;
 	
 	@Autowired
 	protected ChangeCurrencyLibrary changeLibrary;
@@ -55,7 +59,8 @@ public class InventorShowToolkitService implements AbstractShowService<Inventor,
 		request.unbind(entity, model, "title", "assemblyNotes", "code", "description", "published", "link", "totalPrice");
 		model.setAttribute("readonly", entity.isPublished());
 		model.setAttribute("inventor.fullName", entity.getInventor().getIdentity().getFullName());
-		
+		model.setAttribute("canPublish", this.inventorQuantityRepository.findAllQuantityByToolkitId(entity.getId())
+												.stream().count() != 0);
 	}
 	
 	// Ancillary methods ------------------------------------------------------

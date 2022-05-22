@@ -19,7 +19,7 @@
 		</jstl:otherwise>
 	
 	</jstl:choose>
-	<acme:input-textbox  code="inventor.quantity.form.label.toolkit" path="toolkit.id" readonly="true"/>
+	<acme:input-textbox  code="inventor.quantity.form.label.toolkit" path="toolkit.title" readonly="true"/>
 	<acme:input-textbox code="inventor.quantity.form.label.inventor" path="toolkit.inventor.fullName" readonly="true"/>
 	<acme:input-textbox code="inventor.quantity.form.label.quantity" path="amount" readonly="${isPublished}"/>
 

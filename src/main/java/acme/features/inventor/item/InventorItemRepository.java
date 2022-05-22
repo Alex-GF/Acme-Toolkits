@@ -16,6 +16,9 @@ public interface InventorItemRepository extends AbstractRepository{
 	@Query("SELECT i FROM Item i WHERE i.inventor.userAccount.id = :inventorId")
 	Collection<Item> findItemsByInventorId(int inventorId);
 	
+	@Query("SELECT i FROM Item i WHERE i.inventor.userAccount.id = :inventorId AND i.published = true")
+	Collection<Item> findItemsByInventorIdToList(int inventorId);
+	
 	@Query("SELECT i FROM Item i WHERE i.inventor.userAccount.id = :inventorId AND i.id = :itemId")
 	Item findItemByInventorAndItemId(int inventorId, int itemId);
 	
