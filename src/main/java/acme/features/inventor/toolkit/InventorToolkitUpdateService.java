@@ -3,12 +3,14 @@ package acme.features.inventor.toolkit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.configuration.Configuration;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
+import main.AntiSpam;
 
 @Service
 public class InventorToolkitUpdateService implements AbstractUpdateService<Inventor, Toolkit>{
@@ -72,7 +74,22 @@ public class InventorToolkitUpdateService implements AbstractUpdateService<Inven
 		assert entity != null;
 		assert errors != null;
 		
-		//TODO Filtro spam
+		boolean spamWord;
+		final boolean spamWordDescription;
+		final boolean spamWordAssemblyNotes;
+		
+		final Configuration configuration = this.inventorToolkitRepository.configuration();
+		final AntiSpam antiSpam = new AntiSpam(configuration.getStrongSpamWords(), configuration.getStrongSpamThreshold(), configuration.getWeakSpamWords(), configuration.getWeakSpamThreshold(), entity.getTitle());
+		spamWord = antiSpam.getAvoidSpam();
+		errors.state(request, !spamWord, "title", "inventor.toolkit.form.error.spamWord");
+		
+		final AntiSpam antiSpamDescription = new AntiSpam(configuration.getStrongSpamWords(), configuration.getStrongSpamThreshold(), configuration.getWeakSpamWords(), configuration.getWeakSpamThreshold(), entity.getDescription());
+		spamWordDescription = antiSpamDescription.getAvoidSpam();
+		errors.state(request, !spamWordDescription, "description", "inventor.toolkit.form.error.spamWord");
+		
+		final AntiSpam antiSpamAssemblyNotes = new AntiSpam(configuration.getStrongSpamWords(), configuration.getStrongSpamThreshold(), configuration.getWeakSpamWords(), configuration.getWeakSpamThreshold(), entity.getAssemblyNotes());
+		spamWordAssemblyNotes = antiSpamAssemblyNotes.getAvoidSpam();
+		errors.state(request, !spamWordAssemblyNotes, "assemblyNotes", "inventor.toolkit.form.error.spamWord");
 		
 	}
 

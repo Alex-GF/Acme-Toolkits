@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.configuration.Configuration;
 import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.repositories.AbstractRepository;
@@ -33,4 +34,7 @@ public interface InventorToolkitRepository extends AbstractRepository{
 	
 	@Query("SELECT t.code FROM Toolkit t")
 	List<String> findAllToolkitCodes();
+	
+	@Query("SELECT c FROM Configuration c")
+	public Configuration configuration();
 }
