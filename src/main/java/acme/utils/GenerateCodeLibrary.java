@@ -21,7 +21,7 @@ public class GenerateCodeLibrary {
 
 		while(repeatCode) {
 			result = generator.generateByRegex(separatePattern.get("Principal"));
-			
+	
 			final Random r = new Random();
 			
 			if(separatePattern.containsKey("Optional") && r.nextBoolean()) {

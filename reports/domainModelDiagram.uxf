@@ -48,7 +48,7 @@ Item
     <id>UMLClass</id>
     <coordinates>
       <x>261</x>
-      <y>1170</y>
+      <y>1188</y>
       <w>702</w>
       <h>126</h>
     </coordinates>
@@ -70,7 +70,7 @@ PatronageReport
       <x>324</x>
       <y>918</y>
       <w>495</w>
-      <h>180</h>
+      <h>198</h>
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Entity&gt;&gt;
@@ -84,7 +84,8 @@ Patronage
 + creationMoment Date {NotNull, Temporal(TIMESTAMP), Past}
 + startDate: Date {NotNull, Temporal(TIMESTAMP)}
 + finishDate: Date {NotNull, Temporal(TIMESTAMP)}
-+ link: String {URL}</panel_attributes>
++ link: String {URL}
++ published: boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -215,10 +216,10 @@ number that starts at "0001".</panel_attributes>
       <x>954</x>
       <y>1242</y>
       <w>90</w>
-      <h>27</h>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+    <additional_attributes>10.0;30.0;80.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -403,7 +404,7 @@ Quantity
     <id>Relation</id>
     <coordinates>
       <x>531</x>
-      <y>1089</y>
+      <y>1107</y>
       <w>45</w>
       <h>99</h>
     </coordinates>

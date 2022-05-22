@@ -12,3 +12,4 @@ inventor.item.form.button.delete = Delete
 inventor.item.form.button.create = Create
 inventor.item.form.button.publish = Publish
 inventor.item.form.error.acceptedCurrency = Currency not accepted
+inventor.item.form.error.positiveValue = The amount must be positive
