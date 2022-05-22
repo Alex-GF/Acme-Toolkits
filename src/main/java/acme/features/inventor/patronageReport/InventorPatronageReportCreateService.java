@@ -1,6 +1,9 @@
 package acme.features.inventor.patronageReport;
 
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,8 +13,8 @@ import acme.entities.patronageReport.PatronageReport;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Inventor;
 import acme.framework.services.AbstractCreateService;
+import acme.roles.Inventor;
 
 @Service
 public class InventorPatronageReportCreateService implements AbstractCreateService<Inventor, PatronageReport> {
@@ -27,7 +30,11 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
     public boolean authorise(final Request<PatronageReport> request) {
         assert request != null;
 
-        return true;
+        boolean result;
+
+        result = request.getPrincipal().hasRole(Inventor.class);
+
+        return result;
     }
 
     @Override
@@ -36,7 +43,39 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
         assert entity != null;
         assert errors != null;
 
-        request.bind(entity, errors, "creationMoment", "memorandum", "patronage.code", "automaticSequenceNumber");
+        request.bind(entity, errors, "creationMoment", "memorandum", "link");
+
+        final Patronage patronage = this.repository.findAllPatronages().stream()
+                .filter(x -> x.getId() == request.getModel().getInteger("patronageId")).findFirst().get();
+
+        entity.setPatronage(patronage);
+
+        final List<PatronageReport> patronageReports = this.repository
+                .findAllPatronageReportsById(request.getModel().getInteger("patronageId"));
+
+        if (patronageReports.size() > 0) {
+            final List<Integer> sequences = patronageReports.stream()
+                    .map(x -> x.getAutomaticSequenceNumber())
+                    .map(x -> x.split(":")[1].trim().replaceAll("0", ""))
+                    .map(x -> Integer.valueOf(x))
+                    .collect(Collectors.toList());
+
+            final String maxSequence = String.valueOf(Collections.max(sequences) + 1);
+            String zeros = "";
+
+            for (int i = maxSequence.length(); i < 4; i++)
+                zeros += "0";
+
+            final String sequenceNumber = entity.getPatronage().getCode() + ": " + zeros + maxSequence;
+
+            entity.setAutomaticSequenceNumber(sequenceNumber);
+
+        } else {
+
+            entity.setAutomaticSequenceNumber(patronage.getCode() + ": " + "0001");
+
+        }
+
     }
 
     @Override
@@ -45,8 +84,12 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
         assert entity != null;
         assert model != null;
 
-        request.unbind(entity, model, "creationMoment", "memorandum", "patronage.code", "automaticSequenceNumber");
+        request.unbind(entity, model, "creationMoment", "memorandum", "link");
         model.setAttribute("confirmation", false);
+
+        final List<Patronage> patronages = this.repository.findAllPatronages();
+        model.setAttribute("patronageList", patronages);
+
     }
 
     @Override
@@ -62,10 +105,6 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
         result.setMemorandum("");
         result.setCreationMoment(moment);
         result.setLink("");
-
-        Patronage lastPatronage = this.repository.getPatronageByLastCreationMoment();
-        String sequenceNumber = String.valueOf(Integer.parseInt(lastPatronage.getCode()) + 1);
-        result.setAutomaticSequenceNumber(sequenceNumber);
 
         return result;
     }
@@ -87,11 +126,6 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
         assert request != null;
         assert entity != null;
 
-        Date moment;
-
-        moment = new Date(System.currentTimeMillis() - 1);
-        entity.setCreationMoment(moment);
         this.repository.save(entity);
     }
-
 }

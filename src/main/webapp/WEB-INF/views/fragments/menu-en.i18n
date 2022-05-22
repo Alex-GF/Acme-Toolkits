@@ -55,7 +55,6 @@ master.menu.inventor.item.mine = My Items
 master.menu.inventor.toolkits.mine = My Toolkits
 master.menu.inventor.patronage.list = Patronage list
 master.menu.inventor.patronageReport.list = Patronage report list
-master.menu.inventor.patronageReport = Create a Patronage Report
 
 # master.menu.user-account ####################################################
 
