@@ -15,11 +15,14 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
-<acme:form>
+<acme:form readonly="${readonly}">
 	<acme:input-textbox code="administrator.configuration.form.label.default-currency" path="defaultCurrency" readonly="true"/>
 	<acme:input-textbox code="administrator.configuration.form.label.accepted-currencies" path="acceptedCurrencies" readonly="true"/>
 	<acme:input-textbox code="administrator.configuration.form.label.strong-spam-words" path="strongSpamWords" readonly="true"/>
 	<acme:input-email code="administrator.configuration.form.label.strong-spam-threshold" path="strongSpamThreshold" readonly="true"/>
 	<acme:input-textbox code="administrator.configuration.form.label.weak-spam-words" path="weakSpamWords" readonly="true"/>
 	<acme:input-textbox code="administrator.configuration.form.label.weak-spam-threshold" path="weakSpamThreshold" readonly="true"/>
+
+	<acme:submit code="inventor.item.form.button.update" action="/inventor/item/update"/>
+
 </acme:form>	
