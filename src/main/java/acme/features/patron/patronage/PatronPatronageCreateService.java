@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.patronage.Patronage;
+import acme.entities.patronage.Status;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -28,7 +29,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 	public boolean authorise(final Request<Patronage> request) {
 		assert request != null;
 
-		return true;
+		return request.getPrincipal().hasRole(Patron.class);
 	}
 
 	@Override
@@ -82,6 +83,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		result.setCreationMoment(moment);
 		result.setPatron(patron);
 		result.setPublished(false);
+		result.setStatus(Status.PROPOSED);
 
 
 
@@ -100,14 +102,28 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		if (!errors.hasErrors("startDate")) {
 			
 			final Calendar calendar = Calendar.getInstance();
-			Date minimumPeriod;
+			Date minimumPeriodStart;
 			
 			calendar.setTime(entity.getCreationMoment());
 			calendar.add(Calendar.MONTH, 1);
-			minimumPeriod = calendar.getTime();
+			minimumPeriodStart = calendar.getTime();
 			
 			
-			errors.state(request, entity.getStartDate().after(minimumPeriod), "startDate", "patron.patronage.form.error.acceptedPeriodTime");
+			errors.state(request, entity.getStartDate().after(minimumPeriodStart), "startDate", "patron.patronage.form.error.acceptedPeriodTime.start");
+			
+		}
+		
+		if (!errors.hasErrors("finishDate")) {
+			
+			final Calendar calendar = Calendar.getInstance();
+			Date minimumPeriodFinish;
+			
+			calendar.setTime(entity.getStartDate());
+			calendar.add(Calendar.MONTH, 1);
+			minimumPeriodFinish = calendar.getTime();
+			
+			
+			errors.state(request, entity.getFinishDate().after(minimumPeriodFinish), "finishDate", "patron.patronage.form.error.acceptedPeriodTime.finish");
 			
 		}
 

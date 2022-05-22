@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.quantity.Quantity;
+import acme.features.inventor.toolkit.InventorToolkitRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -16,8 +17,13 @@ public class InventorQuantityDeleteService implements AbstractDeleteService<Inve
 	@Autowired
 	protected InventorQuantityRepository inventorQuantityRepository;
 	
+	@Autowired
+	protected InventorToolkitRepository inventorToolkitRepository;
+	
 	@Override
 	public boolean authorise(final Request<Quantity> request) {
+		assert request != null;
+		
 		boolean result = true;
 		
 		int quantityId;
@@ -28,7 +34,7 @@ public class InventorQuantityDeleteService implements AbstractDeleteService<Inve
 		quantity = this.inventorQuantityRepository.findQuantityById(quantityId);
 		inventor = quantity.getToolkit().getInventor();
 		
-		result = request.isPrincipal(inventor);
+		result = !quantity.getToolkit().isPublished() && request.isPrincipal(inventor);
 		
 		return result;
 	}

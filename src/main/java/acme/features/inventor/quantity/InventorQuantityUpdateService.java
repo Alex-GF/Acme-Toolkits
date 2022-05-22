@@ -29,7 +29,7 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 	public boolean authorise(final Request<Quantity> request) {
 		assert request != null;
 		
-		boolean result;
+		boolean result = true;
 		
 		int quantityId;
 		Quantity quantity;
@@ -40,7 +40,7 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 		inventor = quantity.getToolkit().getInventor();
 		
 		result = !quantity.getToolkit().isPublished() && request.isPrincipal(inventor);
-
+		
 		return result;
 	}
 

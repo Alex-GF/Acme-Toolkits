@@ -4,6 +4,7 @@ patron.patronage.list.label.status=Estado
 patron.patronage.list.label.code=Código
 patron.patronage.list.label.budget=Presupuesto
 patron.patronage.list.label.creationMoment=Momento de creación
+patron.patronage.list.label.published = Publicado
 
 user-account.form.label.inventor = Inventor
 
@@ -28,4 +29,22 @@ patron.patronage.list.button.create = Crear
 
 patron.patronage.form.error.duplicated = El código esta duplicado.
 patron.patronage.form.error.acceptedCurrency = Esta divisa es invalida.
-patron.patronage.form.error.acceptedPeriodTime = La fecha de inicio debe ser como mínimo un mes posterior a la fecha de creación.
+patron.patronage.form.error.acceptedPeriodTime.start = La fecha de inicio debe ser como mínimo un mes posterior a la fecha de creación.
+patron.patronage.form.error.acceptedPeriodTime.finish = La fecha de fin debe ser como mínimo un mes posterior a la fecha de inicio.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

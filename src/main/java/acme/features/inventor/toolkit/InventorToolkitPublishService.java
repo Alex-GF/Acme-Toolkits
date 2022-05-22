@@ -29,13 +29,15 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		
 		final int toolkitId;
 		final Toolkit toolkit;
+		final Long quantities;
 		Inventor inventor;
 		
 		toolkitId = request.getModel().getInteger("id");
 		toolkit = this.inventorToolkitRepository.findToolkitById(toolkitId);
+		quantities = this.inventorQuantityRepository.findAllQuantityByToolkitId(toolkitId).stream().count();
 		inventor = toolkit.getInventor();
 		
-		result = !toolkit.isPublished() && request.isPrincipal(inventor);
+		result = !toolkit.isPublished() && quantities != 0 && request.isPrincipal(inventor);
 		
 		return result;
 	}

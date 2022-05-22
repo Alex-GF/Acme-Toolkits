@@ -31,7 +31,19 @@ public class InventorShowToolkitService implements AbstractShowService<Inventor,
 	public boolean authorise(final Request<Toolkit> request) {
 		assert request != null;
 		
-		return true;
+		boolean result = true;
+		
+		int toolkitId;
+		Toolkit toolkit;
+		Inventor inventor;
+		
+		toolkitId = request.getModel().getInteger("id");
+		toolkit = this.inventorToolkitRepository.findToolkitById(toolkitId);
+		inventor = toolkit.getInventor();
+		
+		result = request.isPrincipal(inventor);
+		
+		return result;
 	}
 
 	@Override
