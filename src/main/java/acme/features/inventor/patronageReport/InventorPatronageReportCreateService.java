@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.patronage.Patronage;
 import acme.entities.patronageReport.PatronageReport;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -61,7 +62,10 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
         result.setMemorandum("");
         result.setCreationMoment(moment);
         result.setLink("");
-        result.setAutomaticSequenceNumber(automaticSequenceNumber:"");
+
+        Patronage lastPatronage = this.repository.getPatronageByLastCreationMoment();
+        String sequenceNumber = String.valueOf(Integer.parseInt(lastPatronage.getCode()) + 1);
+        result.setAutomaticSequenceNumber(sequenceNumber);
 
         return result;
     }
