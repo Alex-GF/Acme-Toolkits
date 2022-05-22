@@ -37,10 +37,7 @@ public class PatronPatronageDeleteService implements AbstractDeleteService<Patro
 		patronage = this.repository.getPatronageById(patronageId);
 		patron = patronage.getPatron();
 		result = !patronage.isPublished() && request.isPrincipal(patron);
-		
-		
-		
-		
+
 		return result;
 	}
 

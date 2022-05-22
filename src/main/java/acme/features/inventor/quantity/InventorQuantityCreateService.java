@@ -33,11 +33,20 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 	public boolean authorise(final Request<Quantity> request) {
 		assert request != null;
 		
-		boolean result;
-
-		result = request.getPrincipal().hasRole(Inventor.class);
-
+		boolean result = true;
+		
+		int toolkitId;
+		Toolkit toolkit;
+		Inventor inventor;
+		
+		toolkitId = request.getModel().getInteger("toolkitId");
+		toolkit = this.inventorToolkitRepository.findToolkitById(toolkitId);
+		inventor = toolkit.getInventor();
+		
+		result = !toolkit.isPublished() && request.isPrincipal(inventor);
+		
 		return result;
+		
 	}
 
 	@Override
@@ -62,6 +71,7 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		
 		request.unbind(entity, model, "toolkit.title","amount");
 		model.setAttribute("toolkit.inventor.fullName", entity.getToolkit().getInventor().getIdentity().getFullName());
+		model.setAttribute("toolkitId", entity.getToolkit().getId());
 		model.setAttribute("itemList", this.inventorItemRepository.findItemsByInventorIdToList(request.getPrincipal().getAccountId()));
 	}
 
