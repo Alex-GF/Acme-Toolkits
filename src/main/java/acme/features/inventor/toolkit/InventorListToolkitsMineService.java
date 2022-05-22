@@ -1,10 +1,15 @@
 package acme.features.inventor.toolkit;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.item.Item;
+import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -40,7 +45,26 @@ public class InventorListToolkitsMineService implements AbstractListService<Inve
 		assert entity != null;
 		assert model != null;
 		
+		String payload;
+		
 		request.unbind(entity, model, "code", "title","published");
+		
+		final List<Quantity> quantitiesList = new ArrayList<Quantity>(this.repository.findAllQuantityByToolkitId(entity.getId()));
+		
+		final List<Item> itemsList = quantitiesList.stream().map(Quantity::getItem).collect(Collectors.toList());
+		
+		final List<String> codesList = itemsList.stream().map(Item::getCode).collect(Collectors.toList());
+		
+		final List<String> namesList = itemsList.stream().map(Item::getName).collect(Collectors.toList());
+		
+		final List<String> technologiesList = itemsList.stream().map(Item::getTechnology).collect(Collectors.toList()); 
+ 		
+		payload = String.format(
+            "%s; %s; %s;",
+            codesList.toString().replace("[", "").replace("]", ""),
+            namesList.toString().replace("[", "").replace("]", ""),
+            technologiesList.toString().replace("[", "").replace("]", ""));
+		model.setAttribute("payload", payload);
 		
 	}
 
@@ -50,12 +74,7 @@ public class InventorListToolkitsMineService implements AbstractListService<Inve
 
 		Collection<Toolkit> result;
 		
-		if(request.getModel().hasAttribute("itemId")) {
-			final int itemId = request.getModel().getInteger("itemId");
-			result = this.repository.findToolkitsByInventorIdAndItemId(request.getPrincipal().getAccountId(), itemId);
-		}else {
-			result = this.repository.findToolkitsByInventorId(request.getPrincipal().getAccountId());
-		}
+		result = this.repository.findToolkitsByInventorId(request.getPrincipal().getAccountId());	
 
 		return result;
 	}
