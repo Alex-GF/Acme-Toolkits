@@ -18,3 +18,5 @@ inventor.quantity.form.button.update = Update
 inventor.quantity.form.button.delete = Delete
 
 inventor.quantity.form.error.amount = The amount must be greater than 0
+inventor.quantity.form.error.amount.tool = The amount must be 1 for a tool
+inventor.quantity.form.error.itemId = The chosen tool is already in the toolkit

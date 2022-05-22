@@ -49,7 +49,7 @@ public class InventorQuantityListService implements AbstractListService<Inventor
 		final Toolkit toolkit = this.inventorToolkitRepository.findToolkitById(masterId);
 		
 		model.setAttribute("masterId", masterId);
-		model.setAttribute("toolkit.published", toolkit.isPublished());
+		model.setAttribute("isPublished", toolkit.isPublished());
 		
 	}
 
