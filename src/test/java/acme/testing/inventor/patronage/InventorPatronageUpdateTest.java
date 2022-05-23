@@ -1,6 +1,7 @@
 package acme.testing.inventor.patronage;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -46,6 +47,28 @@ public class InventorPatronageUpdateTest extends TestHarness{
 			
 		
 		
+	}
+	
+	
+	@Test
+	public void hacking() {
+		// SUGERENCIA: el framework no proporciona suficiente soporte para implementar este caso de hacking,
+		// SUGERENCIA+ por lo que debe realizarse manualmente:
+		// SUGERENCIA+ a) No se pude actualizar el estado de los patronage que no son de mi propiedad.
+		
+		super.checkNotLinkExists("Account");
+		super.navigate("/invertor/patronage/update");
+		super.checkPanicExists();
+
+		super.signIn("administrator", "administrator");
+		super.navigate("/invertor/patronage/update");
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("patron2", "patron2");
+		super.navigate("/invertor/patronage/update");
+		super.checkPanicExists();
+		super.signOut();
 	}
 
 }
