@@ -15,3 +15,9 @@ administrator.configuration.form.label.strong-spam-threshold = Strong spam thres
 administrator.configuration.form.label.weak-spam-words = Weak spam words:
 administrator.configuration.form.label.weak-spam-threshold = Weak spam threshold:
 administrator.configuration.form.button.update = Update
+
+administrator.configuration.form.error.acceptedCurrency = This currency is not included in the accepted currencies
+administrator.configuration.form.error.uniqueAcceptedCurrencies = All acepted currencies must be different
+administrator.configuration.form.error.differentWeakAndStrongSpamWords = Weak and strong spam words must be different
+administrator.configuration.form.error.uniqueWeakSpamWords = Weak spam words must be different
+administrator.configuration.form.error.uniqueStrongSpamWords = Strong spam words must be different

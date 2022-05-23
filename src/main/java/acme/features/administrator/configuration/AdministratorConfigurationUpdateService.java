@@ -1,24 +1,26 @@
 package acme.features.administrator.configuration;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.configuration.Configuration;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.HttpMethod;
 import acme.framework.controllers.Request;
 import acme.framework.controllers.Response;
-import acme.framework.entities.Principal;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.roles.Administrator;
 import acme.framework.services.AbstractUpdateService;
-import acme.entities.configuration.Configuration;
-
 
 @Service
 
 public class AdministratorConfigurationUpdateService implements AbstractUpdateService<Administrator, Configuration> {
-    
+
     // Internal state ---------------------------------------------------------
 
     @Autowired
@@ -73,6 +75,82 @@ public class AdministratorConfigurationUpdateService implements AbstractUpdateSe
         assert request != null;
         assert entity != null;
         assert errors != null;
+        if (!errors.hasErrors("defaultCurrency")) {
+            boolean acceptedCurrency;
+
+            acceptedCurrency = entity.getAcceptedCurrencies().contains(entity.getDefaultCurrency());
+
+            errors.state(request, acceptedCurrency, "defaultCurrency",
+                    "administrator.configuration.form.error.acceptedCurrency");
+        }
+
+        if (!errors.hasErrors("acceptedCurrencies")) {
+            boolean uniqueAcceptedCurrencies = true;
+            final List<String> currencies = new ArrayList<>();
+
+            for (final String currency : entity.getAcceptedCurrencies().split(",")) {
+                currencies.add(currency.trim());
+            }
+            for (final String currency : entity.getAcceptedCurrencies().split(",")) {
+                if (Collections.frequency(currencies, currency.trim()) != 1) {
+                    uniqueAcceptedCurrencies = false;
+                }
+            }
+
+            errors.state(request, uniqueAcceptedCurrencies, "acceptedCurrencies",
+                    "administrator.configuration.form.error.uniqueAcceptedCurrencies");
+        }
+
+        if (!errors.hasErrors("weakSpamWords")) {
+            boolean differentWeakAndStrongSpamWords = true;
+
+            final List<String> weakWords = new ArrayList<>();
+            final List<String> strongWords = new ArrayList<>();
+
+            for (final String weakWord : entity.getWeakSpamWords().split(",")) {
+                weakWords.add(weakWord.toLowerCase().trim());
+            }
+            for (final String strongWord : entity.getStrongSpamWords().split(",")) {
+                strongWords.add(strongWord.toLowerCase().trim());
+            }
+            for (final String weakWord : weakWords) {
+                if (strongWords.contains(weakWord))
+                    differentWeakAndStrongSpamWords = false;
+            }
+
+            errors.state(request, differentWeakAndStrongSpamWords, "weakSpamWords",
+                    "administrator.configuration.form.error.differentWeakAndStrongSpamWords");
+
+            boolean uniqueWeakSpamWords = true;
+
+            for (final String weakWord : entity.getWeakSpamWords().split(",")) {
+                if (Collections.frequency(weakWords, weakWord.toLowerCase().trim()) != 1) {
+                    uniqueWeakSpamWords = false;
+                }
+            }
+
+            errors.state(request, uniqueWeakSpamWords, "weakSpamWords",
+                    "administrator.configuration.form.error.uniqueWeakSpamWords");
+        }
+
+        if (!errors.hasErrors("strongSpamWords")) {
+            boolean uniqueStrongSpamWords = true;
+            final List<String> strongWords = new ArrayList<>();
+
+            for (final String strongWord : entity.getStrongSpamWords().split(",")) {
+                strongWords.add(strongWord.toLowerCase().trim());
+            }
+
+            for (final String strongWord : entity.getStrongSpamWords().split(",")) {
+                if (Collections.frequency(strongWords, strongWord.toLowerCase().trim()) != 1) {
+                    uniqueStrongSpamWords = false;
+                }
+            }
+
+            errors.state(request, uniqueStrongSpamWords, "strongSpamWords",
+                    "administrator.configuration.form.error.uniqueStrongSpamWords");
+        }
+
     }
 
     @Override
