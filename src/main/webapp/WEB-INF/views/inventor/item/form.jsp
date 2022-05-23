@@ -10,6 +10,7 @@
 	<acme:input-money code="any.item.form.label.retailPrice" path="retailPrice"/>
 	<acme:input-textarea code="any.item.form.label.description" path="description"/>
 	<acme:input-url code="any.item.form.label.link" path="link"/>
+	<acme:input-textbox code="any.item.form.label.published" path="published"/>
 		
 	<acme:input-select code="any.item.form.label.type" path="type">
 		<acme:input-option code="TOOL" value="TOOL" selected="${status == 'TOOL'}"/>

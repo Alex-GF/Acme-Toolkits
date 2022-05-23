@@ -12,7 +12,7 @@ public class InventorItemListAllTest extends TestHarness{
 	@CsvFileSource(resources = "/inventor/item/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String type, final String name, final String code, final String technology,
-		final String description, final String retailPrice, final String link) {
+		final String description, final String retailPrice, final String link, final String published) {
 		
 		super.signIn("inventor1", "inventor1");
 		
@@ -24,20 +24,27 @@ public class InventorItemListAllTest extends TestHarness{
 		super.checkColumnHasValue(recordIndex, 0, name);
 		super.checkColumnHasValue(recordIndex, 1, code);
 		super.checkColumnHasValue(recordIndex, 2, technology);
-		super.checkColumnHasValue(recordIndex, 3, retailPrice);
+		//super.checkColumnHasValue(recordIndex, 3, retailPrice);
 		super.checkColumnHasValue(recordIndex, 4, type);
+		super.checkColumnHasValue(recordIndex, 5, published);
 		
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("name", name);
 		super.checkInputBoxHasValue("technology", technology);
-		super.checkInputBoxHasValue("retailPrice", retailPrice);
+		//super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("link", link);
+		super.checkInputBoxHasValue("published", published);
 		
 		
-		super.checkButtonExists("Toolkits");
+		if(published.trim() == "false") {
+			super.checkNotButtonExists("Toolkits");
+		}
+		if(published.trim() == "true") {
+			super.checkButtonExists("Toolkits");
+		}
 		
 		
 		

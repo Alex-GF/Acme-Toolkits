@@ -1,10 +1,10 @@
 recordIndex,title,body, critical-flag, link
-0,Nuevo Destornilllador,Nuevo destronillador a la venta,true,https://www.leroymerlin.es/productos
-1,Nuevo Tornillo,Un nuevo tipo de tornillos ha llegado,true,
-2,Nuevo Alicate,Nuevo alicate multiusos para el hogar,false,https://www.leroymerlin.es/productos
-3,Nuevo tipo de brocas,Nuevo tipo de brocas para tu taladro,true,https://www.leroymerlin.es/productos
-4,Oferta en clavos,Los clavos más baratos ahora,false,
-5,Oferta en arancelas,LLevate tus arancelas casi gratis,false,https://www.leroymerlin.es/productos
-6,Oferta en tornillos,Estamos regalando tornillitos,true,https://www.leroymerlin.es/productos
-7,Oferta en bridas,"Orferta en nuestras bridas, muy utiles para todo",false,https://www.leroymerlin.es/productos
-8,Descuento para taladros,Gran descuento en nuestros taladros,true,https://www.leroymerlin.es/productos
+0,Aa Nuevo Taladro,Gran descuento en nuestros taladros,true,https://www.leroymerlin.es/productos
+1,Ab Nuevo Alicate,Nuevo alicate multiusos para el hogar,false,https://www.leroymerlin.es/productos
+2,Ac Nuevo Destornilllador,Nuevo destronillador a la venta,true,https://www.leroymerlin.es/productos
+3,Ad Oferta en tipo de brocas,Nuevo tipo de brocas para tu taladro,true,https://www.leroymerlin.es/productos
+4,Ae Nuevo Tornillo,Un nuevo tipo de tornillos ha llegado,true,
+5,Af Oferta en arancelas,LLevate tus arancelas casi gratis,false,https://www.leroymerlin.es/productos
+6,Ag Oferta en bridas,"Orferta en nuestras bridas, muy utiles para todo",false,https://www.leroymerlin.es/productos
+7,Ah Oferta en clavos,Los clavos más baratos ahora,false,
+8,Ai Oferta en tornillos,Estamos regalando tornillitos,true,https://www.leroymerlin.es/productos
