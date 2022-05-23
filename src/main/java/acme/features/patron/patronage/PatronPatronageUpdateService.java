@@ -11,9 +11,11 @@ import acme.entities.patronage.Patronage;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Patron;
 import acme.utils.AcceptedCurrencyLibrary;
+import acme.utils.ChangeCurrencyLibrary;
 
 
 @Service
@@ -21,6 +23,9 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 	
 	@Autowired
 	protected PatronPatronageRepository repository;
+	
+	@Autowired
+	protected ChangeCurrencyLibrary changeLibrary;
 	
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
@@ -37,9 +42,6 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		patron = patronage.getPatron();
 		result = !patronage.isPublished() && request.isPrincipal(patron);
 		
-		
-		
-		
 		return result;
 	}
 
@@ -51,6 +53,13 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 
 		request.bind(entity,errors,"status", "code", "legalStuff", "budget", "creationMoment", "startDate", "finishDate", "link","published");
 		
+		final Model model = request.getModel();
+		
+		if(model.hasAttribute("defaultCurrency")){
+			final Money m = model.getAttribute("defaultCurrency", Money.class);
+			entity.setBudget(m);
+		}
+		
 	}
 
 	@Override
@@ -59,7 +68,20 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity,model,"status", "code", "legalStuff", "budget", "creationMoment", "startDate", "finishDate", "link","published");
+		request.unbind(entity,model,"status", "code", "legalStuff", "creationMoment", "startDate", "finishDate", "link","published");
+		
+		final String defaultCurrency = this.repository.findDefaultCurrency();
+		
+		final Patronage p = this.repository.findPatronageByPatronageId(entity.getId());
+		
+		if(!(p.getBudget().getCurrency().equals(defaultCurrency))) {
+			
+			final Money m = this.changeLibrary.computeMoneyExchange(p.getBudget(), defaultCurrency).getTarget();
+			
+			model.setAttribute("showDefaultCurrency", true);
+			model.setAttribute("budget",m);
+			model.setAttribute("defaultCurrency", entity.getBudget());
+		}
 		
 	}
 
@@ -89,25 +111,49 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		if (!errors.hasErrors("startDate")) {
 			
 			final Calendar calendar = Calendar.getInstance();
-			Date minimumPeriod;
+			Date minimumPeriodStart;
 			
 			calendar.setTime(entity.getCreationMoment());
 			calendar.add(Calendar.MONTH, 1);
-			minimumPeriod = calendar.getTime();
+			minimumPeriodStart = calendar.getTime();
 			
 			
-			errors.state(request, entity.getStartDate().after(minimumPeriod), "startDate", "patron.patronage.form.error.acceptedPeriodTime");
+			errors.state(request, entity.getStartDate().after(minimumPeriodStart), "startDate", "patron.patronage.form.error.acceptedPeriodTime.start");
 			
 		}
+		
+		if (!errors.hasErrors("finishDate")) {
+			
+			final Calendar calendar = Calendar.getInstance();
+			Date minimumPeriodFinish;
+			
+			calendar.setTime(entity.getStartDate());
+			calendar.add(Calendar.MONTH, 1);
+			minimumPeriodFinish = calendar.getTime();
+			
+			
+			errors.state(request, entity.getFinishDate().after(minimumPeriodFinish), "finishDate", "patron.patronage.form.error.acceptedPeriodTime.finish");
+			
+		}
+		
+		if(request.getModel().hasAttribute("defaultCurrency")) {
+			if(!errors.hasErrors("defaultCurrency")) {
+				boolean acceptedCurrency;
 
+				acceptedCurrency = acceptedCurrencies.contains(entity.getBudget().getCurrency());
 
-		if(!errors.hasErrors("budget")) {
-			boolean acceptedCurrency;
+				errors.state(request, acceptedCurrency, "defaultCurrency", "patron.patronage.form.error.acceptedCurrency");
 
-			acceptedCurrency = acceptedCurrencies.contains(entity.getBudget().getCurrency());
+			}
+		}else {
+			if(!errors.hasErrors("budget")) {
+				boolean acceptedCurrency;
 
-			errors.state(request, acceptedCurrency, "budget", "patron.patronage.form.error.acceptedCurrency");
+				acceptedCurrency = acceptedCurrencies.contains(entity.getBudget().getCurrency());
 
+				errors.state(request, acceptedCurrency, "budget", "patron.patronage.form.error.acceptedCurrency");
+
+			}
 		}
 		
 		if (errors.hasErrors("code")) {

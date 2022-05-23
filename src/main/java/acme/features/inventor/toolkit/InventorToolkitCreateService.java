@@ -32,11 +32,7 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 	public boolean authorise(final Request<Toolkit> request) {
 		assert request != null;
 		
-		boolean result;
-
-		result = request.getPrincipal().hasRole(Inventor.class);
-
-		return result;
+		return request.getPrincipal().hasRole(Inventor.class);
 	}
 
 	@Override

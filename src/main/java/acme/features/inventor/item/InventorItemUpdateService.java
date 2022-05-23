@@ -10,16 +10,21 @@ import acme.entities.item.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 import acme.utils.AcceptedCurrencyLibrary;
 import main.AntiSpam;
+import acme.utils.ChangeCurrencyLibrary;
 
 @Service
 public class InventorItemUpdateService implements AbstractUpdateService<Inventor, Item>{
 
 	@Autowired
 	protected InventorItemRepository inventorItemRepository;
+	
+	@Autowired
+	protected ChangeCurrencyLibrary changeLibrary;
 	
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -46,6 +51,14 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		
 		request.bind(entity,errors,"name", "technology", "code", "retailPrice", "description", "link", "type");
 		
+		final Model model = request.getModel();
+		
+		if(model.hasAttribute("defaultCurrency")){
+			final Money m = model.getAttribute("defaultCurrency", Money.class);
+			entity.setRetailPrice(m);
+		}
+		
+		
 	}
 
 	@Override
@@ -55,6 +68,19 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert model != null;
 		
 		request.unbind(entity, model, "name", "technology", "code", "retailPrice", "description", "link", "type", "published");
+		
+		final String defaultCurrency = this.inventorItemRepository.findDefaultCurrency();
+		
+		final Item i = this.inventorItemRepository.findItemByItemId(entity.getId());
+		
+		if(!(i.getRetailPrice().getCurrency().equals(defaultCurrency))) {
+			
+			final Money m = this.changeLibrary.computeMoneyExchange(i.getRetailPrice(), defaultCurrency).getTarget();
+			
+			model.setAttribute("showDefaultCurrency", true);
+			model.setAttribute("retailPrice",m);
+			model.setAttribute("defaultCurrency", entity.getRetailPrice());
+		}
 		
 	}
 
@@ -96,19 +122,40 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		spamWordTecnology = antiSpamTecnology.getAvoidSpam();
 		errors.state(request, !spamWordTecnology, "technology", "inventor.item.form.error.spamWord");
 		
-		if(!errors.hasErrors("retailPrice")) {
-			boolean acceptedCurrency;
+		if(!(request.getModel().hasAttribute("defaultCurrency"))){
 			
-			acceptedCurrency = acceptedCurrencies.contains(entity.getRetailPrice().getCurrency());
+			if(!errors.hasErrors("retailPrice")) {
+				boolean acceptedCurrency;
+				
+				acceptedCurrency = acceptedCurrencies.contains(entity.getRetailPrice().getCurrency());
+				
+				errors.state(request, acceptedCurrency, "retailPrice", "inventor.item.form.error.acceptedCurrency");
+				
+				boolean positiveValue;
+				
+				positiveValue = entity.getRetailPrice().getAmount()>0;
+				
+				errors.state(request, positiveValue, "retailPrice", "inventor.item.form.error.positiveValue");
+			}
 			
-			errors.state(request, acceptedCurrency, "retailPrice", "inventor.item.form.error.acceptedCurrency");
+		}else {
 			
-			boolean positiveValue;
+			if(!errors.hasErrors("defaultCurrency")) {
+				boolean acceptedCurrency;
+				
+				acceptedCurrency = acceptedCurrencies.contains(entity.getRetailPrice().getCurrency());
+				
+				errors.state(request, acceptedCurrency, "defaultCurrency", "inventor.item.form.error.acceptedCurrency");
+				
+				boolean positiveValue;
+				
+				positiveValue = entity.getRetailPrice().getAmount()>0;
+				
+				errors.state(request, positiveValue, "defaultCurrency", "inventor.item.form.error.positiveValue");
+			}
 			
-			positiveValue = entity.getRetailPrice().getAmount()>0;
-			
-			errors.state(request, positiveValue, "retailPrice", "inventor.item.form.error.positiveValue");
 		}
+		
 		
 	}
 

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
+import acme.features.inventor.quantity.InventorQuantityRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
@@ -21,13 +22,28 @@ public class InventorShowToolkitService implements AbstractShowService<Inventor,
 	protected InventorToolkitRepository inventorToolkitRepository;
 	
 	@Autowired
+	protected InventorQuantityRepository inventorQuantityRepository;
+	
+	@Autowired
 	protected ChangeCurrencyLibrary changeLibrary;
 	
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
 		assert request != null;
 		
-		return true;
+		boolean result = true;
+		
+		int toolkitId;
+		Toolkit toolkit;
+		Inventor inventor;
+		
+		toolkitId = request.getModel().getInteger("id");
+		toolkit = this.inventorToolkitRepository.findToolkitById(toolkitId);
+		inventor = toolkit.getInventor();
+		
+		result = request.isPrincipal(inventor);
+		
+		return result;
 	}
 
 	@Override
@@ -55,7 +71,8 @@ public class InventorShowToolkitService implements AbstractShowService<Inventor,
 		request.unbind(entity, model, "title", "assemblyNotes", "code", "description", "published", "link", "totalPrice");
 		model.setAttribute("readonly", entity.isPublished());
 		model.setAttribute("inventor.fullName", entity.getInventor().getIdentity().getFullName());
-		
+		model.setAttribute("canPublish", this.inventorQuantityRepository.findAllQuantityByToolkitId(entity.getId())
+												.stream().count() != 0);
 	}
 	
 	// Ancillary methods ------------------------------------------------------

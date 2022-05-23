@@ -19,18 +19,20 @@
 		</jstl:otherwise>
 	
 	</jstl:choose>
-	<acme:input-textbox  code="inventor.quantity.form.label.toolkit" path="toolkit.id" readonly="true"/>
+	<acme:input-textbox  code="inventor.quantity.form.label.toolkit" path="toolkit.title" readonly="true"/>
 	<acme:input-textbox code="inventor.quantity.form.label.inventor" path="toolkit.inventor.fullName" readonly="true"/>
 	<acme:input-textbox code="inventor.quantity.form.label.quantity" path="amount" readonly="${isPublished}"/>
 
 	<jstl:choose>
 		
 		<jstl:when test="${command == 'create'}">
-			<acme:submit code="inventor.quantity.form.button.create" action="/inventor/quantity/create"/>
+			<acme:submit code="inventor.quantity.form.button.create" action="/inventor/quantity/create?toolkitId=${toolkitId}"/>
 		</jstl:when>
 		<jstl:when test="${command == 'show'}">
-			<acme:submit code="inventor.quantity.form.button.update" action="/inventor/quantity/update"/>
-			<acme:submit code="inventor.quantity.form.button.delete" action="/inventor/quantity/delete"/>
+			<jstl:if test="${!isPublished}">
+				<acme:submit code="inventor.quantity.form.button.update" action="/inventor/quantity/update"/>
+				<acme:submit code="inventor.quantity.form.button.delete" action="/inventor/quantity/delete"/>
+			</jstl:if>
 		</jstl:when>
 	
 	</jstl:choose>

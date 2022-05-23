@@ -16,4 +16,7 @@ public interface InventorQuantityRepository extends AbstractRepository{
 	
 	@Query("SELECT q FROM Quantity q WHERE q.id = :id")
 	Quantity findQuantityById(int id);
+	
+	@Query("SELECT q FROM Quantity q WHERE q.item.id = :itemId AND q.toolkit.id = :toolkitId")
+	Quantity findQuantityByItemIdAndToolkitId(int itemId, int toolkitId);
 }
