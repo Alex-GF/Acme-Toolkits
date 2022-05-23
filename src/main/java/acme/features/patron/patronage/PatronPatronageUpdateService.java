@@ -103,11 +103,17 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 
 		if(!errors.hasErrors("budget")) {
 			boolean acceptedCurrency;
-
+			
 			acceptedCurrency = acceptedCurrencies.contains(entity.getBudget().getCurrency());
-
+			
 			errors.state(request, acceptedCurrency, "budget", "patron.patronage.form.error.acceptedCurrency");
-
+			
+			boolean positiveValue;
+			
+			positiveValue = entity.getBudget().getAmount()>0;
+			
+			errors.state(request, positiveValue, "budget", "patron.patronage.form.error.positiveValue");
+			
 		}
 		
 		if (errors.hasErrors("code")) {
