@@ -5,6 +5,7 @@ inventor.patronageReport.list.label.creationMoment= Creation Moment
 inventor.patronageReport.list.label.memorandum= Memorandum
 inventor.patronageReport.list.label.patronage=Patronage
 inventor.patronageReport.list.label.automaticSequenceNumber= Automatic Sequence Number
+inventor.patronageReport.list.button.create = Create
 
 inventor.patronageReport.form.label.creationMoment= Creation Moment
 inventor.patronageReport.form.label.memorandum= Memorandum
