@@ -18,11 +18,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.announcement.Announcement;
+import acme.entities.configuration.Configuration;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Administrator;
 import acme.framework.services.AbstractCreateService;
+import main.AntiSpam;
 
 @Service
 public class AdministratorAnnouncementCreateService implements AbstractCreateService<Administrator, Announcement> {
@@ -87,9 +89,21 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		assert errors != null;
 
 		boolean confirmation;
-
+		boolean spamWord;
+		boolean spamWordTitle;
+		
+		final Configuration configuration = this.repository.configuration();
+		final AntiSpam antiSpam = new AntiSpam(configuration.getStrongSpamWords(), configuration.getStrongSpamThreshold(), configuration.getWeakSpamWords(), configuration.getWeakSpamThreshold(), entity.getBody());
+		spamWord = antiSpam.getAvoidSpam();
+		errors.state(request, !spamWord, "body", "administrator.announcement.form.error.spamWord");
+		
+		final AntiSpam antiSpamTitle = new AntiSpam(configuration.getStrongSpamWords(), configuration.getStrongSpamThreshold(), configuration.getWeakSpamWords(), configuration.getWeakSpamThreshold(), entity.getTitle());
+		spamWordTitle = antiSpamTitle.getAvoidSpam();
+		errors.state(request, !spamWordTitle, "title", "administrator.announcement.form.error.spamWord");
+		
 		confirmation = request.getModel().getBoolean("confirmation");
 		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
+		
 	}
 
 	@Override
