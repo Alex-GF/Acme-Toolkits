@@ -5,6 +5,10 @@ import java.util.List;
 
 public class AcceptedCurrencyLibrary {
 
+	private AcceptedCurrencyLibrary() {
+		
+	}
+	
 	public static List<String> getAcceptedCurrencies(final String acceptedCurrenciesString){
 		final List<String> result = new ArrayList<>();
 		

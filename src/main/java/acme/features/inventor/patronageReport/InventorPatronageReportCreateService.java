@@ -54,11 +54,11 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
         final List<PatronageReport> patronageReports = this.repository
                 .findAllPatronageReportsById(request.getModel().getInteger("patronageId"));
 
-        if (patronageReports.size() > 0) {
+        if (!patronageReports.isEmpty()) {
             final List<Integer> sequences = patronageReports.stream()
-                    .map(x -> x.getAutomaticSequenceNumber())
+                    .map(PatronageReport::getAutomaticSequenceNumber)
                     .map(x -> x.split(":")[1].trim().replaceAll("0", ""))
-                    .map(x -> Integer.valueOf(x))
+                    .map(Integer::valueOf)
                     .collect(Collectors.toList());
 
             final String maxSequence = String.valueOf(Collections.max(sequences) + 1);

@@ -10,6 +10,10 @@ import net.moznion.random.string.RandomStringGenerator;
 
 public class GenerateCodeLibrary {
 
+	private GenerateCodeLibrary() {
+		
+	}
+	
 	public static String generateCode(final List<String> codes, final String pattern) {
 		String result = "";
 		
@@ -18,11 +22,11 @@ public class GenerateCodeLibrary {
 		final RandomStringGenerator generator = new RandomStringGenerator();
 		
 		boolean repeatCode = true;
+		
+		final Random r = new Random();
 
 		while(repeatCode) {
 			result = generator.generateByRegex(separatePattern.get("Principal"));
-	
-			final Random r = new Random();
 			
 			if(separatePattern.containsKey("Optional") && r.nextBoolean()) {
 				result += generator.generateByRegex(separatePattern.get("Optional"));
