@@ -16,10 +16,15 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:input-textbox code="administrator.configuration.form.label.default-currency" path="defaultCurrency" readonly="true"/>
-	<acme:input-textbox code="administrator.configuration.form.label.accepted-currencies" path="acceptedCurrencies" readonly="true"/>
-	<acme:input-textbox code="administrator.configuration.form.label.strong-spam-words" path="strongSpamWords" readonly="true"/>
-	<acme:input-email code="administrator.configuration.form.label.strong-spam-threshold" path="strongSpamThreshold" readonly="true"/>
-	<acme:input-textbox code="administrator.configuration.form.label.weak-spam-words" path="weakSpamWords" readonly="true"/>
-	<acme:input-textbox code="administrator.configuration.form.label.weak-spam-threshold" path="weakSpamThreshold" readonly="true"/>
+	<acme:input-textbox code="administrator.configuration.form.label.default-currency" path="defaultCurrency" />
+	<acme:input-textbox code="administrator.configuration.form.label.accepted-currencies" path="acceptedCurrencies" />
+	<acme:input-textbox code="administrator.configuration.form.label.strong-spam-words" path="strongSpamWords" />
+	<acme:input-email code="administrator.configuration.form.label.strong-spam-threshold" path="strongSpamThreshold" />
+	<acme:input-double code="administrator.configuration.form.label.weak-spam-words" path="weakSpamWords" />
+	<acme:input-double code="administrator.configuration.form.label.weak-spam-threshold" path="weakSpamThreshold" />
+
+	<jstl:if test="${acme:anyOf(command, 'show, update')}">
+		<acme:submit code="administrator.configuration.form.button.update" action="/administrator/configuration/update"/>
+	</jstl:if>
+
 </acme:form>	

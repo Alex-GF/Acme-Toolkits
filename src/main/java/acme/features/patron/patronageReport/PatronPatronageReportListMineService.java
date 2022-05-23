@@ -21,11 +21,6 @@ public class PatronPatronageReportListMineService implements AbstractListService
 
     // AbstractListService<Patron, Quantity> interface ---------------------------
 
-
-    
-
-    
-
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
 		assert request != null;

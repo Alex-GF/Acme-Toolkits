@@ -14,3 +14,10 @@ administrator.configuration.form.label.strong-spam-words = Palabras de spam fuer
 administrator.configuration.form.label.strong-spam-threshold = Umbral de spam fuerte:
 administrator.configuration.form.label.weak-spam-words = Palabras de spam débiles:
 administrator.configuration.form.label.weak-spam-threshold = Umbral de spam débil:
+administrator.configuration.form.button.update = Actualizar
+
+administrator.configuration.form.error.acceptedCurrency = Esta divisa no está incluida en divisas aceptadas
+administrator.configuration.form.error.uniqueAcceptedCurrencies = No puede haber divisas repetidas
+administrator.configuration.form.error.differentWeakAndStrongSpamWords = Las palabras de spam fuertes y las palabras de spam débiles no deben coincidir
+administrator.configuration.form.error.uniqueWeakSpamWords = No puede haber palabras de spam fuertes repetidas
+administrator.configuration.form.error.uniqueStrongSpamWords = No puede haber palabras de spam débiles repetidas

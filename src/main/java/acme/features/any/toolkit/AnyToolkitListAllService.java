@@ -1,12 +1,16 @@
 package acme.features.any.toolkit;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.item.Item;
 import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
@@ -38,12 +42,7 @@ public class AnyToolkitListAllService implements AbstractListService<Any, Toolki
 		
 		Collection<Toolkit> result;
 		
-		if(request.getModel().hasAttribute("itemId")) {
-			final int itemId = request.getModel().getInteger("itemId");
-			result = this.anyToolkitRepository.findAllToolkitByItemId(itemId);
-		}else {
-			result = this.anyToolkitRepository.findAllToolkit();
-		}
+		result = this.anyToolkitRepository.findAllToolkit();
 		
 		final Map<String,Money> totalPrice = this.totalPrice();
 		
@@ -58,8 +57,27 @@ public class AnyToolkitListAllService implements AbstractListService<Any, Toolki
 		assert entity != null;
 		assert model != null;
 		
+		final String payload;
+		
 		request.unbind(entity, model, "title", "code", "totalPrice");
 		
+		final List<Quantity> quantitiesList = new ArrayList<Quantity>(this.anyToolkitRepository.findAllQuantityByToolkitId(entity.getId()));
+	
+		final List<Item> itemsList = quantitiesList.stream().map(Quantity::getItem).collect(Collectors.toList());
+		
+		final List<String> codesList = itemsList.stream().map(Item::getCode).collect(Collectors.toList());
+		
+		final List<String> namesList = itemsList.stream().map(Item::getName).collect(Collectors.toList());
+		
+		final List<String> technologiesList = itemsList.stream().map(Item::getTechnology).collect(Collectors.toList()); 
+ 		
+		payload = String.format(
+            "%s; %s; %s;",
+            codesList.toString().replace("[", "").replace("]", ""),
+            namesList.toString().replace("[", "").replace("]", ""),
+            technologiesList.toString().replace("[", "").replace("]", ""));
+		model.setAttribute("payload", payload);
+			
 	}
 	
 	// Ancillary methods ------------------------------------------------------

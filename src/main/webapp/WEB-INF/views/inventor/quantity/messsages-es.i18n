@@ -18,3 +18,5 @@ inventor.quantity.form.button.update = Actualizar
 inventor.quantity.form.button.delete = Eliminar
 
 inventor.quantity.form.error.amount = La cantidad debe ser mayor que 0
+inventor.quantity.form.error.amount.tool = La cantidad debe ser 1 para una herramienta
+inventor.quantity.form.error.itemId = La herramienta elegida ya se encuentra en el kit

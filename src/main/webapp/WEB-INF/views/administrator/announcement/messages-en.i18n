@@ -16,3 +16,5 @@ administrator.announcement.form.label.creationMoment = Creation moment:
 administrator.announcement.form.label.confirmation = Confirm that the announcement is correct
 
 administrator.announcement.form.button.create = Create
+
+administrator.announcement.form.error.spamWord = May not contain inappropriate words

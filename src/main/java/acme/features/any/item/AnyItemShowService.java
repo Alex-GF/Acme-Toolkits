@@ -68,6 +68,16 @@ public class AnyItemShowService implements AbstractShowService<Any,Item>{
 		request.unbind(entity, model, "name", "technology", "code", "retailPrice", "description", "link","type");
 		model.setAttribute("readonly", true);
 		model.setAttribute("inventor.fullName", entity.getInventor().getIdentity().getFullName());
+		
+		final String defaultCurrency = this.anyComponentRepository.findDefaultCurrency();
+		
+		final Item item = this.anyComponentRepository.findAllItem().stream().filter(x -> x.getId() == entity.getId()).findFirst().get();
+		
+		if(!(item.getRetailPrice().getCurrency().equals(defaultCurrency))) {
+			model.setAttribute("showDefaultCurrency", true);
+			model.setAttribute("defaultCurrency",item.getRetailPrice());
+		}
+		
 	}
 
 }

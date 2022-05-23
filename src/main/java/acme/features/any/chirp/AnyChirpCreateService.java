@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.chirp.Chirp;
+import acme.entities.configuration.Configuration;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractCreateService;
+import main.AntiSpam;
 
 
 @Service
@@ -72,6 +74,24 @@ public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp>{
 		assert errors != null;
 
 		boolean confirmation;
+		boolean spamWord;
+		boolean spamWordTitle;
+		boolean spamWordAuthor;
+		
+		final Configuration configuration = this.repository.configuration();
+		final AntiSpam antiSpam = new AntiSpam(configuration.getStrongSpamWords(), configuration.getStrongSpamThreshold(), configuration.getWeakSpamWords(), configuration.getWeakSpamThreshold(), entity.getBody());
+		spamWord = antiSpam.getAvoidSpam();
+		errors.state(request, !spamWord, "body", "any.chirp.form.error.spamWord");
+		
+		final AntiSpam antiSpamTitle = new AntiSpam(configuration.getStrongSpamWords(), configuration.getStrongSpamThreshold(), configuration.getWeakSpamWords(), configuration.getWeakSpamThreshold(), entity.getTitle());
+		spamWordTitle = antiSpamTitle.getAvoidSpam();
+		errors.state(request, !spamWordTitle, "title", "any.chirp.form.error.spamWord");
+		
+		final AntiSpam antiSpamAuthor = new AntiSpam(configuration.getStrongSpamWords(), configuration.getStrongSpamThreshold(), configuration.getWeakSpamWords(), configuration.getWeakSpamThreshold(), entity.getAuthor());
+		spamWordAuthor = antiSpamAuthor.getAvoidSpam();
+		errors.state(request, !spamWordAuthor, "author", "any.chirp.form.error.spamWord");
+		
+		
 
 		confirmation = request.getModel().getBoolean("confirmation");
 		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");

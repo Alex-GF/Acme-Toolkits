@@ -10,6 +10,7 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractListService;
 import acme.roles.Patron;
+import acme.utils.ChangeCurrencyLibrary;
 
 @Service
 public class PatronPatronageListMineService implements AbstractListService<Patron, Patronage> {
@@ -18,6 +19,9 @@ public class PatronPatronageListMineService implements AbstractListService<Patro
 
     @Autowired
     protected PatronPatronageRepository repository;
+    
+    @Autowired
+   	protected ChangeCurrencyLibrary changeLibrary;
 
     // AbstractListService<Patron, Quantity> interface ---------------------------
 
@@ -50,6 +54,10 @@ public class PatronPatronageListMineService implements AbstractListService<Patro
         Collection<Patronage> result;
 
         result = this.repository.findPatronagesByPatronId(request.getPrincipal().getAccountId());
+        
+        final String defaultCurrency = this.repository.findDefaultCurrency();
+        
+        result.stream().filter(x-> !(x.getBudget().getCurrency().equals(defaultCurrency))).forEach(x->x.setBudget(this.changeLibrary.computeMoneyExchange(x.getBudget(), defaultCurrency).getTarget()));
 
         return result;
     }

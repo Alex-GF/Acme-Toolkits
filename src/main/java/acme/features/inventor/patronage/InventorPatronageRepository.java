@@ -14,7 +14,7 @@ import acme.roles.Patron;
 @Repository
 public interface InventorPatronageRepository extends AbstractRepository{
 
-	@Query("SELECT p FROM Patronage p WHERE p.inventor.userAccount.id = :inventorId")
+	@Query("SELECT p FROM Patronage p WHERE p.inventor.userAccount.id = :inventorId AND p.published = true")
 	Collection<Patronage> findPatronagesByInventorId(int inventorId);
 	
 	@Query("SELECT p FROM Patronage p WHERE p.id = :patronageId")
