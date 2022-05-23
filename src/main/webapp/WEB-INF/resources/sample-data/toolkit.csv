@@ -1,5 +1,5 @@
 key,code,title,description,assembly-notes,published,link,key:inventor
-toolkit-01,ABC-123-A,Sample-Toolkit-01,Sample-Description-01,Sample-AssemblyNotes-01,true,http://sample-link-01.com,inventor-01
+toolkit-01,ABC-123-A,Sample-Toolkit-01,Sample-Description-01,Sample-AssemblyNotes-01,false,http://sample-link-01.com,inventor-01
 toolkit-02,DEF-456,Sample-Toolkit-02,Sample-Description-02,Sample-AssemblyNotes-02,true,http://sample-link-02.com,inventor-01
 toolkit-03,GHI-789-C,Sample-Toolkit-03,Sample-Description-03,Sample-AssemblyNotes-03,true,http://sample-link-03.com,inventor-01
 toolkit-04,JKL-012,Sample-Toolkit-04,Sample-Description-04,Sample-AssemblyNotes-04,true,http://sample-link-04.com,inventor-02

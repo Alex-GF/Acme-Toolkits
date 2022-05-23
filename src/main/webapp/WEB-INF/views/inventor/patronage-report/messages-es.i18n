@@ -4,6 +4,7 @@ inventor.patronageReport.list.label.creationMoment=Momento de creación
 inventor.patronageReport.list.label.memorandum=Memoria
 inventor.patronageReport.list.label.patronage=Patrocinio
 inventor.patronageReport.list.label.automaticSequenceNumber=Número de secuencia automático
+inventor.patronageReport.list.button.create = Crear
 
 inventor.patronageReport.form.label.creationMoment=Momento de creación
 inventor.patronageReport.form.label.memorandum=Memoria
