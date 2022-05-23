@@ -69,5 +69,15 @@ public class InventorShowItemService implements AbstractShowService<Inventor,Ite
 		assert model != null;
 
 		request.unbind(entity, model, "name", "technology", "code", "retailPrice", "description", "link", "type", "published");
+		
+		final String defaultCurrency = this.inventorItemRepository.findDefaultCurrency();
+		
+		final Item item = this.inventorItemRepository.findItemByItemId(entity.getId());
+		
+		if(!(item.getRetailPrice().getCurrency().equals(defaultCurrency))) {
+			model.setAttribute("showDefaultCurrency", true);
+			model.setAttribute("defaultCurrency",item.getRetailPrice());
+		}
+		
 	}
 }

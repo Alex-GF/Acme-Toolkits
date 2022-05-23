@@ -8,6 +8,11 @@
 	<acme:input-textbox code="any.item.form.label.name" path="name"/>
 	<acme:input-textbox code="any.item.form.label.technology" path="technology"/>
 	<acme:input-money code="any.item.form.label.retailPrice" path="retailPrice"/>
+	
+	<jstl:if test="${showDefaultCurrency}">
+		<acme:input-money code="any.item.form.label.retailPrice" path="defaultCurrency" readonly="true"/>
+	</jstl:if>
+	
 	<acme:input-textarea code="any.item.form.label.description" path="description"/>
 	<acme:input-textbox code="any.item.form.label.inventor" path="inventor.fullName"/>
 	<acme:input-url code="any.item.form.label.link" path="link"/>

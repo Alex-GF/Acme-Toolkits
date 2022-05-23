@@ -6,8 +6,10 @@ import org.springframework.stereotype.Service;
 import acme.entities.patronage.Patronage;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Patron;
+import acme.utils.ChangeCurrencyLibrary;
 
 @Service
 public class PatronPatronageShowService implements AbstractShowService<Patron, Patronage> {
@@ -15,6 +17,9 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
 
     @Autowired
     protected PatronPatronageRepository repository;
+    
+    @Autowired
+	protected ChangeCurrencyLibrary changeLibrary;
 
     @Override
     public boolean authorise(final Request<Patronage> request) {
@@ -42,8 +47,22 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
         final String fullName = entity.getInventor().getUserAccount().getIdentity().getFullName();
         model.setAttribute("fullName", fullName);
         
+        final Money m = entity.getBudget();
+        
+        final String defaultCurrency = this.repository.findDefaultCurrency();
+        
+        if(!(entity.getBudget().getCurrency().equals(defaultCurrency))) {
+        	entity.setBudget(this.changeLibrary.computeMoneyExchange(entity.getBudget(), defaultCurrency).getTarget());
+        }
+        
         request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationMoment", "startDate",
                 "finishDate", "link","published", "inventor");
+		
+		if(!(m.getCurrency().equals(defaultCurrency))){
+			model.setAttribute("showDefaultCurrency", true);
+			model.setAttribute("defaultCurrency",m);
+		}
+        
     }
 
     @Override
@@ -55,7 +74,7 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
 
         id = request.getModel().getInteger("id");
         result = this.repository.getPatronageById(id);
-
+        
         return result;
     }
 
