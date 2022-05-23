@@ -40,6 +40,7 @@ public class AuthenticatedInventorCreateTest extends TestHarness{
 	@CsvFileSource(resources = "/authenticated/inventor/negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
 	public void negative(final String username, final String password, final String name, final String surname, final String email, final String company, final String  statement, final String link) {
+		super.signUp(username, password, name, surname, email);
 		super.signIn(username, password);
 		
 		super.clickOnMenu("Account", "Become a patron");
