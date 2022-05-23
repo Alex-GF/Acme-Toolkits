@@ -7,7 +7,17 @@
 	<acme:input-textbox code="patron.patronage.form.label.status" path="status" readonly="true"/>
 	<acme:input-textbox readonly="true" code="patron.patronage.form.label.code" path="code" />
 	<acme:input-textbox code="patron.patronage.form.label.legalStuff" path="legalStuff" />
-	<acme:input-money code="patron.patronage.form.label.budget" path="budget" />
+	
+	<jstl:choose>
+		<jstl:when test="${showDefaultCurrency}">
+			<acme:input-money code="patron.patronage.form.label.budget" path="defaultCurrency"/>
+			<acme:input-money code="patron.patronage.form.label.budget" path="budget" readonly="true"/>
+		</jstl:when>
+		<jstl:otherwise>
+			<acme:input-money code="patron.patronage.form.label.budget" path="budget"/>
+		</jstl:otherwise>
+	</jstl:choose>
+	
 	<acme:input-moment code="patron.patronage.form.label.creationMoment" path="creationMoment" readonly="true"/>
 	<acme:input-moment code="patron.patronage.form.label.startDate" path="startDate" />
 	<acme:input-moment code="patron.patronage.form.label.finishDate" path="finishDate" />

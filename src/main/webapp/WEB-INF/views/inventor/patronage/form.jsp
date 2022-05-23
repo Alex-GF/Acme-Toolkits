@@ -14,6 +14,11 @@
 	<acme:input-textbox  readonly="true" code="inventor.patronage.form.label.code" path="code"/>
 	<acme:input-textbox  readonly="true" code="inventor.patronage.form.label.legalStuff" path="legalStuff"/>
 	<acme:input-money   readonly="true" code="inventor.patronage.form.label.budget" path="budget" />
+	
+	<jstl:if test="${showDefaultCurrency}">
+		<acme:input-money   readonly="true" code="inventor.patronage.form.label.budget" path="defaultCurrency"/>
+	</jstl:if>
+	
 	<acme:input-textbox  readonly="true" code="inventor.patronage.form.label.creationMoment" path="creationMoment" />
 	<acme:input-textbox  readonly="true" code="inventor.patronage.form.label.startDate" path="startDate" />
 	<acme:input-textbox  readonly="true" code="inventor.patronage.form.label.finishDate" path="finishDate"/>

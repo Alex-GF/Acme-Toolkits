@@ -19,7 +19,7 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 		
 		@Autowired
 		protected ChangeCurrencyLibrary changeLibrary;
-
+		
 		@Override
 		public boolean authorise(final Request<Patronage> request) {
 			assert request != null;
@@ -47,6 +47,15 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 			assert model != null;
 
 			request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationMoment", "startDate", "finishDate", "link", "patron");
+			
+			final Patronage p = this.repository.getPatronageById(entity.getId());
+			
+			final String defaultCurrency = this.repository.findDefaultCurrency();
+			
+			if(!(p.getBudget().getCurrency().equals(defaultCurrency))){
+				model.setAttribute("showDefaultCurrency", true);
+				model.setAttribute("defaultCurrency",p.getBudget());
+			}
 
 		}
 
@@ -62,10 +71,11 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 			
 			final String defaultCurrency = this.repository.findDefaultCurrency();
 			
-			if(!(result.getBudget().getCurrency().equals(defaultCurrency))){
+			if(!(result.getBudget().getCurrency().equals(defaultCurrency))) {
 				result.setBudget(this.changeLibrary.computeMoneyExchange(result.getBudget(), defaultCurrency).getTarget());
 			}
-
+			
+			
 			return result;
 		}
 
