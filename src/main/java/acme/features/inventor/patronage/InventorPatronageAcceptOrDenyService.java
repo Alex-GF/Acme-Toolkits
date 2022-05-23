@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.patronage.Patronage;
+import acme.entities.patronage.Status;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -25,10 +26,18 @@ public class InventorPatronageAcceptOrDenyService implements AbstractUpdateServi
 		public boolean authorise(final Request<Patronage> request) {
 			assert request != null;
 
-			boolean result;
-
-			result = request.getPrincipal().hasRole(Inventor.class);
-
+			boolean result = true;
+			
+			int patronageId;
+			Patronage patronage;
+			Inventor inventor;
+			
+			patronageId = request.getModel().getInteger("id");
+			patronage = (Patronage) this.repository.findById(patronageId).get();
+			inventor = patronage.getInventor();
+			
+			result = patronage.isPublished() && patronage.getStatus().equals(Status.PROPOSED) && request.isPrincipal(inventor);
+			
 			return result;
 		}
 

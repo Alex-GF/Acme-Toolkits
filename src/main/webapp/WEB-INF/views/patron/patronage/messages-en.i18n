@@ -4,6 +4,7 @@ patron.patronage.list.label.status = Status
 patron.patronage.list.label.code = Code
 patron.patronage.list.label.budget = Budget
 patron.patronage.list.label.creationMoment = Creation Moment
+patron.patronage.list.label.published = Published
 
 user-account.form.label.inventor = Inventor
 
@@ -29,3 +30,5 @@ patron.patronage.form.error.duplicated = The code is duplicated.
 patron.patronage.form.error.acceptedCurrency = This currency is invalid
 patron.patronage.form.error.acceptedPeriodTime = The start time must be at least one month after the creation moment 
 patron.patronage.form.error.positiveValue = The amount must be positive
+patron.patronage.form.error.acceptedPeriodTime.start = The start date must be at least one month after the creation moment
+patron.patronage.form.error.acceptedPeriodTime.finish = The finish date must be at least one month after the start date

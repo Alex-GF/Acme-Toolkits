@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.configuration.Configuration;
 import acme.entities.item.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -12,7 +13,8 @@ import acme.framework.controllers.Request;
 import acme.framework.services.AbstractCreateService;
 import acme.roles.Inventor;
 import acme.utils.AcceptedCurrencyLibrary;
-import acme.utils.GenerateCodeLibrary;;
+import acme.utils.GenerateCodeLibrary;
+import main.AntiSpam;;
 
 
 @Service
@@ -80,6 +82,23 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		assert errors != null;
 		
 		final List<String> acceptedCurrencies = AcceptedCurrencyLibrary.getAcceptedCurrencies(this.inventorItemRepository.findAcceptedCurrencies());
+		
+		boolean spamWord;
+		boolean spamWordName;
+		boolean spamWordTecnology;
+		
+		final Configuration configuration = this.inventorItemRepository.configuration();
+		final AntiSpam antiSpam = new AntiSpam(configuration.getStrongSpamWords(), configuration.getStrongSpamThreshold(), configuration.getWeakSpamWords(), configuration.getWeakSpamThreshold(), entity.getDescription());
+		spamWord = antiSpam.getAvoidSpam();
+		errors.state(request, !spamWord, "description", "inventor.item.form.error.spamWord");
+		
+		final AntiSpam antiSpamName = new AntiSpam(configuration.getStrongSpamWords(), configuration.getStrongSpamThreshold(), configuration.getWeakSpamWords(), configuration.getWeakSpamThreshold(), entity.getName());
+		spamWordName = antiSpamName.getAvoidSpam();
+		errors.state(request, !spamWordName, "name", "inventor.item.form.error.spamWord");
+		
+		final AntiSpam antiSpamTecnology = new AntiSpam(configuration.getStrongSpamWords(), configuration.getStrongSpamThreshold(), configuration.getWeakSpamWords(), configuration.getWeakSpamThreshold(), entity.getTechnology());
+		spamWordTecnology = antiSpamTecnology.getAvoidSpam();
+		errors.state(request, !spamWordTecnology, "technology", "inventor.item.form.error.spamWord");
 		
 		
 		if(!errors.hasErrors("retailPrice")) {

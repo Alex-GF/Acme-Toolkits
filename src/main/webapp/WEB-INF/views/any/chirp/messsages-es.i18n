@@ -17,4 +17,4 @@ any.chirp.form.label.confirmation = Confirme que el chirp es correcto
 any.chirp.form.button.create = Crear
 
 
-
+any.chirp.form.error.spamWord = No puede contener palabras inapropiadas

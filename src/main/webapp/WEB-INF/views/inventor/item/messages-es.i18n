@@ -13,3 +13,4 @@ inventor.item.form.button.create = Crear
 inventor.item.form.button.publish = Publicar
 inventor.item.form.error.acceptedCurrency = Divisa no aceptada
 inventor.item.form.error.positiveValue = La cantidad debe ser positivo
+inventor.item.form.error.spamWord = No puede contener palabras inapropiadas

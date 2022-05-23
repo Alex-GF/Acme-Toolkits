@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.item.Item;
+import acme.entities.item.ItemType;
 import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.features.inventor.item.InventorItemRepository;
@@ -32,11 +33,20 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 	public boolean authorise(final Request<Quantity> request) {
 		assert request != null;
 		
-		boolean result;
-
-		result = request.getPrincipal().hasRole(Inventor.class);
-
+		boolean result = true;
+		
+		int toolkitId;
+		Toolkit toolkit;
+		Inventor inventor;
+		
+		toolkitId = request.getModel().getInteger("toolkitId");
+		toolkit = this.inventorToolkitRepository.findToolkitById(toolkitId);
+		inventor = toolkit.getInventor();
+		
+		result = !toolkit.isPublished() && request.isPrincipal(inventor);
+		
 		return result;
+		
 	}
 
 	@Override
@@ -59,9 +69,10 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "toolkit.id","amount");
+		request.unbind(entity, model, "toolkit.title","amount");
 		model.setAttribute("toolkit.inventor.fullName", entity.getToolkit().getInventor().getIdentity().getFullName());
-		model.setAttribute("itemList", this.inventorItemRepository.findItemsByInventorId(request.getPrincipal().getAccountId()));
+		model.setAttribute("toolkitId", entity.getToolkit().getId());
+		model.setAttribute("itemList", this.inventorItemRepository.findItemsByInventorIdToList(request.getPrincipal().getAccountId()));
 	}
 
 	@Override
@@ -71,17 +82,20 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		final Quantity result = new Quantity();
 		
 		Integer toolkitId = null;
+		Toolkit toolkit = null;
 		
 		if(request.isMethod(HttpMethod.GET)){
 			
 			toolkitId = request.getModel().getInteger("toolkitId");
+			toolkit = this.inventorToolkitRepository.findToolkitById(toolkitId);
 			
 		}else if(request.isMethod(HttpMethod.POST)){
 			
-			toolkitId = request.getModel().getInteger("toolkit.id");
+			final String toolkitTitle = (String) request.getModel().getAttribute("toolkit.title");
+			
+			toolkit = this.inventorToolkitRepository.findToolkitByTitle(toolkitTitle);
 			
 		}
-		final Toolkit toolkit = this.inventorToolkitRepository.findToolkitById(toolkitId);
 		
 		result.setToolkit(toolkit);
 		
@@ -93,13 +107,36 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		if(!errors.hasErrors("itemId")) {
+			boolean existingTool;
+			
+			try {
+				final Quantity q = this.inventorQuantityRepository.findQuantityByItemIdAndToolkitId(entity.getItem().getId(), entity.getToolkit().getId());
+				if(q.getItem().getType() == ItemType.TOOL) {
+					existingTool = false;
+				}else {
+					existingTool = true;
+				}
+			}catch(final Exception e){
+				existingTool = true;
+			}
+			
+			errors.state(request, existingTool, "itemId", "inventor.quantity.form.error.itemId");
+		}
 
 		if(!errors.hasErrors("amount")) {
 			boolean amountPositive;
+			boolean correctToolAmount = true;
 			
 			amountPositive = entity.getAmount() > 0;
 			
+			if(entity.getItem().getType() == ItemType.TOOL) {
+				correctToolAmount = entity.getAmount() == 1;
+			}
+			
 			errors.state(request, amountPositive, "amount", "inventor.quantity.form.error.amount");
+			errors.state(request, correctToolAmount, "amount", "inventor.quantity.form.error.amount.tool");
 		}
 	}
 
@@ -108,7 +145,16 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert request != null;
 		assert entity != null;
 
-		this.inventorQuantityRepository.save(entity);
+		try {
+			final Quantity q = this.inventorQuantityRepository.findQuantityByItemIdAndToolkitId(entity.getItem().getId(), entity.getToolkit().getId());
+		
+			if(q.getItem().getType() == ItemType.COMPONENT) {
+				q.setAmount(q.getAmount() + entity.getAmount());
+				this.inventorQuantityRepository.save(q);
+			}
+		}catch(final Exception e) {
+			this.inventorQuantityRepository.save(entity);
+		}
 		
 	}
 	

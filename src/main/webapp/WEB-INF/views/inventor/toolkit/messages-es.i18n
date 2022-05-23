@@ -9,3 +9,5 @@ inventor.toolkit.form.button.update = Actualizar
 inventor.toolkit.form.button.delete = Borrar
 inventor.toolkit.form.button.create = Crear
 inventor.toolkit.form.button.publish = Publicar
+
+inventor.toolkit.form.error.spamWord = No puede contener palabras inapropiadas

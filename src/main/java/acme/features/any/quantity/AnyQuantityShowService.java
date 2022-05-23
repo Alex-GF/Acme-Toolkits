@@ -18,12 +18,10 @@ public class AnyQuantityShowService implements AbstractShowService<Any, Quantity
 	
 	@Autowired
 	protected ChangeCurrencyLibrary changeLibrary;
-	
-	
+		
 	@Override
 	public boolean authorise(final Request<Quantity> request) {
 		assert request != null;
-
 		
 		return true;
 	}
@@ -41,8 +39,10 @@ public class AnyQuantityShowService implements AbstractShowService<Any, Quantity
 		
 		final String defaultCurrency = this.anyQuantityRepository.findDefaultCurrency();
 		
-		result.getItem().setRetailPrice(this.changeLibrary.computeMoneyExchange(result.getItem().getRetailPrice(), defaultCurrency).getTarget());
-		
+		if(!(result.getItem().getRetailPrice().getCurrency().equals(defaultCurrency))) {
+			result.getItem().setRetailPrice(this.changeLibrary.computeMoneyExchange(result.getItem().getRetailPrice(), defaultCurrency).getTarget());
+		}
+				
 		return result;
 	}
 
@@ -51,11 +51,19 @@ public class AnyQuantityShowService implements AbstractShowService<Any, Quantity
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
+				
 		request.unbind(entity, model, "item.code","item.name","item.technology","item.retailPrice","item.type","item.description","item.link","item.inventor.name","item.inventor.surname", "amount");		
 		model.setAttribute("inventor.fullName", entity.getToolkit().getInventor().getIdentity().getFullName());
+		
+		final String defaultCurrency = this.anyQuantityRepository.findDefaultCurrency();
+		
+		final Quantity quantity = this.anyQuantityRepository.findQuantityById(entity.getId());
+				
+		if(!(quantity.getItem().getRetailPrice().getCurrency().equals(defaultCurrency))) {
+			model.setAttribute("showDefaultCurrency", true);
+			model.setAttribute("defaultCurrency",quantity.getItem().getRetailPrice());
+		}
+		
 	}
-
-	
 	
 }

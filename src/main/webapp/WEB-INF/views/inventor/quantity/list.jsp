@@ -14,5 +14,6 @@
 
 </acme:list>
 
-<acme:button code="inventor.quantity.list.button.create" action="/inventor/quantity/create?toolkitId=${masterId}"/>
-	
+<jstl:if test="${!isPublished}">
+	<acme:button code="inventor.quantity.list.button.create" action="/inventor/quantity/create?toolkitId=${masterId}"/>
+</jstl:if>
