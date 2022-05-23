@@ -1,6 +1,6 @@
-key,creation-moment,memorandum,link,automatic-sequence-number,key:patronage
-patronage-report-01,"2021/01/01 01:11","Memorandum 1",https://www.example1.com,"DHV-538-E: 0001",patronage-01
-patronage-report-02,"2021/01/01 01:11","Memorandum 2",https://www.example2.com,"VBD-572: 0002",patronage-02
-patronage-report-03,"2021/01/01 01:11","Memorandum 3",https://www.example3.com,"SQO-272-W: 0003",patronage-03
-patronage-report-04,"2021/01/01 01:11","Memorandum 4",null,"DAD-797: 0004",patronage-04
-patronage-report-05,"2021/01/01 01:11","Memorandum 5",https://www.example4.com,"OCQ-581-Y: 0005",patronage-05
+recordIndex,creation-moment,memorandum,link,automatic-sequence-number
+0,"2021/01/01 01:11","Memorandum 1",https://www.example1.com,"DHV-538-E: 0001",patronage-01
+1,"2021/01/01 01:11","Memorandum 2",https://www.example2.com,"VBD-572: 0002",patronage-02
+2,"2021/01/01 01:11","Memorandum 3",https://www.example3.com,"SQO-272-W: 0003",patronage-03
+3,"2021/01/01 01:11","Memorandum 4",,"DAD-797: 0004",patronage-04
+4,"2021/01/01 01:11","Memorandum 5",https://www.example4.com,"OCQ-581-Y: 0005",patronage-05

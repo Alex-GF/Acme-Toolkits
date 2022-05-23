@@ -1,5 +1,6 @@
 package acme.features.inventor.patronageReport;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -87,7 +88,7 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
         request.unbind(entity, model, "creationMoment", "memorandum", "link");
         model.setAttribute("confirmation", false);
 
-        final List<Patronage> patronages = this.repository.findAllPatronages();
+        final Collection<Patronage> patronages = this.repository.findAllPatronagesByInventorId(request.getPrincipal().getAccountId());
         model.setAttribute("patronageList", patronages);
 
     }

@@ -55,7 +55,7 @@ public class InventorPatronageReportCreateTest extends TestHarness {
     @ParameterizedTest
     @CsvFileSource(resources = "/inventor/patronageReport/negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(20)
-    public void negative(final int recordIndex, final String memorandum, final String creationMoment,
+    public void negative(final String recordIndex, final String memorandum, final String creationMoment,
             final String automaticSequenceNumber, final String patronage, final String link) {
         super.signIn("inventor1", "inventor1");
 

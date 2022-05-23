@@ -18,6 +18,9 @@ public interface InventorPatronageReportRepository extends AbstractRepository {
 
 	@Query("SELECT p FROM PatronageReport p WHERE p.id = :patronageReportId")
 	PatronageReport getPatronageReportById(int patronageReportId);
+	
+	@Query("SELECT p FROM Patronage p WHERE p.inventor.userAccount.id = :inventorId")
+	Collection<Patronage> findAllPatronagesByInventorId(int inventorId);
 
 	@Query("SELECT  p.patronage FROM PatronageReport p ORDER BY p.creationMoment")
 	List<Patronage> getPatronageByLastCreationMoment();
