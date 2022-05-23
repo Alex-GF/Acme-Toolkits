@@ -35,3 +35,4 @@ mvnw\.cmd
 logs/
 logs/.log
 /.apt_generated_tests/
+/bin/
