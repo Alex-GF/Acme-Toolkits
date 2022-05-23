@@ -13,7 +13,7 @@ public class InventorToolkitListTest extends TestHarness{
 	@Order(10)
 	public void positive(final int recordIndex, final String code, final String title, 
 						final String totalPrice, final String description, final String assemblyNotes,
-						final String link, final String inventor) {
+						final String link, final String inventor, final String published) {
 		
 		super.signIn("inventor1", "inventor1");
 
@@ -22,16 +22,18 @@ public class InventorToolkitListTest extends TestHarness{
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, title);
+		super.checkColumnHasValue(recordIndex, 2, published);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("totalPrice", totalPrice);
+		//super.checkInputBoxHasValue("totalPrice", totalPrice);
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("inventor.fullName", inventor);
 		super.checkInputBoxHasValue("assemblyNotes", assemblyNotes);
 		super.checkInputBoxHasValue("link", link);
+		super.checkInputBoxHasValue("published", published);
 		
 		super.signOut();
 	}

@@ -19,13 +19,13 @@ public class AnyToolkitListTest extends TestHarness {
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, title);
-		super.checkColumnHasValue(recordIndex, 2, totalPrice);
+		//super.checkColumnHasValue(recordIndex, 2, totalPrice);
 		
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("totalPrice", totalPrice);
+		//super.checkInputBoxHasValue("totalPrice", totalPrice);
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("inventor.fullName", inventor);
 		super.checkInputBoxHasValue("assemblyNotes", assemblyNotes);

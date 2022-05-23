@@ -109,22 +109,27 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 			errors.state(request, entity.getFinishDate().after(minimumPeriodFinish), "finishDate", "patron.patronage.form.error.acceptedPeriodTime.finish");
 			
 		}
-
-
-		if(!errors.hasErrors("budget")) {
-			boolean acceptedCurrency;
-
-			acceptedCurrency = acceptedCurrencies.contains(entity.getBudget().getCurrency());
-
-			errors.state(request, acceptedCurrency, "budget", "patron.patronage.form.error.acceptedCurrency");
-
-		}
 		
 		if (errors.hasErrors("code")) {
 			Patronage existing;
 			
 			existing = this.repository.getPatronageByCode(entity.getCode());
 			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "patron.patronage.form.error.duplicated");
+		}
+		
+		if(!errors.hasErrors("budget")) {
+			boolean acceptedCurrency;
+			
+			acceptedCurrency = acceptedCurrencies.contains(entity.getBudget().getCurrency());
+			
+			errors.state(request, acceptedCurrency, "budget", "patron.patronage.form.error.acceptedCurrency");
+			
+			boolean positiveValue;
+			
+			positiveValue = entity.getBudget().getAmount()>0;
+			
+			errors.state(request, positiveValue, "budget", "patron.patronage.form.error.positiveValue");
+			
 		}
 		
 	}

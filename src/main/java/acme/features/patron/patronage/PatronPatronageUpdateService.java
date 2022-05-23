@@ -144,6 +144,12 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 
 				errors.state(request, acceptedCurrency, "defaultCurrency", "patron.patronage.form.error.acceptedCurrency");
 
+                boolean positiveValue;
+
+                positiveValue = entity.getBudget().getAmount()>0;
+
+                errors.state(request, positiveValue, "defaultCurrency", "patron.patronage.form.error.positiveValue");
+
 			}
 		}else {
 			if(!errors.hasErrors("budget")) {
@@ -152,6 +158,12 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 				acceptedCurrency = acceptedCurrencies.contains(entity.getBudget().getCurrency());
 
 				errors.state(request, acceptedCurrency, "budget", "patron.patronage.form.error.acceptedCurrency");
+
+                boolean positiveValue;
+
+                positiveValue = entity.getBudget().getAmount()>0;
+
+                errors.state(request, positiveValue, "budget", "patron.patronage.form.error.positiveValue");
 
 			}
 		}

@@ -28,7 +28,7 @@ public class InventorItemUpdateTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/item/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTest(final int recordIndex, final String type, final String name, final String code, final String technology, final String description, final String retailPrice, final String link) {
+	public void positiveTest(final int recordIndex, final String type, final String name, final String code, final String technology, final String description, final String retailPrice, final String link, final String published) {
 		super.signIn("inventor1", "inventor1");
 
 		super.clickOnMenu("Inventor", "My Items");
@@ -56,6 +56,7 @@ public class InventorItemUpdateTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex, 2, technology);
 		super.checkColumnHasValue(recordIndex, 3, retailPrice);
 		super.checkColumnHasValue(recordIndex, 4, type);
+		super.checkColumnHasValue(recordIndex, 5, published);
 		
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -65,6 +66,9 @@ public class InventorItemUpdateTest extends TestHarness {
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("link", link);
+		super.checkInputBoxHasValue("published", published);
+		
+		super.checkNotButtonExists("Toolkits");
 
 		super.signOut();
 	}
@@ -100,7 +104,13 @@ public class InventorItemUpdateTest extends TestHarness {
 	@Test
 	@Order(30)
 	public void hackingTest() {
-		// The framework doesn't provide enough support to implement this test case
+		
+		// SUGERENCIA: el framework no proporciona suficiente soporte para implementar este caso de hacking,
+		// SUGERENCIA+ por lo que debe realizarse manualmente:
+		// SUGERENCIA+ a) No se pude actualizar un item cuyo inventor no sea su propietario.
+		// SUGERENCIA+ b) No se puede actualizar un item que este publicado.
+		
+		
 	}
 
 	// Ancillary methods ------------------------------------------------------

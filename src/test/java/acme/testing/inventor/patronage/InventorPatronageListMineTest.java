@@ -23,7 +23,7 @@ public class InventorPatronageListMineTest extends TestHarness{
 		super.checkListingExists();
 		super.sortListing(3, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
-		super.checkColumnHasValue(recordIndex, 1, budget);
+		//super.checkColumnHasValue(recordIndex, 1, budget);
 		super.checkColumnHasValue(recordIndex, 2, creationMoment);
 		super.checkColumnHasValue(recordIndex, 3, status);
 
@@ -33,7 +33,7 @@ public class InventorPatronageListMineTest extends TestHarness{
 		super.checkInputBoxHasValue("status", status);
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("legalStuff", legalStuff);
-		super.checkInputBoxHasValue("budget", budget);
+		//super.checkInputBoxHasValue("budget", budget);
 		super.checkInputBoxHasValue("creationMoment", creationMoment);
 		super.checkInputBoxHasValue("startDate", startDate);
 		super.checkInputBoxHasValue("finishDate", finishDate);

@@ -1,2 +1,2 @@
-recordIndex,type,name,code,technology,description,retail-price,link
-6,TOOL,Serrucho,STU-901-G,RYOBI,"Herramienta para cortar madera, piedra u otros objetos duros, que generalmente consiste en una hoja de acero dentada sujeta a una empuñadura, bastidor o armazón",EUR 4.40,https://www.leroymerlin.es/productos
+recordIndex,type,name,code,technology,description,retail-price,link,published
+6,TOOL,Serrucho,STU-901-G,RYOBI,"Herramienta para cortar madera, piedra u otros objetos duros, que generalmente consiste en una hoja de acero dentada sujeta a una empuñadura, bastidor o armazón",EUR 4.40,https://www.leroymerlin.es/productos,false

@@ -22,7 +22,7 @@ public class AnyItemListAllTest extends TestHarness{
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, name);
 		super.checkColumnHasValue(recordIndex, 2, technology);
-		super.checkColumnHasValue(recordIndex, 3, retailPrice);
+		//super.checkColumnHasValue(recordIndex, 3, retailPrice);
 		super.checkColumnHasValue(recordIndex, 4, type);
 		
 		super.clickOnListingRecord(recordIndex);
@@ -30,7 +30,7 @@ public class AnyItemListAllTest extends TestHarness{
 		super.checkInputBoxHasValue("name", name);
 		super.checkInputBoxHasValue("technology", technology);
 		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("retailPrice", retailPrice);
+		//super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("type", type);
 		super.checkInputBoxHasValue("link", link);
 		super.checkInputBoxHasValue("description", description);

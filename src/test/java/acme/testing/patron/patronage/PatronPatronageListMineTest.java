@@ -15,7 +15,7 @@ public class PatronPatronageListMineTest extends TestHarness{
 						final String legalStuff, final String budget, final String creationMoment, 
 						final String startDate, final String finishDate, final String link,
 						final String name, final String surname, final String email,
-						final String roleList) {
+						final String roleList, final String published) {
 		
 		super.signIn("patron1", "patron1");
 
@@ -26,6 +26,7 @@ public class PatronPatronageListMineTest extends TestHarness{
 		super.checkColumnHasValue(recordIndex, 1, budget);
 		super.checkColumnHasValue(recordIndex, 2, creationMoment);
 		super.checkColumnHasValue(recordIndex, 3, status);
+		super.checkColumnHasValue(recordIndex, 4, published);
 
 
 		super.clickOnListingRecord(recordIndex);
@@ -38,6 +39,7 @@ public class PatronPatronageListMineTest extends TestHarness{
 		super.checkInputBoxHasValue("startDate", startDate);
 		super.checkInputBoxHasValue("finishDate", finishDate);
 		super.checkInputBoxHasValue("link", link);
+		super.checkInputBoxHasValue("published", published);
 		
 		super.clickOnButton("Inventor");
 		super.checkFormExists();

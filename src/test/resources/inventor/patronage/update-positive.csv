@@ -1,0 +1,2 @@
+record-index,status,code,legal-stuff,budget,creation-moment,start-date,finish-date,link,name,surname,email,role-list
+1,ACCEPTED,DHV-538-E,Legal stuff 1,"EUR 1,000.34",2020/11/01 01:11,2020/12/01 01:11,2021/01/01 01:11,https://www.example1.com,Bill,Gates,bill.gates@acme.com,"Inventor, Patron"

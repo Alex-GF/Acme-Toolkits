@@ -1,6 +1,6 @@
-record-index,status,code,legal-stuff,budget,creation-moment,start-date,finish-date,link,name,surname,email,role-list
-0,ACCEPTED,DAD-797,"Legal stuff 4","EUR 1,894.34","2020/04/08 01:11","2020/12/11 01:11","2030/12/11 01:11",,Javier,Martín,javier.martin@acme.com,Inventor
-1,PROPOSED,DHV-538-E,"Legal stuff 1","EUR 1,000.34","2020/11/01 01:11","2020/12/01 01:11","2021/01/01 01:11",https://www.example1.com,Alberto,Navarro,alberto.navarro@acme.com,Inventor
-2,PROPOSED,OCQ-581-Y,"Legal stuff 5","EUR 2,234.74","2020/08/29 01:11","2021/02/02 01:11","2030/02/02 01:11",https://www.example4.com,Javier,Martín,javier.martin@acme.com,Inventor
-3,DENIED,SQO-272-W,"Legal stuff 3","EUR 1,274.64","2020/10/05 01:11","2021/01/01 01:11","2030/01/01 01:11",https://www.example3.com,Javier,Martín,javier.martin@acme.com,Inventor
-4,ACCEPTED,VBD-572,"Legal stuff 2","EUR 1,534.69","2020/03/21 01:11","2020/04/21 01:11","2021/04/21 01:11",https://www.example2.com,Javier,Martín,javier.martin@acme.com,Inventor
+record-index,status,code,legal-stuff,budget,creation-moment,start-date,finish-date,link,name,surname,email,role-list,published
+0,ACCEPTED,DAD-797,"Legal stuff 4","EUR 1,894.34","2020/04/08 01:11","2020/12/11 01:11","2030/12/11 01:11",,Javier,Martín,javier.martin@acme.com,Inventor,true
+1,PROPOSED,DHV-538-E,"Legal stuff 1","EUR 1,000.34","2020/11/01 01:11","2020/12/01 01:11","2021/01/01 01:11",https://www.example1.com,Alberto,Navarro,alberto.navarro@acme.com,Inventor,true
+2,PROPOSED,OCQ-581-Y,"Legal stuff 5","EUR 2,234.74","2020/08/29 01:11","2021/02/02 01:11","2030/02/02 01:11",https://www.example4.com,Javier,Martín,javier.martin@acme.com,Inventor,false
+3,DENIED,SQO-272-W,"Legal stuff 3","EUR 1,274.64","2020/10/05 01:11","2021/01/01 01:11","2030/01/01 01:11",https://www.example3.com,Javier,Martín,javier.martin@acme.com,Inventor,false
+4,ACCEPTED,VBD-572,"Legal stuff 2","EUR 1,534.69","2020/03/21 01:11","2020/04/21 01:11","2021/04/21 01:11",https://www.example2.com,Javier,Martín,javier.martin@acme.com,Inventor,true

@@ -28,7 +28,7 @@ public class InventorItemCreateTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/item/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTest(final int recordIndex, final String type, final String name, final String technology, final String description, final String retailPrice, final String link) {
+	public void positiveTest(final int recordIndex, final String type, final String name, final String technology, final String description, final String retailPrice, final String link, final String published) {
 		super.signIn("inventor1", "inventor1");
 
 		super.clickOnMenu("Inventor", "My Items");
@@ -52,6 +52,7 @@ public class InventorItemCreateTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex, 2, technology);
 		super.checkColumnHasValue(recordIndex, 3, retailPrice);
 		super.checkColumnHasValue(recordIndex, 4, type);
+		super.checkColumnHasValue(recordIndex, 5, published);
 		
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -60,12 +61,10 @@ public class InventorItemCreateTest extends TestHarness {
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("link", link);
+		super.checkInputBoxHasValue("published", published);
 		
 		
-		super.clickOnButton("Toolkits");
-
-		super.checkListingExists();
-		super.checkListingEmpty();
+		super.checkNotButtonExists("Toolkits");
 
 		super.signOut();
 	}
