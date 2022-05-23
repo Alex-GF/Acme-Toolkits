@@ -36,10 +36,6 @@ public class AnyItemListAllTest extends TestHarness{
 		super.checkInputBoxHasValue("description", description);
 		
 		
-		super.checkButtonExists("Toolkits");
-		
-		
-		
 	}
 	
 	
