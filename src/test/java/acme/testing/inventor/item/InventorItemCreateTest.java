@@ -62,10 +62,7 @@ public class InventorItemCreateTest extends TestHarness {
 		super.checkInputBoxHasValue("link", link);
 		
 		
-		super.clickOnButton("Toolkits");
-
-		super.checkListingExists();
-		super.checkListingEmpty();
+		super.checkNotButtonExists("Toolkits");
 
 		super.signOut();
 	}

@@ -1,8 +1,10 @@
 recordIndex,type,name,technology,description,retail-price,link
 0,TOOL,,,,,
-0,TOOL,Violín,,Instrumento musical.,EUR 299999999.99,
+0,TOOL,Instrumento,Violín,Madera,Instrumento musical.,EUR 299.9999999999999999,
 0,COMPONENT,WX,Makita,"Pieza cilíndrica o cónica, por lo general metálica, con resalte en hélice y cabeza apropiada para enroscarla.",EURO 0.20,https://www.leroymerlin.es/productos
-0,COMPONENT,,DeWalt,Pieza con un hueco labrado en espiral que ajusta exactamente en el filete de un tornillo,EUR 0.07,https://www.leroymerlin.es/productos
+0,COMPONENT,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas",DeWalt,Pieza con un hueco labrado en espiral que ajusta exactamente en el filete de un tornillo,EUR 0.07,https://www.leroymerlin.es/productos
 0,TOOL,Yakuapana,Mannesmann,Herramienta aguda o cortante con que se agujerea la madera u otra cosa,EUR -21.30,https://www.leroymerlin.es/productos
 0,COMPONENT,YZ,Black+Decker,Barrena de boca cónica que se usa con las máquinas de taladrar.,FREE,
 0,TOOL,Zaranda,RYOBI,"Herramienta para cortar madera, piedra u otros objetos duros, que generalmente consiste en una hoja de acero dentada sujeta a una empuñadura, bastidor o armazón",EUR 9.40,mi-url
+0,TOOL,Zaranda,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas","Herramienta para cortar madera, piedra u otros objetos duros, que generalmente consiste en una hoja de acero dentada sujeta a una empuñadura, bastidor o armazón",EUR 9.40,
+0,TOOL,Zaranda,RYOBI,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, s",EUR 9.40,
