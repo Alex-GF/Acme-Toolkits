@@ -46,9 +46,13 @@
 		<attributes>
 			<attribute name="test" value="true"/>
 			<attribute name="optional" value="true"/>
+			<attribute name="test" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="ignore_optional_problems" value="true"/>
+			<attribute name="m2e-apt" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path=".apt_generated">
+	<classpathentry kind="src" output="target/test-classes" path=".apt_generated_tests">
 		<attributes>
 			<attribute name="optional" value="true"/>
 		</attributes>
@@ -59,6 +63,11 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/yalej/Desktop/Universidad/Curso 2021-2022/Diseño y Pruebas/DP2/Workspace-22.0/Projects/Acme-Toolkits/external-libs/AntiSpam.jar"/>
+	<classpathentry kind="lib" path="external-libs/AntiSpam.jar"/>
+	<classpathentry kind="src" path=".apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

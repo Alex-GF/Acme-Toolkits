@@ -9,3 +9,5 @@
 	<acme:list-column code="inventor.patronageReport.list.label.automaticSequenceNumber" path="automaticSequenceNumber" width="25%"/>
 	<acme:list-column code="inventor.patronageReport.list.label.patronage" path="patronage.code" width="25%"/>
 </acme:list>
+
+<acme:button code="inventor.patronageReport.list.button.create" action="/inventor/patronageReport/create"/>
