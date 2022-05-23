@@ -14,7 +14,7 @@ public class AdministratorAnnouncementCreateTest extends TestHarness{
 	 
     @ParameterizedTest
     @CsvFileSource(resources = "/administrator/announcement/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-    @Order(30)
+    @Order(10)
     public void positive(final int recordIndex, final String title, final String body,
             final String criticalFlag, final String link) {
         super.signIn("administrator", "administrator");
@@ -72,25 +72,16 @@ public class AdministratorAnnouncementCreateTest extends TestHarness{
 
     
     @Test
-    @Order(10)
+    @Order(30)
     public void hackingTest() {
     	// SUGERENCIA: el framework no proporciona suficiente soporte para implementar este caso de hacking,
 		// SUGERENCIA+ por lo que debe realizarse manualmente:
-		// SUGERENCIA+ a) mostrar un announcement anterior a un mes;
-		// SUGERENCIA+ b) mostrar announcement si no estas autenticado;
-    	super.checkNotLinkExists("Account");
-		super.navigate("/authenticated/announcement/show?id=116");
-		super.checkPanicExists();
-    	// SUGERENCIA+ c) listar announcements si no estas autenticado;
-		super.checkNotLinkExists("Account");
-		super.navigate("/authenticated/announcement/list-recent");
-		super.checkPanicExists();
-    	// SUGERENCIA+ d) crear un announcement si no estas autenticado;
+		// SUGERENCIA+ d) crear un announcement si no estas autenticado;
 		super.checkNotLinkExists("Account");
 		super.navigate("/administrator/announcement/create");
 		super.checkPanicExists();
 		// SUGERENCIA+ e) crear announcement si no eres administrador;
-		super.signIn("administrator", "administrator");
+		super.signIn("inventor1", "inventor1");
 		super.navigate("/administrator/announcement/create");
 		super.checkPanicExists();
 		super.signOut();

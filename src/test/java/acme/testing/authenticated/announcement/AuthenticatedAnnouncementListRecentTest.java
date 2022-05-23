@@ -1,6 +1,7 @@
 package acme.testing.authenticated.announcement;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -30,6 +31,19 @@ public class AuthenticatedAnnouncementListRecentTest extends TestHarness {
 		super.checkInputBoxHasValue("link", link);
 		
 		super.signOut();
+	}
+	
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		// SUGERENCIA: el framework no proporciona suficiente soporte para implementar este caso de hacking,
+		// SUGERENCIA+ por lo que debe realizarse manualmente:
+		// SUGERENCIA+ a) mostrar un announcement anterior a un mes;
+		// SUGERENCIA+ b) mostrar announcement si no estas autenticado;
+    	// SUGERENCIA+ c) listar announcements si no estas autenticado;
+		super.checkNotLinkExists("Account");
+		super.navigate("/authenticated/announcement/list-recent");
+		super.checkPanicExists();
 	}
 	
 }
