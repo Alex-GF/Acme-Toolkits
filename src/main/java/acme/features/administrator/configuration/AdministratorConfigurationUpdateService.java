@@ -12,7 +12,7 @@ import acme.framework.entities.Principal;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.roles.Administrator;
 import acme.framework.services.AbstractUpdateService;
-import acme.entities.configuration;
+import acme.entities.configuration.Configuration;
 
 
 @Service
