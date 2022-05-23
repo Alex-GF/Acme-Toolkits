@@ -65,6 +65,8 @@ public class InventorItemUpdateTest extends TestHarness {
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("link", link);
+		
+		super.checkNotButtonExists("Toolkits");
 
 		super.signOut();
 	}
@@ -100,7 +102,13 @@ public class InventorItemUpdateTest extends TestHarness {
 	@Test
 	@Order(30)
 	public void hackingTest() {
-		// The framework doesn't provide enough support to implement this test case
+		
+		// SUGERENCIA: el framework no proporciona suficiente soporte para implementar este caso de hacking,
+		// SUGERENCIA+ por lo que debe realizarse manualmente:
+		// SUGERENCIA+ a) No se pude actualizar un item cuyo inventor no sea su propietario.
+		// SUGERENCIA+ b) No se puede actualizar un item que este publicado.
+		
+		
 	}
 
 	// Ancillary methods ------------------------------------------------------

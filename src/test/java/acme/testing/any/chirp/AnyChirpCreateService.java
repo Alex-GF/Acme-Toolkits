@@ -72,9 +72,8 @@ public class AnyChirpCreateService extends TestHarness{
     @Test
     @Order(30)
     public void hackingTest() {
-    	// SUGERENCIA: el framework no proporciona suficiente soporte para implementar este caso de hacking,
-		// SUGERENCIA+ por lo que debe realizarse manualmente:
-		// SUGERENCIA+ a) mostrar un chirp;
+    	// Esto no se puede hackear puesto que los usuarios no registrados y registrados 
+    	// pueden crear chirps y solo hay un list.
 
     }
 

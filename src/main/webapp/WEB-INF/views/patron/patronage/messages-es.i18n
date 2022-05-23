@@ -29,3 +29,4 @@ patron.patronage.list.button.create = Crear
 patron.patronage.form.error.duplicated = El código esta duplicado.
 patron.patronage.form.error.acceptedCurrency = Esta divisa es invalida.
 patron.patronage.form.error.acceptedPeriodTime = La fecha de inicio debe ser como mínimo un mes posterior a la fecha de creación.
+patron.patronage.form.error.positiveValue =  La cantidad debe ser positivo
