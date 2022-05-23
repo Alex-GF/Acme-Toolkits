@@ -11,3 +11,5 @@ inventor.patronageReport.form.label.memorandum= Memorandum
 inventor.patronageReport.form.label.link=Link
 inventor.patronageReport.form.label.patronage=Patronage
 inventor.patronageReport.form.label.automaticSequenceNumber= Automatic Sequence Number
+inventor.patronageReport.form.label.confirmation = Confirm that the announcement is correct
+inventor.patronageReport.form.button.create = Create
