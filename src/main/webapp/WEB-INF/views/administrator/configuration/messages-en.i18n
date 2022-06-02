@@ -21,3 +21,4 @@ administrator.configuration.form.error.uniqueAcceptedCurrencies = All acepted cu
 administrator.configuration.form.error.differentWeakAndStrongSpamWords = Weak and strong spam words must be different
 administrator.configuration.form.error.uniqueWeakSpamWords = Weak spam words must be different
 administrator.configuration.form.error.uniqueStrongSpamWords = Strong spam words must be different
+administrator.configuration.form.error.correctCurrenciesPattern = Invalid currency format inserted

@@ -21,3 +21,4 @@ administrator.configuration.form.error.uniqueAcceptedCurrencies = No puede haber
 administrator.configuration.form.error.differentWeakAndStrongSpamWords = Las palabras de spam fuertes y las palabras de spam débiles no deben coincidir
 administrator.configuration.form.error.uniqueWeakSpamWords = No puede haber palabras de spam fuertes repetidas
 administrator.configuration.form.error.uniqueStrongSpamWords = No puede haber palabras de spam débiles repetidas
+administrator.configuration.form.error.correctCurrenciesPattern = Formato de divisa introducido inválido
