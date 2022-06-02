@@ -67,8 +67,8 @@ public class InventorPatronageReportCreateTest extends TestHarness {
     @Test
     @Order(30)
     public void hackingTest() {
-
-
+    	// SUGERENCIA: el framework no proporciona suficiente soporte para implementar este caso de hacking,
+    	// SUGERENCIA+ por lo que debe realizarse manualmente:
         super.checkNotLinkExists("Account");
         super.navigate("/inventor/patronage-report/create");
         super.checkPanicExists();
