@@ -51,7 +51,8 @@ public class InventorPatronageUpdateTest extends TestHarness{
 	
 	
 	@Test
-	public void hacking() {
+	@Order(20)
+	public void hackingTest() {
 		// SUGERENCIA: el framework no proporciona suficiente soporte para implementar este caso de hacking,
 		// SUGERENCIA+ por lo que debe realizarse manualmente:
 		// SUGERENCIA+ a) No se pude actualizar el estado de los patronage que no son de mi propiedad.

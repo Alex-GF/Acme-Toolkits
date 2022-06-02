@@ -13,7 +13,7 @@ public class InventorPatronageReportCreateTest extends TestHarness {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/inventor/patronageReport/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-    @Order(30)
+    @Order(10)
     public void positive(final int recordIndex, final String memorandum, final String link) {
         super.signIn("inventor1", "inventor1");
 
@@ -23,7 +23,7 @@ public class InventorPatronageReportCreateTest extends TestHarness {
         final LocalDateTime now = LocalDateTime.now();
         final String date = now.getYear() + "/"
                 + (now.getMonthValue() < 10 ? "0" + now.getMonthValue() : now.getMonthValue()) + "/"
-                + now.getDayOfMonth() + " " + now.getHour() + ":"
+                + (now.getDayOfMonth() < 10 ? "0"+ now.getDayOfMonth():now.getDayOfMonth()) + " " + now.getHour() + ":"
                 + (now.getMinute() < 10 ? "0" + now.getMinute() : now.getMinute());
         super.fillInputBoxIn("memorandum", memorandum);
         super.fillInputBoxIn("link", link);
@@ -42,6 +42,7 @@ public class InventorPatronageReportCreateTest extends TestHarness {
         super.checkFormExists();
         super.checkInputBoxHasValue("memorandum", memorandum);
         super.checkInputBoxHasValue("link", link);
+        super.checkInputBoxHasValue("creationMoment", date);
 
         super.signOut();
     }
@@ -54,11 +55,6 @@ public class InventorPatronageReportCreateTest extends TestHarness {
 
         super.clickOnMenu("Inventor", "Patronage report list");
         super.clickOnButton("Create");
-        final LocalDateTime now = LocalDateTime.now();
-        final String date = now.getYear() + "/"
-                + (now.getMonthValue() < 10 ? "0" + now.getMonthValue() : now.getMonthValue()) + "/"
-                + now.getDayOfMonth() + " " + now.getHour() + ":"
-                + (now.getMinute() < 10 ? "0" + now.getMinute() : now.getMinute());
         super.fillInputBoxIn("memorandum", memorandum);
         super.fillInputBoxIn("link", link);
         super.fillInputBoxIn("confirmation", "true");
@@ -69,7 +65,7 @@ public class InventorPatronageReportCreateTest extends TestHarness {
     }
 
     @Test
-    @Order(10)
+    @Order(30)
     public void hackingTest() {
 
 
