@@ -13,7 +13,14 @@
 			</acme:input-select>
 	</jstl:if>
 	
-	<acme:input-textbox code="inventor.patronageReport.form.label.creationMoment" path="creationMoment" readonly="true"/>	
+	<jstl:choose>
+		<jstl:when test="${command == 'create' }">
+			<acme:hidden-data path="creationMoment"/>	
+		</jstl:when>
+		<jstl:otherwise>
+			<acme:input-textbox code="inventor.patronageReport.form.label.creationMoment" path="creationMoment" readonly="true"/>	
+		</jstl:otherwise>
+	</jstl:choose>
 	<acme:input-textbox code="inventor.patronageReport.form.label.memorandum" path="memorandum" />
 	<acme:input-url code="inventor.patronageReport.form.label.link" path="link" />
 	

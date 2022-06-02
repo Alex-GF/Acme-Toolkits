@@ -60,7 +60,7 @@ public class InventorPatronageAcceptOrDenyService implements AbstractUpdateServi
 			assert entity != null;
 			assert errors != null;
 
-			request.bind(entity, errors, "status", "code", "legalStuff", "budget", "creationMoment", "startDate", "finishDate", "link");
+			request.bind(entity, errors, "status");
 			
 		}
 

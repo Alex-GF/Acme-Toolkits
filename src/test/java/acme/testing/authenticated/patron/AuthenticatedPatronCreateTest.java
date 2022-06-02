@@ -11,7 +11,7 @@ public class AuthenticatedPatronCreateTest extends TestHarness{
 	
 	@ParameterizedTest
 	@CsvFileSource(resources = "/sign-up/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(20)
+	@Order(10)
 	public void positive(final String username, final String password, final String name, final String surname, final String email, final String company, final String  statement, final String link) {
 		super.signUp(username, password, name, surname, email);
 		super.signIn(username, password);
@@ -38,7 +38,7 @@ public class AuthenticatedPatronCreateTest extends TestHarness{
 	
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/patron/negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(10)
+	@Order(20)
 	public void negative(final String username, final String password, final String name, final String surname, final String email, final String company, final String  statement, final String link) {
 		
 		super.signUp(username, password, name, surname, email);
@@ -60,8 +60,8 @@ public class AuthenticatedPatronCreateTest extends TestHarness{
 	@Test
 	@Order(30)
 	public void hackingTest() {
-		
-		
+		// SUGERENCIA: el framework no proporciona suficiente soporte para implementar este caso de hacking,
+		// SUGERENCIA+ por lo que debe realizarse manualmente:
 		
 		super.checkNotLinkExists("Account");
 		super.navigate("/authenticated/patron/create");

@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.patronage.Status;
 import acme.entities.patronageReport.PatronageReport;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -32,6 +33,15 @@ public class InventorPatronageReportListMineService implements AbstractListServi
 
 		return result;
 	}
+	
+	@Override
+	public void unbind(final Request<PatronageReport> request, final Collection<PatronageReport> entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		model.setAttribute("hasPatronageReports", this.repository.findAllPatronagesByInventorIdAndStatus(request.getPrincipal().getAccountId(), Status.ACCEPTED).stream().count()>0);
+	}
 
 	@Override
 	public void unbind(final Request<PatronageReport> request, final PatronageReport entity, final Model model) {
@@ -40,7 +50,6 @@ public class InventorPatronageReportListMineService implements AbstractListServi
 		assert model != null;
 
 		request.unbind(entity, model, "creationMoment", "memorandum", "patronage.code","automaticSequenceNumber");
-		
 	}
 
 	@Override

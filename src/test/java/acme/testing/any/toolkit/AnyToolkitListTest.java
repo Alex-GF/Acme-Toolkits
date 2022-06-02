@@ -1,6 +1,7 @@
 package acme.testing.any.toolkit;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -33,4 +34,11 @@ public class AnyToolkitListTest extends TestHarness {
 		
 		
 	}
+	@Test
+    @Order(20)
+    public void hackingTest() {
+    	// Esto no se puede hackear puesto que los usuarios no registrados y registrados 
+    	// pueden ver todas las toolkits.
+
+    }
 }

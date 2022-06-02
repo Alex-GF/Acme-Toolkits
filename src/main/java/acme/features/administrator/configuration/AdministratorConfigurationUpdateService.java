@@ -86,10 +86,14 @@ public class AdministratorConfigurationUpdateService implements AbstractUpdateSe
 
         if (!errors.hasErrors("acceptedCurrencies")) {
             boolean uniqueAcceptedCurrencies = true;
+            boolean correctCurrenciesPattern = true;
             final List<String> currencies = new ArrayList<>();
 
             for (final String currency : entity.getAcceptedCurrencies().split(",")) {
                 currencies.add(currency.trim());
+                if(!(currency.trim().length() == 3 && currency.trim().toUpperCase().equals(currency.trim()))) {
+                	correctCurrenciesPattern = false;
+                }
             }
             for (final String currency : entity.getAcceptedCurrencies().split(",")) {
                 if (Collections.frequency(currencies, currency.trim()) != 1) {
@@ -99,6 +103,9 @@ public class AdministratorConfigurationUpdateService implements AbstractUpdateSe
 
             errors.state(request, uniqueAcceptedCurrencies, "acceptedCurrencies",
                     "administrator.configuration.form.error.uniqueAcceptedCurrencies");
+            
+            errors.state(request, correctCurrenciesPattern, "acceptedCurrencies",
+                "administrator.configuration.form.error.correctCurrenciesPattern");
         }
 
         if (!errors.hasErrors("weakSpamWords")) {

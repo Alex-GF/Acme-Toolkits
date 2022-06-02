@@ -4,8 +4,16 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form readonly="${readonly}">
-	<acme:input-textbox code="patron.patronage.form.label.status" path="status" readonly="true"/>
-	<acme:input-textbox readonly="true" code="patron.patronage.form.label.code" path="code" />
+	<jstl:choose>
+		<jstl:when test="${command == 'create'}">
+			<acme:hidden-data path="status"/>
+			<acme:hidden-data path="code" />
+		</jstl:when>	
+		<jstl:otherwise>
+			<acme:input-textbox code="patron.patronage.form.label.status" path="status" readonly="true"/>
+			<acme:input-textbox readonly="true" code="patron.patronage.form.label.code" path="code" />
+		</jstl:otherwise>	
+	</jstl:choose>
 	<acme:input-textbox code="patron.patronage.form.label.legalStuff" path="legalStuff" />
 	
 	<jstl:choose>
@@ -18,11 +26,26 @@
 		</jstl:otherwise>
 	</jstl:choose>
 	
-	<acme:input-moment code="patron.patronage.form.label.creationMoment" path="creationMoment" readonly="true"/>
+	<jstl:choose>
+		<jstl:when test="${command == 'create'}">
+			<acme:hidden-data path="creationMoment"/>
+		</jstl:when>	
+		<jstl:otherwise>
+			<acme:input-moment code="patron.patronage.form.label.creationMoment" path="creationMoment" readonly="true"/>
+		</jstl:otherwise>	
+	</jstl:choose>
+	
 	<acme:input-moment code="patron.patronage.form.label.startDate" path="startDate" />
 	<acme:input-moment code="patron.patronage.form.label.finishDate" path="finishDate" />
 	<acme:input-textbox code="patron.patronage.form.label.link" path="link" />
-	<acme:input-textbox readonly="true" code="patron.patronage.form.label.published" path="published" />
+	<jstl:choose>
+		<jstl:when test="${command=='create'}">
+			<acme:hidden-data path="published" />
+		</jstl:when>
+		<jstl:otherwise>
+			<acme:input-textbox readonly="true" code="patron.patronage.form.label.published" path="published" />
+		</jstl:otherwise>
+	</jstl:choose>
 	<jstl:if test="${ command == 'create' }">
 		<acme:input-select code="patron.patronage.form.label.inventor" path="inventor">
 			<jstl:forEach items="${ inventorsList }" var="inventors">

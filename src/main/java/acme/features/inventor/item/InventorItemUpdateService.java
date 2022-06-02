@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.configuration.Configuration;
 import acme.entities.item.Item;
+import acme.entities.item.ItemType;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -14,8 +15,8 @@ import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 import acme.utils.AcceptedCurrencyLibrary;
-import main.AntiSpam;
 import acme.utils.ChangeCurrencyLibrary;
+import main.AntiSpam;
 
 @Service
 public class InventorItemUpdateService implements AbstractUpdateService<Inventor, Item>{
@@ -49,7 +50,7 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity,errors,"name", "technology", "code", "retailPrice", "description", "link", "type");
+		request.bind(entity,errors,"name", "technology", "retailPrice", "description", "link", "type");
 		
 		final Model model = request.getModel();
 		
@@ -131,11 +132,14 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 				
 				errors.state(request, acceptedCurrency, "retailPrice", "inventor.item.form.error.acceptedCurrency");
 				
-				boolean positiveValue;
+				boolean validValue;
 				
-				positiveValue = entity.getRetailPrice().getAmount()>0;
+				validValue = entity.getType() == ItemType.COMPONENT ? 
+										entity.getRetailPrice().getAmount()>0
+										:
+										entity.getRetailPrice().getAmount()>=0;
 				
-				errors.state(request, positiveValue, "retailPrice", "inventor.item.form.error.positiveValue");
+				errors.state(request, validValue, "retailPrice", "inventor.item.form.error.positiveValue");
 			}
 			
 		}else {

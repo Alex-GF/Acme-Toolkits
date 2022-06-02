@@ -21,11 +21,20 @@
 	
 	<acme:input-textarea code="any.item.form.label.description" path="description"/>
 	<acme:input-url code="any.item.form.label.link" path="link"/>
-	<acme:input-textbox code="any.item.form.label.published" path="published"/>
+	
+	<jstl:choose>
+		<jstl:when test="${command == 'create'}">
+			<acme:hidden-data path="published"/>
+		</jstl:when>
+		<jstl:otherwise>
+			<acme:input-textbox code="any.item.form.label.published" path="published" readonly="true"/>
+		</jstl:otherwise>		
+	</jstl:choose>
+	
 		
 	<acme:input-select code="any.item.form.label.type" path="type">
-		<acme:input-option code="TOOL" value="TOOL" selected="${status == 'TOOL'}"/>
-		<acme:input-option code="COMPONENT" value="COMPONENT" selected="${status == 'COMPONENT'}"/>
+		<acme:input-option code="TOOL" value="TOOL" selected="${type == 'TOOL'}"/>
+		<acme:input-option code="COMPONENT" value="COMPONENT" selected="${type == 'COMPONENT'}"/>
 	</acme:input-select>
 
 	<jstl:choose>

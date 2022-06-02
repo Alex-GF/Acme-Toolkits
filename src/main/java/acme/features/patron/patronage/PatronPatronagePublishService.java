@@ -46,7 +46,7 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity,errors,"status", "code", "legalStuff", "budget", "creationMoment", "startDate", "finishDate", "link","published");
+		request.bind(entity,errors,"published");
 		
 	}
 

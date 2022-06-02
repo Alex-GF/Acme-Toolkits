@@ -52,7 +52,7 @@ public class AnyQuantityShowService implements AbstractShowService<Any, Quantity
 		assert entity != null;
 		assert model != null;
 				
-		request.unbind(entity, model, "item.code","item.name","item.technology","item.retailPrice","item.type","item.description","item.link","item.inventor.name","item.inventor.surname", "amount");		
+		request.unbind(entity, model, "item.code","item.name","item.technology","item.retailPrice","item.type","item.description","item.link","amount");		
 		model.setAttribute("inventor.fullName", entity.getToolkit().getInventor().getIdentity().getFullName());
 		
 		final String defaultCurrency = this.anyQuantityRepository.findDefaultCurrency();

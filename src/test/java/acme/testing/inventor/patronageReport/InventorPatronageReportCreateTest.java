@@ -13,9 +13,9 @@ public class InventorPatronageReportCreateTest extends TestHarness {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/inventor/patronageReport/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-    @Order(30)
+    @Order(10)
     public void positive(final int recordIndex, final String memorandum, final String link) {
-        super.signIn("inventor1", "inventor1");
+        super.signIn("inventor2", "inventor2");
 
         super.clickOnMenu("Inventor", "Patronage report list");
 		super.clickOnButton("Create");
@@ -23,7 +23,7 @@ public class InventorPatronageReportCreateTest extends TestHarness {
         final LocalDateTime now = LocalDateTime.now();
         final String date = now.getYear() + "/"
                 + (now.getMonthValue() < 10 ? "0" + now.getMonthValue() : now.getMonthValue()) + "/"
-                + now.getDayOfMonth() + " " + now.getHour() + ":"
+                + (now.getDayOfMonth() < 10 ? "0"+ now.getDayOfMonth():now.getDayOfMonth()) + " " + now.getHour() + ":"
                 + (now.getMinute() < 10 ? "0" + now.getMinute() : now.getMinute());
         super.fillInputBoxIn("memorandum", memorandum);
         super.fillInputBoxIn("link", link);
@@ -32,16 +32,17 @@ public class InventorPatronageReportCreateTest extends TestHarness {
 
         super.clickOnMenu("Inventor", "Patronage report list");
         super.checkListingExists();
-        super.sortListing(0, "asc");
-        super.checkColumnHasValue(recordIndex+1, 0, date);
-        super.checkColumnHasValue(recordIndex+1, 1, memorandum);
+        super.sortListing(1, "asc");
+        super.checkColumnHasValue(recordIndex, 0, date);
+        super.checkColumnHasValue(recordIndex, 1, memorandum);
         
 
-        super.clickOnListingRecord(recordIndex+1);
+        super.clickOnListingRecord(recordIndex);
 
         super.checkFormExists();
         super.checkInputBoxHasValue("memorandum", memorandum);
         super.checkInputBoxHasValue("link", link);
+        super.checkInputBoxHasValue("creationMoment", date);
 
         super.signOut();
     }
@@ -50,15 +51,10 @@ public class InventorPatronageReportCreateTest extends TestHarness {
     @CsvFileSource(resources = "/inventor/patronageReport/negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(20)
     public void negative(final String recordIndex, final String memorandum, final String link) {
-        super.signIn("inventor1", "inventor1");
+        super.signIn("inventor2", "inventor2");
 
         super.clickOnMenu("Inventor", "Patronage report list");
         super.clickOnButton("Create");
-        final LocalDateTime now = LocalDateTime.now();
-        final String date = now.getYear() + "/"
-                + (now.getMonthValue() < 10 ? "0" + now.getMonthValue() : now.getMonthValue()) + "/"
-                + now.getDayOfMonth() + " " + now.getHour() + ":"
-                + (now.getMinute() < 10 ? "0" + now.getMinute() : now.getMinute());
         super.fillInputBoxIn("memorandum", memorandum);
         super.fillInputBoxIn("link", link);
         super.fillInputBoxIn("confirmation", "true");
@@ -69,10 +65,10 @@ public class InventorPatronageReportCreateTest extends TestHarness {
     }
 
     @Test
-    @Order(10)
+    @Order(30)
     public void hackingTest() {
-
-
+    	// SUGERENCIA: el framework no proporciona suficiente soporte para implementar este caso de hacking,
+    	// SUGERENCIA+ por lo que debe realizarse manualmente:
         super.checkNotLinkExists("Account");
         super.navigate("/inventor/patronage-report/create");
         super.checkPanicExists();

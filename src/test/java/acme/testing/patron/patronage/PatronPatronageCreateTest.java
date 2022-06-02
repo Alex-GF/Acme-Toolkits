@@ -37,7 +37,7 @@ public class PatronPatronageCreateTest extends TestHarness {
 		super.checkListingExists();
 		
 		final LocalDateTime now =LocalDateTime.now();
-        final String date = now.getYear()+"/"+(now.getMonthValue() < 10 ? "0"+ now.getMonthValue():now.getMonthValue())+"/"+now.getDayOfMonth()+" "+now.getHour()+":"+(now.getMinute() < 10 ? "0"+ now.getMinute():now.getMinute());
+        final String date = now.getYear()+"/"+(now.getMonthValue() < 10 ? "0"+ now.getMonthValue():now.getMonthValue())+"/"+(now.getDayOfMonth() < 10 ? "0"+ now.getDayOfMonth():now.getDayOfMonth())+" "+now.getHour()+":"+(now.getMinute() < 10 ? "0"+ now.getMinute():now.getMinute());
 		super.clickOnButton("Create");
 		super.fillInputBoxIn("legalStuff", legalStuff);
 		super.fillInputBoxIn("budget", budget);
@@ -77,8 +77,6 @@ public class PatronPatronageCreateTest extends TestHarness {
 		super.clickOnMenu("Patron", "Patronage list");
 		super.checkListingExists();
 		
-		final LocalDateTime now =LocalDateTime.now();
-        final String date = now.getYear()+"/"+(now.getMonthValue() < 10 ? "0"+ now.getMonthValue():now.getMonthValue())+"/"+now.getDayOfMonth()+" "+now.getHour()+":"+(now.getMinute() < 10 ? "0"+ now.getMinute():now.getMinute());
 		super.clickOnButton("Create");
 		super.fillInputBoxIn("legalStuff", legalStuff);
 		super.fillInputBoxIn("budget", budget);
@@ -96,6 +94,8 @@ public class PatronPatronageCreateTest extends TestHarness {
 	@Test
 	@Order(30)
 	public void hackingTest() {
+		// SUGERENCIA: el framework no proporciona suficiente soporte para implementar este caso de hacking,
+		// SUGERENCIA+ por lo que debe realizarse manualmente:
 		super.checkNotLinkExists("Account");
 		super.navigate("/patron/patronage/create");
 		super.checkPanicExists();

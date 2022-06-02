@@ -1,6 +1,7 @@
 package acme.testing.administrator.configuration;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -27,5 +28,28 @@ public class AdministratorConfigurationShowTest extends TestHarness{
         super.checkInputBoxHasValue("weakSpamThreshold", weakSpamThreshold);
 
         super.signOut();
+    }
+    
+    @Test
+    @Order(20)
+    public void hackingTest() {
+    	// SUGERENCIA: el framework no proporciona suficiente soporte para implementar este caso de hacking,
+		// SUGERENCIA+ por lo que debe realizarse manualmente:
+		// SUGERENCIA+ d) ver la configuracion si no estas autenticado;
+		super.checkNotLinkExists("Account");
+		super.navigate("/administrator/configuration/show");
+		super.checkPanicExists();
+		// SUGERENCIA+ e) ver configuracion si no eres administrador;
+		super.signIn("inventor1", "inventor1");
+		super.navigate("/administrator/configuration/show");
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("patron2", "patron2");
+		super.navigate("/administrator/configuration/show");
+		super.checkPanicExists();
+		super.signOut();
+		
+		
     }
 }

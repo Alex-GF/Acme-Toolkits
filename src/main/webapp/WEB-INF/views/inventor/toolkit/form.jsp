@@ -4,7 +4,14 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:input-textbox code="any.toolkit.form.label.code" path="code" readonly="true"/>
+	<jstl:choose>
+		<jstl:when test="${command == 'create'}">
+			<acme:hidden-data path="code"/>
+		</jstl:when>	
+		<jstl:otherwise>
+			<acme:input-textbox code="any.toolkit.form.label.code" path="code" readonly="true"/>
+		</jstl:otherwise>	
+	</jstl:choose>
 	<acme:input-textbox code="any.toolkit.form.label.title" path="title"/>
 	<jstl:if test="${command == 'show'}">
 		<acme:input-money code="any.toolkit.form.label.totalPrice" path="totalPrice" readonly="true"/>
@@ -15,7 +22,15 @@
 	</jstl:if>
 	<acme:input-textbox code="any.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
 	<acme:input-url code="any.toolkit.form.label.link" path="link"/>
-	<acme:input-textbox code="any.toolkit.form.label.published" path="published" readonly="true"/>
+	
+	<jstl:choose>
+		<jstl:when test="${command == 'create'}">
+			<acme:hidden-data path="published"/>
+		</jstl:when>	
+		<jstl:otherwise>
+			<acme:input-textbox code="any.toolkit.form.label.published" path="published" readonly="true"/>
+		</jstl:otherwise>	
+	</jstl:choose>
 	
 	<jstl:if test="${command=='show'}">
 		<acme:button code="any.toolkit.form.label.items" action="/inventor/quantity/list?toolkitId=${id}"/>

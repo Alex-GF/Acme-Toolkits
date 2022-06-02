@@ -1,5 +1,6 @@
 package acme.testing.any.item;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.core.annotation.Order;
@@ -37,6 +38,13 @@ public class AnyItemListAllTest extends TestHarness{
 		
 		
 	}
+	@Test
+    @Order(20)
+    public void hackingTest() {
+    	// Esto no se puede hackear puesto que los usuarios no registrados y registrados 
+    	// pueden ver todos los items.
+
+    }
 	
 	
 }

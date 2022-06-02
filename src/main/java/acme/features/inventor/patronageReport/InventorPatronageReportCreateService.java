@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.patronage.Patronage;
+import acme.entities.patronage.Status;
 import acme.entities.patronageReport.PatronageReport;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -88,7 +89,7 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
         request.unbind(entity, model, "creationMoment", "memorandum", "link");
         model.setAttribute("confirmation", false);
 
-        final Collection<Patronage> patronages = this.repository.findAllPatronagesByInventorId(request.getPrincipal().getAccountId());
+        final Collection<Patronage> patronages = this.repository.findAllPatronagesByInventorIdAndStatus(request.getPrincipal().getAccountId(), Status.ACCEPTED);
         model.setAttribute("patronageList", patronages);
 
     }
@@ -127,6 +128,11 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
         assert request != null;
         assert entity != null;
 
+        Date moment;
+
+		moment = new Date(System.currentTimeMillis() - 1);
+		entity.setCreationMoment(moment);
+		
         this.repository.save(entity);
     }
 }

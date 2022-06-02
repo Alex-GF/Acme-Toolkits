@@ -46,7 +46,7 @@ public class AnyChirpListRecentService implements AbstractListService<Any, Chirp
 		
 		return result;
 	}
-
+	
 	@Override
 	public void unbind(final Request<Chirp> request, final Chirp entity, final Model model) {
 		assert request != null;

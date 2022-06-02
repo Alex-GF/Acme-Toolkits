@@ -1,5 +1,7 @@
 package acme.testing.administrator.announcement;
 
+import java.time.LocalDateTime;
+
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,8 +21,8 @@ public class AdministratorAnnouncementCreateTest extends TestHarness{
 
         super.clickOnMenu("Administrator", "Create an announcement");
         
-        //final LocalDateTime now =LocalDateTime.now();
-        //final String date = now.getYear()+"/"+(now.getMonthValue() < 10 ? "0"+ now.getMonthValue():now.getMonthValue())+"/"+now.getDayOfMonth()+" "+now.getHour()+":"+(now.getMinute() < 10 ? "0"+ now.getMinute():now.getMinute());
+        final LocalDateTime now =LocalDateTime.now();
+        final String date = now.getYear()+"/"+(now.getMonthValue() < 10 ? "0"+ now.getMonthValue():now.getMonthValue())+"/"+(now.getDayOfMonth() < 10 ? "0"+ now.getDayOfMonth():now.getDayOfMonth())+" "+now.getHour()+":"+(now.getMinute() < 10 ? "0"+ now.getMinute():now.getMinute());
         super.fillInputBoxIn("title", title);
         super.fillInputBoxIn("body", body);
         super.fillInputBoxIn("criticalFlag", criticalFlag);
@@ -32,7 +34,7 @@ public class AdministratorAnnouncementCreateTest extends TestHarness{
         super.checkListingExists();
         super.sortListing(0, "asc");
         super.checkColumnHasValue(recordIndex, 0, title);
-        //super.checkColumnHasValue(recordIndex, 1, date);
+        super.checkColumnHasValue(recordIndex, 1, date);
         super.checkColumnHasValue(recordIndex, 2, criticalFlag);
         super.clickOnListingRecord(recordIndex);
    
@@ -42,6 +44,7 @@ public class AdministratorAnnouncementCreateTest extends TestHarness{
         super.checkInputBoxHasValue("body", body);
         super.checkInputBoxHasValue("criticalFlag", criticalFlag);
         super.checkInputBoxHasValue("link", link);
+        super.checkInputBoxHasValue("creationMoment", date);
 
         super.signOut();
     }
