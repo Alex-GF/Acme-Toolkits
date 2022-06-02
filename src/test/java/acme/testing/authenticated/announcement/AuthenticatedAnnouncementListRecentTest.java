@@ -34,7 +34,7 @@ public class AuthenticatedAnnouncementListRecentTest extends TestHarness {
 	}
 	
 	@Test
-	@Order(30)
+	@Order(20)
 	public void hackingTest() {
 		// SUGERENCIA: el framework no proporciona suficiente soporte para implementar este caso de hacking,
 		// SUGERENCIA+ por lo que debe realizarse manualmente:

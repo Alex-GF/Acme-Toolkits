@@ -1,6 +1,7 @@
 package acme.testing.inventor.toolkit;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -35,6 +36,26 @@ public class InventorToolkitListTest extends TestHarness{
 		super.checkInputBoxHasValue("link", link);
 		super.checkInputBoxHasValue("published", published);
 		
+		super.signOut();
+	}
+	
+	@Test
+	@Order(20)
+	public void hackingTest() {
+		// SUGERENCIA: el framework no proporciona suficiente soporte para implementar este caso de hacking,
+    	// SUGERENCIA+ por lo que debe realizarse manualmente:
+		super.checkNotLinkExists("Account");
+		super.navigate("/inventor/toolkit/list-mine");
+		super.checkPanicExists();
+
+		super.signIn("administrator", "administrator");
+		super.navigate("/inventor/toolkit/list-mine");
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("patron2", "patron2");
+		super.navigate("/inventor/toolkit/list-mine");
+		super.checkPanicExists();
 		super.signOut();
 	}
 }

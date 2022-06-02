@@ -1,6 +1,7 @@
 package acme.testing.any.chirp;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -23,4 +24,12 @@ public class AnyChirpListRecentTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex, 4, email);
 		
 	}
+	
+	@Test
+    @Order(20)
+    public void hackingTest() {
+    	// Esto no se puede hackear puesto que los usuarios no registrados y registrados 
+    	// pueden ver chirps.
+
+    }
 }
