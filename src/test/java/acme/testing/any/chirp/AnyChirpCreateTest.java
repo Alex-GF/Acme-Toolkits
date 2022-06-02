@@ -24,7 +24,7 @@ public class AnyChirpCreateTest extends TestHarness{
         super.clickOnButton("Create");
         
         final LocalDateTime now =LocalDateTime.now();
-        final String date = now.getYear()+"/"+(now.getMonthValue() < 10 ? "0"+ now.getMonthValue():now.getMonthValue())+"/"+(now.getDayOfMonth() < 10 ? "0"+ now.getDayOfMonth():now.getDayOfMonth())+" "+now.getHour()+":"+now.getMinute();
+        final String date = now.getYear()+"/"+(now.getMonthValue() < 10 ? "0"+ now.getMonthValue():now.getMonthValue())+"/"+(now.getDayOfMonth() < 10 ? "0"+ now.getDayOfMonth():now.getDayOfMonth())+" "+now.getHour()+":"+(now.getMinute() < 10 ? "0"+ now.getMinute():now.getMinute());
         super.fillInputBoxIn("title", title);
         super.fillInputBoxIn("body", body);
         super.fillInputBoxIn("author", author);

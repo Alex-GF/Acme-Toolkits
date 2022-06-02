@@ -14,7 +14,7 @@ public class InventorPatronageReportListTest extends TestHarness{
 	@Order(10)
 	public void positive(final int recordIndex, final String memorandum, final String creationMoment, final String automaticSequenceNumber, final String patronage){
 		
-		super.signIn("inventor1", "inventor1");
+		super.signIn("inventor2", "inventor2");
 
 		super.clickOnMenu("Inventor", "Patronage report list");
 		super.checkListingExists();
