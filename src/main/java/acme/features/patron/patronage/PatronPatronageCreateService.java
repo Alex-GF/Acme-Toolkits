@@ -159,6 +159,11 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		
 		entity.setPublished(false);
 		
+		Date moment;
+
+		moment = new Date(System.currentTimeMillis() - 1);
+		entity.setCreationMoment(moment);
+		
 		this.patronPatronageRepository.save(entity);
 
 	}

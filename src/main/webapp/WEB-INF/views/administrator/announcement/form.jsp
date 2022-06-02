@@ -22,7 +22,7 @@
 		<acme:input-option code="TRUE" value="true"/>
 		<acme:input-option code="FALSE" value="false"/>
 	</acme:input-select>
-		<acme:input-moment code="administrator.announcement.form.label.creationMoment" path="creationMoment" readonly="true"/>
+	<acme:hidden-data path="creationMoment"/>
 	<acme:input-url code="administrator.announcement.form.label.link" path="link"/>
 	
 	<acme:input-checkbox code="administrator.announcement.form.label.confirmation" path="confirmation"/>

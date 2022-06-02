@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:input-moment code="any.chirp.form.label.creationMoment" path="creationMoment" readonly="true"/>	
+	<acme:hidden-data path="creationMoment"/>	
 	<acme:input-textarea code="any.chirp.form.label.title" path="title"/>
 	<acme:input-textarea code="any.chirp.form.label.author" path="author"/>
 	<acme:input-textarea code="any.chirp.form.label.body" path="body" />
